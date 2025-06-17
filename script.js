@@ -9,7 +9,7 @@ Copyright (C) Corporación Cerecer | Todos los derechos reservados
 PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
 
 const TYPE_SPEED = 35;
-const PROGRESS_SPEED = 30;
+const PROGRESS_SPEED = 10;
 const HIGHLIGHT = "iniciarcerecer.ht";
 
 let displayHTML = "";
