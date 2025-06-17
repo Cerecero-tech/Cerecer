@@ -61,7 +61,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start; /* ← cambia de "flex-end" a "flex-start" */
-  padding: 0.8rem 1rem 0.4rem 1rem; /* más espacio arriba */
+  padding: 0.8rem 1rem 0.1rem 1rem; /* más espacio arriba */
   background: #0c0c0c;
   font-family: 'IBM Plex Mono', monospace;
 }
