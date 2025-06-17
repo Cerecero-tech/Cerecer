@@ -46,3 +46,36 @@ html, body {
 @keyframes blink {
   50% { opacity: 0; }
 }
+
+/* Encabezado */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 1rem;
+  background: #0c0c0c;   /* coherente con el fondo */
+  color: #cacaca;
+  font-size: 0.85rem;    /* letra pequeña */
+}
+
+.brand {
+  font-weight: bold;
+}
+
+.time-block {
+  text-align: right;
+  line-height: 1.1;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #333; /* línea sutil de lado a lado */
+  margin: 0;
+}
+
+.status {
+  margin: 0.5rem 1rem;
+  color: #cacaca;
+  font-size: 0.8rem;
+}
+

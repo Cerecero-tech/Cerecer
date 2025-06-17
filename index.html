@@ -14,11 +14,24 @@
 
   <!-- Contenido real del sitio (oculto hasta que acabe la animación) -->
   <main id="main" class="hidden">
-    <h1>¡Bienvenido a Cerecer!</h1>
-    <p>Aquí irá el contenido definitivo de tu página.</p>
+    <!-- Encabezado superior -->
+<header class="top-bar">
+  <div class="brand">CERECER</div>
+
+  <div class="time-block">
+    <div id="clock">00:00:00</div>
+    <div id="date">00/00/0000</div>
+  </div>
+</header>
+
+<hr class="divider">
+
+<!-- Mensaje de servicio -->
+<p id="service-status" class="status"></p>
   </main>
 
   <!-- Lógica de la animación -->
   <script src="script.js"></script>
+  <script src="header.js"></script>
 </body>
 </html>
