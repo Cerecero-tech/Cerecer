@@ -1,28 +1,33 @@
-// header.js
 function updateHeader() {
   const now = new Date();
 
-  // Hora en formato 24 h
-  const timeOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit',
-                     hour12: false, timeZone: 'America/Mexico_City' };
-  document.getElementById('clock').textContent =
-    now.toLocaleTimeString('es-MX', timeOpts);
+  // Hora en formato 12h con a.m./p.m.
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  const period = hour >= 12 ? "p.m." : "a.m.";
+  const formattedHour = ((hour + 11) % 12 + 1); // convierte 0–23 en 1–12
 
-  // Fecha DD/MM/AAAA
-  const dateOpts = { day: '2-digit', month: '2-digit', year: 'numeric',
-                     timeZone: 'America/Mexico_City' };
-  document.getElementById('date').textContent =
-    now.toLocaleDateString('es-MX', dateOpts);
+  const paddedMinute = String(minute).padStart(2, '0');
+  document.getElementById('clock').textContent = `${formattedHour}:${paddedMinute} ${period}`;
 
-  // Estado de servicio
-  const day  = now.getDay();   // 0=Domingo, 1=Lunes, …, 6=Sábado
-  const hour = now.getHours(); // 0‑23
+  // Fecha en formato "lunes, 17 de junio de 2025"
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit',
+    timeZone: 'America/Mexico_City',
+  };
+  const dateText = now.toLocaleDateString('es-MX', options);
+  document.getElementById('date').textContent = dateText;
 
+  // Servicio: lunes a viernes de 9 a 20
+  const day = now.getDay(); // 0 = domingo
   const inSchedule = (day >= 1 && day <= 5) && (hour >= 9 && hour < 20);
-  document.getElementById('service-status').textContent =
-    inSchedule ? '¡Estamos de servicio!' : 'Fuera de servicio.';
+  document.getElementById('service-status').textContent = inSchedule
+    ? "¡Estamos de servicio!"
+    : "Fuera de servicio.";
 }
 
-// Actualizar cada segundo
 updateHeader();
 setInterval(updateHeader, 1000);

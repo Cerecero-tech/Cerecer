@@ -53,9 +53,9 @@ html, body {
   justify-content: space-between;
   align-items: flex-start;
   padding: 0.5rem 1rem;
-  background: #0c0c0c;   /* coherente con el fondo */
+  background: #0c0c0c;
   color: #cacaca;
-  font-size: 0.85rem;    /* letra pequeña */
+  font-size: 0.85rem;
 }
 
 .brand {
@@ -67,15 +67,21 @@ html, body {
   line-height: 1.1;
 }
 
+/* Líneas divisoras más gruesas */
 .divider {
   border: 0;
-  border-top: 1px solid #333; /* línea sutil de lado a lado */
+  border-top: 2px solid #333;
   margin: 0;
 }
 
-.status {
-  margin: 0.5rem 1rem;
-  color: #cacaca;
-  font-size: 0.8rem;
+.status-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.4rem 1rem;
+  background: #0c0c0c;
 }
 
+#service-status {
+  font-size: 0.8rem;
+  color: #cacaca;
+}
