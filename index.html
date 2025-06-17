@@ -2,31 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Cerecer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Cerecer</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="terminal" id="terminal">
+    Terminal Cerecer
+Copyright (C) Corporación Cerecer | Todos los derechos reservados
 
-  <!-- BOOT SCREEN --------------------------------------------------------- -->
-  <div id="boot" class="boot">
-    <pre id="bootText" class="boot-text"></pre>
+¡No olvides contactarnos por cualquier error que encuentres en la página!
+
+PS D:\\Usuarios\\invitado> <span id="prompt"></span>
   </div>
-
-  <!-- UI PRINCIPAL -------------------------------------------------------- -->
-  <div id="app" style="display:none">
-    <header class="topbar">
-      <span class="logo">CERECER</span>
-      <span id="clock" class="clock"></span>
-    </header>
-
-    <!-- Contenido provisional -->
-    <main class="main">
-      <h1>¡UI cargada correctamente!</h1>
-    </main>
-  </div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

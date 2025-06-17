@@ -1,34 +1,60 @@
-// ---------- ARRANQUE CON BARRA DE PROGRESO 1‒100 % ----------
+// -------------- TYPEWRITER + PROGRESS BAR -----------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  const bootEl   = document.getElementById("boot");
-  const textEl   = document.getElementById("bootText");
-  const appEl    = document.getElementById("app");
+  const terminal   = document.getElementById("terminal");
+  const promptSpan = document.getElementById("prompt");
+  const boot       = document.getElementById("boot");
+  const app        = document.getElementById("app");
 
-  const header   = "Terminal Cerecer 1.0.0 — Corporación Cerecer (C) 2025\n";
-  let percent    = 0;
+  /* Añadimos cursor parpadeante */
+  const cursor = document.createElement("span");
+  cursor.className = "cursor";
+  terminal.appendChild(cursor);
 
-  function updateBoot() {
-    textEl.textContent = header + `Cargando… ${percent}%`;
-    if (percent < 100) {
-      percent++;
-      setTimeout(updateBoot, 40); /* velocidad de llenado */
+  /* Comando a escribir */
+  const comando = "iniciarcerecer.ht";
+  let i = 0;
+
+  function escribir() {
+    if (i < comando.length) {
+      promptSpan.textContent += comando.charAt(i++);
+      setTimeout(escribir, 80);            // velocidad de tipeo
     } else {
-      // terminar: quitar boot y mostrar la UI
-      bootEl.style.display = "none";
-      appEl.style.display  = "block";
-      startClock();
+      cursor.remove();                     // quita cursor fijo
+      iniciarCarga();
     }
   }
-  updateBoot();
+
+  /* Barra de carga 1→100 % */
+  function iniciarCarga() {
+    let pct = 0;
+    const line = document.createElement("div");
+    line.textContent = "\nCargando: 0%";
+    terminal.appendChild(line);
+
+    const int = setInterval(() => {
+      pct++;
+      line.textContent = `Cargando: ${pct}%`;
+      if (pct >= 100) {
+        clearInterval(int);
+        setTimeout(() => {
+          boot.style.display = "none";     // oculta pantalla arranque
+          app.style.display  = "block";    // muestra UI principal
+          iniciarReloj();
+        }, 400);
+      }
+    }, 28);                                // duración total ~2,8 s
+  }
+
+  escribir();
 });
 
-// ---------- RELOJ EN CABECERA (HH:MM:SS) ----------
-function startClock(){
-  const clock = document.getElementById("clock");
+// -------------- RELOJ HH:MM:SS ----------------------------------------
+function iniciarReloj(){
+  const reloj = document.getElementById("clock");
   function pad(n){ return n.toString().padStart(2,"0"); }
   function tick(){
-    const d = new Date();
-    clock.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    const now = new Date();
+    reloj.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
   }
   tick();
   setInterval(tick, 1000);

@@ -1,40 +1,47 @@
-/* ----- PALETA ----------------------------------------------------------- */
+/* ─── PALETA ─────────────────────────────────────────────────────────── */
 :root{
   --bg:     #0c0c0c;
   --fg:     #cacaca;
   --accent: #ffa500;
 }
 
-/* ----- RESET BÁSICO ----------------------------------------------------- */
+/* ─── RESET BÁSICO ───────────────────────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   background:var(--bg);
   color:var(--fg);
-  font:15px/1.4 "Courier New", monospace;
+  font:14px "Courier New", monospace;
+  height:100vh;
+  overflow:hidden;
 }
 
-/* ----- PANTALLA DE ARRANQUE -------------------------------------------- */
-.boot{
-  position:fixed; inset:0;
-  background:var(--bg);
-  display:flex; justify-content:center; align-items:center;
-  z-index:9999;
-}
-.boot-text{
-  position:absolute; top:1rem; right:1rem;
-  white-space:pre-line;
-  text-align:right;
-  font-size:14px;
+/* ─── TERMINAL ARRANQUE ──────────────────────────────────────────────── */
+.terminal{
+  position:fixed;
+  top:16px;           /* arriba‑derecha */
+  right:16px;
+  white-space:pre-wrap;
+  max-width:calc(100vw - 32px);
+  text-align:left;
 }
 
-/* ----- BARRA SUPERIOR DE LA UI ----------------------------------------- */
+.cmd   { color:var(--accent); }
+.cursor{
+  display:inline-block;
+  width:8px; height:1em;
+  background:var(--accent);
+  margin-left:2px;
+  animation:blink 1s steps(2,start) infinite;
+}
+
+@keyframes blink{ to{ visibility:hidden } }
+
+/* ─── (DESPUÉS) UI PRINCIPAL ─────────────────────────────────────────── */
 .topbar{
   display:flex; justify-content:space-between; align-items:center;
   padding:.7rem 1rem;
   border-bottom:1px solid var(--fg);
 }
-.logo { font-weight:700; }
-.clock{ min-width:110px; text-align:right; }
-
-/* ----- CONTENIDO DE EJEMPLO -------------------------------------------- */
-.main{ padding:2rem 1rem; text-align:center; }
+.logo{ font-weight:700 }
+.clock{ min-width:110px; text-align:right }
+.main{ padding:2rem 1rem; text-align:center }
