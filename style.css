@@ -70,6 +70,8 @@ body {
   font-size: 0.8rem;
   font-weight: bold;
   padding-top: 0.35rem; /* ↓ baja CERECER un poco más */
+  display: flex;
+  align-items: center;;
 }
 
 .time-block {
