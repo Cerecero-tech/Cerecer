@@ -1,69 +1,48 @@
-/* ------- Reloj en vivo -------- */
-function updateClock() {
-  const clock = document.getElementById("clock");
-  const now   = new Date();
-  const pad   = n => n.toString().padStart(2, "0");
-  clock.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}
- ${pad(now.getDate())}/${pad(now.getMonth()+1)}/${now.getFullYear()}`;
-}
-setInterval(updateClock, 1000);
-updateClock();
-
-/* ------- Pantalla de arranque + efecto máquina de escribir -------- */
-const bootLines = [
-  "Terminal Cerecer v1.0",
-  "Corporación Cerecer (C) Todos los derechos reservados.",
-  "",
-  "PS D:\\Usuarios\\invitado> iniciarcerecer.ht",
-  "",
-  "Iniciando servicios...",
-  "Cargando módulos...",
-  "Listo.",
-  ""
-];
-
-const speed = 40;      // ms entre caracteres
-let i = 0, j = 0;
-const pre = document.getElementById("boot-text");
-
-function typeBoot() {
-  if (i < bootLines.length) {
-    if (j < bootLines[i].length) {
-      pre.textContent += bootLines[i][j++];
-      setTimeout(typeBoot, speed);
-    } else {
-      pre.textContent += "\n";
-      i++; j = 0;
-      setTimeout(typeBoot, speed * 3);
-    }
-  } else {
-    // terminado: ocultar pantalla de arranque
-    document.getElementById("boot").style.opacity = "0";
-    setTimeout(() => document.getElementById("boot").style.display = "none", 400);
-    // animar texto principal
-    typeSections();
-  }
-}
-typeBoot();
-
-/* ------- Typewriter para secciones -------- */
-function typeSections() {
-  const lines = document.querySelectorAll(".line");
+// ---------- ARRANQUE ----------
+document.addEventListener("DOMContentLoaded", () => {
+  const typeTarget  = document.getElementById("typewriter");
+  const bootScreen  = document.getElementById("screen");
+  const mainUI      = document.getElementById("mainUI");
+  const cmd         = "iniciarcerecer.ht";
+  const speed       = 100; // ms por letra
   let idx = 0;
 
-  function typeLine(el) {
-    const full = el.textContent;
-    el.textContent = "";
-    let k = 0;
-    (function writer() {
-      if (k < full.length) {
-        el.textContent += full[k++];
-        setTimeout(writer, 20);
-      } else {
-        idx++;
-        if (idx < lines.length) typeLine(lines[idx]);
-      }
-    })();
+  function type() {
+    if (idx < cmd.length) {
+      typeTarget.textContent += cmd[idx++];
+      requestAnimationFrame(() => setTimeout(type, speed));
+    } else {
+      // Pequeña pausa y luego mostrar UI
+      setTimeout(() => {
+        bootScreen.style.display = "none";
+        mainUI.style.display = "block";
+        initClock();              // Inicia reloj cuando la UI está visible
+      }, 800);
+    }
   }
-  if (lines.length) typeLine(lines[0]);
+  type();
+});
+
+// ---------- RELOJ + ESTADO DE SERVICIO ----------
+function initClock() {
+  const clockEl   = document.getElementById("clock");
+  const msgEl     = document.getElementById("serviceMsg");
+
+  function pad(n){ return n.toString().padStart(2,"0"); }
+
+  function update() {
+    const now   = new Date();
+    const time  = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+    const date  = now.toLocaleDateString("es-MX", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
+    clockEl.textContent = `${time}\n${date}`;
+
+    // Servicio: lunes‑viernes 09‑20
+    const day    = now.getDay();            // 0 = domingo
+    const hour   = now.getHours();
+    const open   = (day>=1 && day<=5) && (hour>=9 && hour<20);
+    msgEl.textContent = open ? "¡Estamos de servicio!" : "Fuera de servicio.";
+  }
+
+  update();
+  setInterval(update, 1000);
 }

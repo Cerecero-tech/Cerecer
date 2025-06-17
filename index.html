@@ -15,64 +15,36 @@
 </head>
 
 <body>
-
-  <!-- Pantalla de arranque ------------------------------------------------ -->
-  <div class="screen">
-  <div class="terminal-header">
-    Terminal Cerecer 1.0.0 — Corporación Cerecer (C) 2025
+  <!-- Pantalla de arranque -->
+  <div class="screen" id="screen">
+    <div class="terminal-header">
+      Terminal Cerecer 1.0.0 — Corporación Cerecer (C) 2025
+    </div>
+    <div class="terminal-body" id="terminal">
+      PS D:\Usuarios\invitado&gt; <span id="typewriter" class="cmd-accent"></span>
+    </div>
   </div>
-  <div class="terminal-body">
-    <div class="line">PS D:\Usuarios\invitado&gt; <span class="cmd-accent">iniciarcerecer.ht</span></div>
+
+  <!-- UI PRINCIPAL (oculta al inicio) -->
+  <div id="mainUI" class="main-ui" style="display:none">
+    
+    <!-- CABECERA -->
+    <header class="topbar">
+      <span class="logo">CERECER</span>
+      <span id="clock" class="clock"></span>
+    </header>
+
+    <!-- BARRA DE ESTADO -->
+    <div class="status-bar">
+      <span id="serviceMsg">Comprobando…</span>
+    </div>
+
+    <!-- …resto de tu sitio aquí… -->
+
   </div>
-</div>
-
-
-  <!-- Sitio real ----------------------------------------------------------- -->
-  <header class="bar">
-    <span class="logo">Cerecer</span>
-    <span id="clock" class="clock"></span>
-  </header>
-
-  <main id="content">
-
-    <section id="welcome" class="section">
-      <h2 class="prompt">>> Bienvenido</h2>
-      <p class="line">Somos Cerecer, especialistas en soluciones tecnológicas minimalistas.</p>
-    </section>
-
-    <section id="what" class="section">
-      <h2 class="prompt">>> Lo que hacemos</h2>
-      <p class="line">Desarrollamos, mantenemos y optimizamos entornos digitales.</p>
-    </section>
-
-    <section id="services" class="section">
-      <h2 class="prompt">>> Servicios</h2>
-      <ul class="line">
-        <li>Mantenimiento</li>
-        <li>Mejora</li>
-        <li>Consultoría</li>
-      </ul>
-    </section>
-
-    <section id="products" class="section">
-      <h2 class="prompt">>> Productos</h2>
-      <p class="line">Próximamente…</p>
-    </section>
-
-    <section id="about" class="section">
-      <h2 class="prompt">>> Nosotros</h2>
-      <p class="line">Equipo apasionado por la elegancia y la eficiencia en código.</p>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-    <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
-    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-  </footer>
 
   <script src="script.js"></script>
 </body>
+
+
 </html>
