@@ -97,3 +97,11 @@ body {
 #service-status {
   font-size: 0.6rem;
 }
+
+.prompt {
+  color: #cacaca;
+}
+
+.brand-name {
+  color: #FFA500;
+}
