@@ -61,13 +61,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start; /* ← cambia de "flex-end" a "flex-start" */
-  padding: 0.4rem 1rem 0.4rem 1rem; /* más espacio arriba */
+  padding: 0.45rem 1rem 0.45rem 1rem; /* más espacio arriba */
   background: #0c0c0c;
   font-family: 'IBM Plex Mono', monospace;
 }
 
 .brand {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   font-weight: bold;
   padding-top: 0.35rem; /* ↓ baja CERECER un poco más */
 }
@@ -75,7 +75,7 @@ body {
 .time-block {
   text-align: right;
   line-height: 1.1;
-  font-size: 0.75rem; /* un poco más pequeño */
+  font-size: 0.7rem; /* un poco más pequeño */
   padding-top: 0.1rem; /* ↑ sube ligeramente el reloj */
 }
 
@@ -95,5 +95,5 @@ body {
 }
 
 #service-status {
-  font-size: 0.70rem;
+  font-size: 0.6rem;
 }
