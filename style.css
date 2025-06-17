@@ -60,20 +60,24 @@ body {
 .top-bar {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 0.5rem 1rem;
+  align-items: flex-end;
+  padding: 0.7rem 1rem 0.5rem 1rem; /* top más amplio */
   background: #0c0c0c;
-  font-size: 0.85rem;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .brand {
+  font-size: 0.95rem;
   font-weight: bold;
+  padding-bottom: 0.2rem; /* pequeño ajuste vertical */
 }
 
 .time-block {
   text-align: right;
   line-height: 1.1;
+  font-size: 0.75rem; /* más pequeño que antes */
 }
+
 
 /* Línea divisora más gruesa */
 .divider {
