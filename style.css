@@ -61,7 +61,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start; /* ← cambia de "flex-end" a "flex-start" */
-  padding: 0.8rem 1rem 0.1rem 1rem; /* más espacio arriba */
+  padding: 0.3rem 1rem 0.4rem 1rem; /* más espacio arriba */
   background: #0c0c0c;
   font-family: 'IBM Plex Mono', monospace;
 }
@@ -69,7 +69,7 @@ body {
 .brand {
   font-size: 0.95rem;
   font-weight: bold;
-  padding-top: 0.4rem; /* ↓ baja CERECER un poco más */
+  padding-top: 0.35rem; /* ↓ baja CERECER un poco más */
 }
 
 .time-block {
