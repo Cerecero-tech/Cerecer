@@ -27,7 +27,7 @@ html, body {
 
 /* Colores especiales con span */
 .command {
-  color: #ffa500;
+  color: var(--accent);
 }
 
 /* Ocultar el contenido principal al inicio */
