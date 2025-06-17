@@ -36,3 +36,12 @@ html, body {
 @media (min-width: 600px) {
   .terminal { font-size: var(--font-size-desktop); }
 }
+.cursor {
+  display: inline-block;
+  width: 10px;
+  animation: blink 1s infinite step-start;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
