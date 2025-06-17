@@ -1,7 +1,6 @@
 const terminal = document.getElementById("terminal");
-const main     = document.getElementById("main");
+const main = document.getElementById("main");
 
-// Texto con todo incluido
 const fullText = `Terminal Cerecer
 Copyright (C) Corporación Cerecer | Todos los derechos reservados
 
@@ -11,71 +10,69 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
 
 const TYPE_SPEED = 35;
 const PROGRESS_SPEED = 30;
+const HIGHLIGHT = "iniciarcerecer.ht";
 
-const SPECIAL_COLOR_START = fullText.indexOf("iniciarcerecer.ht");
-const SPECIAL_COLOR_END = SPECIAL_COLOR_START + "iniciarcerecer.ht".length;
-
+let displayHTML = "";
 let idx = 0;
-let cursorVisible = true;
-let typedHTML = "";
 
-// Crear cursor
+// Añadir cursor parpadeante
 const cursor = document.createElement("span");
 cursor.className = "cursor";
 cursor.textContent = "█";
 terminal.appendChild(cursor);
 
-// Parpadeo del cursor
+// Parpadeo
 setInterval(() => {
-  cursor.style.visibility = cursorVisible ? "visible" : "hidden";
-  cursorVisible = !cursorVisible;
+  cursor.style.visibility = cursor.style.visibility === "hidden" ? "visible" : "hidden";
 }, 500);
 
-// Escribe texto completo con coloreado
-function typeAll() {
+function type() {
   if (idx < fullText.length) {
-    const char = fullText[idx];
+    let char = fullText[idx];
 
-    if (idx === SPECIAL_COLOR_START) typedHTML += `<span class="command">`;
-
+    // Agrega salto de línea como <br>
     if (char === "\n") {
-      typedHTML += "<br>";
+      displayHTML += "<br>";
     } else {
-      typedHTML += char;
+      // Detectar y colorear "iniciarcerecer.ht"
+      if (
+        idx >= fullText.indexOf(HIGHLIGHT) &&
+        idx < fullText.indexOf(HIGHLIGHT) + HIGHLIGHT.length
+      ) {
+        displayHTML += `<span class="command">${char}</span>`;
+      } else {
+        displayHTML += char;
+      }
     }
 
-    if (idx === SPECIAL_COLOR_END - 1) typedHTML += "</span>";
-
-    terminal.innerHTML = typedHTML;
+    terminal.innerHTML = displayHTML;
     terminal.appendChild(cursor);
 
     idx++;
-    setTimeout(typeAll, TYPE_SPEED);
+    setTimeout(type, TYPE_SPEED);
   } else {
     startProgress();
   }
 }
 
-// Carga del 1% al 100% sobre una sola línea
 function startProgress() {
-  let pct = 1;
-  const staticContent = typedHTML; // Guardamos el texto ya escrito
+  let percent = 1;
+  const baseContent = displayHTML;
 
-  const id = setInterval(() => {
-    terminal.innerHTML = `${staticContent}<br>cargando... ${pct}%`;
+  const progressInterval = setInterval(() => {
+    terminal.innerHTML = `${baseContent}<br>cargando... ${percent}%`;
     terminal.appendChild(cursor);
-    pct++;
 
-    if (pct > 100) {
-      clearInterval(id);
-      finishIntro();
+    percent++;
+    if (percent > 100) {
+      clearInterval(progressInterval);
+      setTimeout(() => {
+        terminal.style.display = "none";
+        main.classList.remove("hidden");
+      }, 500);
     }
   }, PROGRESS_SPEED);
 }
 
-function finishIntro() {
-  terminal.style.display = "none";
-  main.classList.remove("hidden");
-}
-
-typeAll();
+// Iniciar escritura
+type();
