@@ -27,7 +27,7 @@ html, body {
 
 /* Colores especiales con span */
 .command {
-  color: var(--accent);
+  color: #ffa500;
 }
 
 /* Ocultar el contenido principal al inicio */
@@ -36,6 +36,7 @@ html, body {
 @media (min-width: 600px) {
   .terminal { font-size: var(--font-size-desktop); }
 }
+
 .cursor {
   display: inline-block;
   width: 10px;

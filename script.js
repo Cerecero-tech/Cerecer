@@ -1,6 +1,7 @@
 const terminal = document.getElementById("terminal");
 const main     = document.getElementById("main");
 
+// Texto con todo incluido
 const fullText = `Terminal Cerecer
 Copyright (C) Corporación Cerecer | Todos los derechos reservados
 
@@ -10,56 +11,61 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
 
 const TYPE_SPEED = 35;
 const PROGRESS_SPEED = 30;
+
 const SPECIAL_COLOR_START = fullText.indexOf("iniciarcerecer.ht");
 const SPECIAL_COLOR_END = SPECIAL_COLOR_START + "iniciarcerecer.ht".length;
 
 let idx = 0;
 let cursorVisible = true;
-let typingFinished = false;
+let typedHTML = "";
 
-// Añadir cursor parpadeante (estático al final del texto)
+// Crear cursor
 const cursor = document.createElement("span");
 cursor.className = "cursor";
 cursor.textContent = "█";
 terminal.appendChild(cursor);
 
-// Parpadeo
+// Parpadeo del cursor
 setInterval(() => {
   cursor.style.visibility = cursorVisible ? "visible" : "hidden";
   cursorVisible = !cursorVisible;
 }, 500);
 
+// Escribe texto completo con coloreado
 function typeAll() {
   if (idx < fullText.length) {
     const char = fullText[idx];
 
-    if (idx === SPECIAL_COLOR_START) terminal.innerHTML = terminal.innerHTML.slice(0, -1) + `<span class="command">`;
+    if (idx === SPECIAL_COLOR_START) typedHTML += `<span class="command">`;
 
     if (char === "\n") {
-      terminal.innerHTML = terminal.innerHTML.slice(0, -1) + "<br>";
+      typedHTML += "<br>";
     } else {
-      terminal.innerHTML = terminal.innerHTML.slice(0, -1) + char;
+      typedHTML += char;
     }
 
-    if (idx === SPECIAL_COLOR_END - 1) terminal.innerHTML += "</span>";
+    if (idx === SPECIAL_COLOR_END - 1) typedHTML += "</span>";
 
+    terminal.innerHTML = typedHTML;
     terminal.appendChild(cursor);
+
     idx++;
     setTimeout(typeAll, TYPE_SPEED);
   } else {
-    typingFinished = true;
     startProgress();
   }
 }
 
+// Carga del 1% al 100% sobre una sola línea
 function startProgress() {
   let pct = 1;
+  const staticContent = typedHTML; // Guardamos el texto ya escrito
+
   const id = setInterval(() => {
-    const lines = terminal.innerHTML.split("<br>");
-    lines[lines.length - 1] = `cargando... ${pct}%`;
-    terminal.innerHTML = lines.join("<br>");
+    terminal.innerHTML = `${staticContent}<br>cargando... ${pct}%`;
     terminal.appendChild(cursor);
     pct++;
+
     if (pct > 100) {
       clearInterval(id);
       finishIntro();
