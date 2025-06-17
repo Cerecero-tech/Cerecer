@@ -69,13 +69,13 @@ body {
 .brand {
   font-size: 0.95rem;
   font-weight: bold;
-  padding-bottom: 0.2rem; /* pequeño ajuste vertical */
+  padding-bottom: 0.4rem; /* pequeño ajuste vertical */
 }
 
 .time-block {
   text-align: right;
   line-height: 1.1;
-  font-size: 0.75rem; /* más pequeño que antes */
+  font-size: 0.55}rem; /* más pequeño que antes */
 }
 
 
