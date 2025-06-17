@@ -60,4 +60,38 @@ body {
   body    { font-size: 16px; }
   .logo   { font-size: 1.1rem; }
   .prompt { font-size: 1.2rem; }
+  .terminal-header {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--fg);
+  opacity: 0.8;
+}
+
+.terminal-body {
+  font-family: monospace;
+  font-size: 18px;
+  color: var(--fg);
+  display: flex;
+  gap: 0.4ch;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid var(--fg);
+  animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
+}
+
+.cmd-accent {
+  color: var(--accent);
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
 }
