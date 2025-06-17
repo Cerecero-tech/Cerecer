@@ -1,0 +1,63 @@
+/* ----- Variables de color ----- */
+:root {
+  --bg: #0c0c0c;
+  --fg: #cacaca;
+  --accent: #ffa500;
+}
+
+/* ----- Reset liviano + tipografía consola ----- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Courier New", Consolas, monospace;
+  font-size: 15px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ----- Pantalla de arranque ----- */
+.screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  z-index: 9999;
+}
+#boot-text { white-space: pre-wrap; }
+
+/* ----- Barra superior ----- */
+.bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--accent);
+}
+.logo  { color: var(--accent); font-weight: 700; }
+.clock { min-width: 110px; text-align: right; }
+
+/* ----- Secciones ----- */
+.section {
+  padding: 1.2rem 0.9rem;
+}
+.prompt { color: var(--accent); margin-bottom: 0.4rem; }
+.line   { margin-left: 1rem; }
+
+/* ----- Footer ----- */
+.footer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem 0;
+  border-top: 1px solid var(--accent);
+}
+.footer a { color: var(--fg); font-size: 1.2rem; }
+
+/* ----- Mobile‑first: todo fluido.  Small tweaks en pantallas grandes ----- */
+@media (min-width: 640px) {
+  body    { font-size: 16px; }
+  .logo   { font-size: 1.1rem; }
+  .prompt { font-size: 1.2rem; }
+}
