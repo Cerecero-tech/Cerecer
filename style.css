@@ -82,8 +82,8 @@ body {
 /* Línea divisora más gruesa */
 .divider {
   border: 0;
-  border-top: 1px solid #333;
-  margin: 4px 0;
+  border-top: 1.5px solid #333;
+  margin: 2px 0;
 }
 
 /* Barra de estado */
