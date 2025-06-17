@@ -82,7 +82,7 @@ body {
 /* Línea divisora más gruesa */
 .divider {
   border: 0;
-  border-top: 2px solid #333;
+  border-top: 3px solid #333;
   margin: 0px 0;
 }
 
