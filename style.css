@@ -1,70 +1,40 @@
-/* ---------- Paleta ---------- */
-:root {
-  --bg: #0c0c0c;
-  --fg: #cacaca;
+/* ----- PALETA ----------------------------------------------------------- */
+:root{
+  --bg:     #0c0c0c;
+  --fg:     #cacaca;
   --accent: #ffa500;
 }
 
-/* ---------- Reset minimal ---------- */
-* { margin:0; padding:0; box-sizing:border-box; }
+/* ----- RESET BÁSICO ----------------------------------------------------- */
+*{margin:0;padding:0;box-sizing:border-box}
 body{
   background:var(--bg);
   color:var(--fg);
   font:15px/1.4 "Courier New", monospace;
-  -webkit-font-smoothing:antialiased;
 }
 
-/* ---------- Pantalla de arranque ---------- */
-.screen{
+/* ----- PANTALLA DE ARRANQUE -------------------------------------------- */
+.boot{
   position:fixed; inset:0;
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
-  background:var(--bg); z-index:999;
+  background:var(--bg);
+  display:flex; justify-content:center; align-items:center;
+  z-index:9999;
 }
-.terminal-header{
-  position:absolute; top:0.7rem; right:1rem;
-  font-size:13px; opacity:.75;
-}
-.terminal-body{ font-size:18px; }
-
-/* Máquina de escribir del comando */
-.cmd-accent{
-  color:var(--accent);
-  border-right:2px solid var(--accent);
-  white-space:nowrap; overflow:hidden;
-  display:inline-block;
-  width:0;               /* se anima en JS */
+.boot-text{
+  position:absolute; top:1rem; right:1rem;
+  white-space:pre-line;
+  text-align:right;
+  font-size:14px;
 }
 
-/* ---------- CABECERA ---------- */
+/* ----- BARRA SUPERIOR DE LA UI ----------------------------------------- */
 .topbar{
   display:flex; justify-content:space-between; align-items:center;
   padding:.7rem 1rem;
   border-bottom:1px solid var(--fg);
 }
-.logo{ font-weight:700; letter-spacing:.05em; }
-.clock{ min-width:150px; text-align:right; }
+.logo { font-weight:700; }
+.clock{ min-width:110px; text-align:right; }
 
-/* ---------- BARRA DE ESTADO ---------- */
-.status-bar{
-  display:flex; align-items:center; justify-content:center;
-  position:relative;
-  padding:.5rem 1rem;
-  margin-bottom:1rem;
-}
-.status-bar::before,
-.status-bar::after{
-  content:"";
-  flex:1 1; height:1px; background:var(--fg); opacity:.5;
-}
-.status-bar span{
-  padding:0 .8rem; white-space:nowrap;
-}
-
-/* ---------- Responsive ajustes mínimos ---------- */
-@media(min-width:600px){
-  body{ font-size:16px; }
-}
-
-/* Animaciones opcionales (puede vivir aquí o en JS) */
-@keyframes typing{ from{width:0} to{width:100%} }
-@keyframes blink{ 50%{border-color:transparent} }
+/* ----- CONTENIDO DE EJEMPLO -------------------------------------------- */
+.main{ padding:2rem 1rem; text-align:center; }

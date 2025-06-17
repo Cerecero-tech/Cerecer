@@ -1,48 +1,35 @@
-// ---------- ARRANQUE ----------
+// ---------- ARRANQUE CON BARRA DE PROGRESO 1‒100 % ----------
 document.addEventListener("DOMContentLoaded", () => {
-  const typeTarget  = document.getElementById("typewriter");
-  const bootScreen  = document.getElementById("screen");
-  const mainUI      = document.getElementById("mainUI");
-  const cmd         = "iniciarcerecer.ht";
-  const speed       = 100; // ms por letra
-  let idx = 0;
+  const bootEl   = document.getElementById("boot");
+  const textEl   = document.getElementById("bootText");
+  const appEl    = document.getElementById("app");
 
-  function type() {
-    if (idx < cmd.length) {
-      typeTarget.textContent += cmd[idx++];
-      requestAnimationFrame(() => setTimeout(type, speed));
+  const header   = "Terminal Cerecer 1.0.0 — Corporación Cerecer (C) 2025\n";
+  let percent    = 0;
+
+  function updateBoot() {
+    textEl.textContent = header + `Cargando… ${percent}%`;
+    if (percent < 100) {
+      percent++;
+      setTimeout(updateBoot, 40); /* velocidad de llenado */
     } else {
-      // Pequeña pausa y luego mostrar UI
-      setTimeout(() => {
-        bootScreen.style.display = "none";
-        mainUI.style.display = "block";
-        initClock();              // Inicia reloj cuando la UI está visible
-      }, 800);
+      // terminar: quitar boot y mostrar la UI
+      bootEl.style.display = "none";
+      appEl.style.display  = "block";
+      startClock();
     }
   }
-  type();
+  updateBoot();
 });
 
-// ---------- RELOJ + ESTADO DE SERVICIO ----------
-function initClock() {
-  const clockEl   = document.getElementById("clock");
-  const msgEl     = document.getElementById("serviceMsg");
-
+// ---------- RELOJ EN CABECERA (HH:MM:SS) ----------
+function startClock(){
+  const clock = document.getElementById("clock");
   function pad(n){ return n.toString().padStart(2,"0"); }
-
-  function update() {
-    const now   = new Date();
-    const time  = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
-    const date  = now.toLocaleDateString("es-MX", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
-    clockEl.textContent = `${time}\n${date}`;
-
-    // Servicio: lunes‑viernes 09‑20
-    const day    = now.getDay();            // 0 = domingo
-    const hour   = now.getHours();
-    const open   = (day>=1 && day<=5) && (hour>=9 && hour<20);
-    msgEl.textContent = open ? "¡Estamos de servicio!" : "Fuera de servicio.";
+  function tick(){
+    const d = new Date();
+    clock.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
   }
-
-  update();
-  setInterval(update, 1000);
+  tick();
+  setInterval(tick, 1000);
 }
