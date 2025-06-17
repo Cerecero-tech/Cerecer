@@ -69,7 +69,7 @@ body {
 .brand {
   font-size: 0.95rem;
   font-weight: bold;
-  padding-top: 0.5rem; /* ↓ baja CERECER un poco más */
+  padding-top: 0.4rem; /* ↓ baja CERECER un poco más */
 }
 
 .time-block {
