@@ -1,61 +1,77 @@
-// -------------- TYPEWRITER + PROGRESS BAR -----------------------------
-document.addEventListener("DOMContentLoaded", () => {
-  const terminal   = document.getElementById("terminal");
-  const promptSpan = document.getElementById("prompt");
-  const boot       = document.getElementById("boot");
-  const app        = document.getElementById("app");
+// script.js
+const terminal = document.getElementById("terminal");
+const main     = document.getElementById("main");
 
-  /* Añadimos cursor parpadeante */
-  const cursor = document.createElement("span");
-  cursor.className = "cursor";
-  terminal.appendChild(cursor);
+// Texto a escribir (línea por línea)
+const lines = [
+  "Terminal Cerecer",
+  "Copyright (C) Corporación Cerecer | Todos los derechos reservados",
+  "",
+  "¡No olvides contactarnos por cualquier error que encuentres en la página!",
+  "",
+  "PS D:\\Usuarios\\invitado> "
+];
 
-  /* Comando a escribir */
-  const comando = "iniciarcerecer.ht";
-  let i = 0;
+// Comando que va en naranja
+const command = "iniciarcerecer.ht";
 
-  function escribir() {
-    if (i < comando.length) {
-      promptSpan.textContent += comando.charAt(i++);
-      setTimeout(escribir, 80);            // velocidad de tipeo
+// Velocidades (en ms)
+const TYPE_SPEED      = 35;   // cada carácter
+const LINE_PAUSE      = 350;  // entre líneas
+const PROGRESS_SPEED  = 30;   // % de carga
+
+let line = 0;
+let char = 0;
+
+/* ---------- Typewriter principal ---------- */
+function typeLine() {
+  if (line < lines.length) {
+    if (char < lines[line].length) {
+      terminal.textContent += lines[line][char++];
+      setTimeout(typeLine, TYPE_SPEED);
     } else {
-      cursor.remove();                     // quita cursor fijo
-      iniciarCarga();
+      terminal.textContent += "\n";
+      line++; char = 0;
+      setTimeout(typeLine, LINE_PAUSE);
     }
+  } else {
+    // terminamos las líneas fijas; ahora el comando en color
+    typeCommand(0);
   }
-
-  /* Barra de carga 1→100 % */
-  function iniciarCarga() {
-    let pct = 0;
-    const line = document.createElement("div");
-    line.textContent = "\nCargando: 0%";
-    terminal.appendChild(line);
-
-    const int = setInterval(() => {
-      pct++;
-      line.textContent = `Cargando: ${pct}%`;
-      if (pct >= 100) {
-        clearInterval(int);
-        setTimeout(() => {
-          boot.style.display = "none";     // oculta pantalla arranque
-          app.style.display  = "block";    // muestra UI principal
-          iniciarReloj();
-        }, 400);
-      }
-    }, 28);                                // duración total ~2,8 s
-  }
-
-  escribir();
-});
-
-// -------------- RELOJ HH:MM:SS ----------------------------------------
-function iniciarReloj(){
-  const reloj = document.getElementById("clock");
-  function pad(n){ return n.toString().padStart(2,"0"); }
-  function tick(){
-    const now = new Date();
-    reloj.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
-  }
-  tick();
-  setInterval(tick, 1000);
 }
+
+/* ---------- Comando coloreado ---------- */
+function typeCommand(idx) {
+  if (idx < command.length) {
+    // Abrimos span en el primer carácter, cerramos al final
+    if (idx === 0) terminal.innerHTML += '<span class="command">';
+    terminal.innerHTML += command[idx];
+    if (idx === command.length - 1) terminal.innerHTML += "</span>";
+    setTimeout(() => typeCommand(idx + 1), TYPE_SPEED);
+  } else {
+    terminal.innerHTML += "\n";
+    startProgress();
+  }
+}
+
+/* ---------- Barra de carga 1 → 100 ---------- */
+function startProgress() {
+  let pct = 1;
+  const id = setInterval(() => {
+    terminal.textContent += `cargando... ${pct}%\r`;
+    pct++;
+    if (pct > 100) {
+      clearInterval(id);
+      finishIntro();
+    }
+  }, PROGRESS_SPEED);
+}
+
+/* ---------- Transición a la página real ---------- */
+function finishIntro() {
+  terminal.style.display = "none";  // o usa fade‑out si deseas
+  main.classList.remove("hidden");
+}
+
+// Arrancamos todo
+typeLine();

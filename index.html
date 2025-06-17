@@ -2,19 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terminal Cerecer</title>
+
+  <!-- Hoja de estilos -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="terminal" id="terminal">
-    Terminal Cerecer
-Copyright (C) Corporación Cerecer | Todos los derechos reservados
+  <!-- Pantalla de terminal -->
+  <pre id="terminal" class="terminal"></pre>
 
-¡No olvides contactarnos por cualquier error que encuentres en la página!
+  <!-- Contenido real del sitio (oculto hasta que acabe la animación) -->
+  <main id="main" class="hidden">
+    <h1>¡Bienvenido a Cerecer!</h1>
+    <p>Aquí irá el contenido definitivo de tu página.</p>
+  </main>
 
-PS D:\\Usuarios\\invitado> <span id="prompt"></span>
-  </div>
-<script src="script.js"></script>
+  <!-- Lógica de la animación -->
+  <script src="script.js"></script>
 </body>
 </html>

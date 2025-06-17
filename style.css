@@ -1,47 +1,40 @@
-/* ─── PALETA ─────────────────────────────────────────────────────────── */
-:root{
-  --bg:     #0c0c0c;
-  --fg:     #cacaca;
+/* Estilo base (mobile‑first) */
+:root {
+  --bg: #0c0c0c;
+  --text: #cacaca;
   --accent: #ffa500;
+  --font-size-mobile: 0.9rem;
+  --font-size-desktop: 1rem;
 }
 
-/* ─── RESET BÁSICO ───────────────────────────────────────────────────── */
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:var(--bg);
-  color:var(--fg);
-  font:14px "Courier New", monospace;
-  height:100vh;
-  overflow:hidden;
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Consolas, "Courier New", monospace;
 }
 
-/* ─── TERMINAL ARRANQUE ──────────────────────────────────────────────── */
-.terminal{
-  position:fixed;
-  top:16px;           /* arriba‑derecha */
-  right:16px;
-  white-space:pre-wrap;
-  max-width:calc(100vw - 32px);
-  text-align:left;
+/* Terminal fija arriba‑derecha */
+.terminal {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  white-space: pre-wrap;
+  text-align: left;
+  font-size: var(--font-size-mobile);
+  line-height: 1.45;
 }
 
-.cmd   { color:var(--accent); }
-.cursor{
-  display:inline-block;
-  width:8px; height:1em;
-  background:var(--accent);
-  margin-left:2px;
-  animation:blink 1s steps(2,start) infinite;
+/* Span para resaltar el comando */
+.command {
+  color: var(--accent);
 }
 
-@keyframes blink{ to{ visibility:hidden } }
+/* Ocultar el contenido principal al inicio */
+.hidden { display: none; }
 
-/* ─── (DESPUÉS) UI PRINCIPAL ─────────────────────────────────────────── */
-.topbar{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:.7rem 1rem;
-  border-bottom:1px solid var(--fg);
+/* Un toque más grande en pantallas amplias */
+@media (min-width: 600px) {
+  .terminal { font-size: var(--font-size-desktop); }
 }
-.logo{ font-weight:700 }
-.clock{ min-width:110px; text-align:right }
-.main{ padding:2rem 1rem; text-align:center }
