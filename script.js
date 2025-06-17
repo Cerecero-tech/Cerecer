@@ -1,64 +1,47 @@
-// script.js
 const terminal = document.getElementById("terminal");
 const main     = document.getElementById("main");
 
-// Texto a escribir (línea por línea)
-const lines = [
-  "Terminal Cerecer",
-  "Copyright (C) Corporación Cerecer | Todos los derechos reservados",
-  "",
-  "¡No olvides contactarnos por cualquier error que encuentres en la página!",
-  "",
-  "PS D:\\Usuarios\\invitado> "
-];
+// Texto completo, incluyendo el comando al final
+const fullText = `Terminal Cerecer
+Copyright (C) Corporación Cerecer | Todos los derechos reservados
 
-// Comando que va en naranja
-const command = "iniciarcerecer.ht";
+¡No olvides contactarnos por cualquier error que encuentres en la página!
 
-// Velocidades (en ms)
-const TYPE_SPEED      = 35;   // cada carácter
-const LINE_PAUSE      = 350;  // entre líneas
-const PROGRESS_SPEED  = 30;   // % de carga
+PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
 
-let line = 0;
-let char = 0;
+const TYPE_SPEED = 35;
+const PROGRESS_SPEED = 30;
+const SPECIAL_COLOR_START = fullText.indexOf("iniciarcerecer.ht");
+const SPECIAL_COLOR_END = SPECIAL_COLOR_START + "iniciarcerecer.ht".length;
 
-/* ---------- Typewriter principal ---------- */
-function typeLine() {
-  if (line < lines.length) {
-    if (char < lines[line].length) {
-      terminal.textContent += lines[line][char++];
-      setTimeout(typeLine, TYPE_SPEED);
+let idx = 0;
+
+function typeAll() {
+  if (idx < fullText.length) {
+    const char = fullText[idx];
+
+    // Si estamos dentro del texto coloreado
+    if (idx === SPECIAL_COLOR_START) terminal.innerHTML += `<span class="command">`;
+
+    if (char === "\n") {
+      terminal.innerHTML += "<br>";
     } else {
-      terminal.textContent += "\n";
-      line++; char = 0;
-      setTimeout(typeLine, LINE_PAUSE);
+      terminal.innerHTML += char;
     }
-  } else {
-    // terminamos las líneas fijas; ahora el comando en color
-    typeCommand(0);
-  }
-}
 
-/* ---------- Comando coloreado ---------- */
-function typeCommand(idx) {
-  if (idx < command.length) {
-    // Abrimos span en el primer carácter, cerramos al final
-    if (idx === 0) terminal.innerHTML += '<span class="command">';
-    terminal.innerHTML += command[idx];
-    if (idx === command.length - 1) terminal.innerHTML += "</span>";
-    setTimeout(() => typeCommand(idx + 1), TYPE_SPEED);
+    if (idx === SPECIAL_COLOR_END - 1) terminal.innerHTML += `</span>`;
+
+    idx++;
+    setTimeout(typeAll, TYPE_SPEED);
   } else {
-    terminal.innerHTML += "\n";
     startProgress();
   }
 }
 
-/* ---------- Barra de carga 1 → 100 ---------- */
 function startProgress() {
   let pct = 1;
   const id = setInterval(() => {
-    terminal.textContent += `cargando... ${pct}%\r`;
+    terminal.innerHTML += `<br>cargando... ${pct}%`;
     pct++;
     if (pct > 100) {
       clearInterval(id);
@@ -67,11 +50,10 @@ function startProgress() {
   }, PROGRESS_SPEED);
 }
 
-/* ---------- Transición a la página real ---------- */
 function finishIntro() {
-  terminal.style.display = "none";  // o usa fade‑out si deseas
+  terminal.style.display = "none";
   main.classList.remove("hidden");
 }
 
-// Arrancamos todo
-typeLine();
+// Iniciar la animación
+typeAll();
