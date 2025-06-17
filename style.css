@@ -48,13 +48,21 @@ html, body {
 }
 
 /* Encabezado */
+body {
+  background: #0c0c0c;
+  color: #cacaca;
+  font-family: 'IBM Plex Mono', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+/* Encabezado */
 .top-bar {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 0.5rem 1rem;
   background: #0c0c0c;
-  color: #cacaca;
   font-size: 0.85rem;
 }
 
@@ -67,13 +75,14 @@ html, body {
   line-height: 1.1;
 }
 
-/* Líneas divisoras más gruesas */
+/* Línea divisora más gruesa */
 .divider {
   border: 0;
   border-top: 2px solid #333;
   margin: 0;
 }
 
+/* Barra de estado */
 .status-bar {
   display: flex;
   justify-content: flex-end;
@@ -83,5 +92,4 @@ html, body {
 
 #service-status {
   font-size: 0.8rem;
-  color: #cacaca;
 }
