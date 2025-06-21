@@ -66,16 +66,16 @@ function startProgress() {
     percent++;
     if (percent > 100) {
       clearInterval(progressInterval);
+      setTimeout(() => {
+        terminal.style.display = "none";
+        main.classList.remove("hidden");
+      }, 500);
       document.getElementById('loading-screen').style.display = 'none';
 
 const mainUI = document.getElementById('main-ui');
 mainUI.style.display = 'block';
 requestAnimationFrame(() => mainUI.classList.add('visible'));
-      // Ocultar terminal y mostrar contenido principal
-      setTimeout(() => {
-        terminal.style.display = "none";
-        main.classList.remove("hidden");
-      }, 500);
+
     }
   }, PROGRESS_SPEED);
 }
