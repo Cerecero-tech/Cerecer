@@ -107,3 +107,56 @@ body {
 .brand-name {
   color: #cacaca;
 }
+
+.hero {
+  background-color: #0c0c0c;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #cacaca;
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.accent {
+  color: #FFA500;
+}
+
+.subheadline {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  opacity: 0.85;
+}
+
+.description {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  font-family: 'IBM Plex Mono', monospace;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.primary-btn {
+  background-color: #FFA500;
+  color: #0c0c0c;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.85rem;
+  font-family: 'IBM Plex Mono', monospace;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.primary-btn:hover {
+  background-color: #e69500;
+}
