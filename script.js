@@ -66,25 +66,11 @@ function startProgress() {
     percent++;
     if (percent > 100) {
       clearInterval(progressInterval);
-
-      /* ---------- 1. Fade-out / ocultar la terminal ---------- */
-      terminal.style.display = "none";   // o aplícale una clase con opacity 0
-
-      /* ---------- 2. Pequeno delay para transiciones ---------- */
       setTimeout(() => {
-        /* 2a. Oculta todo el loading-screen */
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) loadingScreen.style.display = 'none';
-
-        /* 2b. Muestra la UI principal */
-        const mainUI = document.getElementById('main-ui');
-        if (mainUI) {
-          mainUI.style.display = 'block';      // aparece
-          requestAnimationFrame(() => {
-            mainUI.classList.add('visible');   // activa fade-in si tu CSS lo tiene
-          });
-        }
-      }, 500); // 500 ms después de llegar a 100 %
+        terminal.style.display = "none";
+        main.classList.remove("hidden");
+      }, 500);
+      
     }
   }, PROGRESS_SPEED);
 }
