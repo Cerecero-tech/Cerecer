@@ -160,3 +160,12 @@ body {
 .primary-btn:hover {
   background-color: #e69500;
 }
+#main-ui {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#main-ui.visible {
+  opacity: 1;
+}
+
