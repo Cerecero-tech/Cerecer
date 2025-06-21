@@ -224,3 +224,10 @@ section{padding:4rem 1.2rem;}
 }
 .step p{margin:0;font-size:0.85rem;}
 
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg);
+  z-index: 9999;
+}
+

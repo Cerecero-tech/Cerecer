@@ -1,5 +1,6 @@
 const terminal = document.getElementById("terminal");
-const main = document.getElementById("main");
+const mainUI   = document.getElementById("main-ui");          // ← cambia aquí
+const loading  = document.getElementById("loading-screen");   // ← contenedor nuevo
 
 const fullText = `Terminal Cerecer
 Copyright (C) Corporación Cerecer | Todos los derechos reservados
@@ -62,18 +63,19 @@ function startProgress() {
   const progressInterval = setInterval(() => {
     terminal.innerHTML = `${baseContent}<br>cargando... ${percent}%`;
     terminal.appendChild(cursor);
-
     percent++;
+
     if (percent > 100) {
       clearInterval(progressInterval);
-      setTimeout(() => {
-        terminal.style.display = "none";
-        main.classList.remove("hidden");
-      }, 500);
-      
+
+      // 1. Ocultar terminal + pantalla de carga
+      terminal.style.display = "none";
+      if (loading) loading.style.display = "none";
+
+      // 2. Mostrar la UI con fade-in
+      mainUI.style.display = "block";
+      requestAnimationFrame(() => mainUI.classList.add("visible"));
     }
   }, PROGRESS_SPEED);
 }
 
-// Iniciar escritura
-type();
