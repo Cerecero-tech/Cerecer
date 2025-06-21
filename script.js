@@ -73,8 +73,8 @@ function startProgress() {
       if (loading) loading.style.display = "none";
 
       // 2. Mostrar la UI con fade-in
-      mainUI.style.display = "block";
-      requestAnimationFrame(() => mainUI.classList.add("visible"));
+      mainUI.style.display = 'block';
+requestAnimationFrame(() => mainUI.classList.add("visible"));
     }
   }, PROGRESS_SPEED);
 }
