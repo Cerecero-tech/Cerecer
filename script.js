@@ -79,3 +79,4 @@ requestAnimationFrame(() => mainUI.classList.add("visible"));
   }, PROGRESS_SPEED);
 }
 
+type();
