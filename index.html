@@ -15,50 +15,48 @@
 
   <!-- Contenido principal oculto al inicio -->
   <main id="main-ui" class="hidden">
-    <header class="top-bar">
-      <div class="brand">
-        <span class="prompt">&gt;&nbsp;</span><span class="brand-name">Cerecer</span>
-      </div>
-      <div class="time-block">
-        <div id="clock">00:00 a.m.</div>
-        <div id="date">lunes, 00 de enero de 0000</div>
-      </div>
-    </header>
-
-    <hr class="divider top-divider">
-    <div class="status-bar">
-      <div id="service-status">Fuera de servicio.</div>
+  <header class="top-bar">
+    <div class="brand">
+      <span class="prompt">&gt;&nbsp;</span><span class="brand-name">Cerecer</span>
     </div>
-    <hr class="divider bottom-divider">
+    <div class="time-block">
+      <div id="clock">00:00 a.m.</div>
+      <div id="date">lunes, 00 de enero de 0000</div>
+    </div>
+  </header>
 
-    <!-- GIF animado como arte personalizado -->
-    <section class="ascii-art">
-      <img src="img/logo-animado.gif" alt="Arte animado de Cerecer" class="ascii-gif">
-    </section>
+  <hr class="divider top-divider">
+  <div class="status-bar">
+    <div id="service-status">Fuera de servicio.</div>
+  </div>
+  <hr class="divider bottom-divider">
 
-    <!-- HERO minimalista -->
-    <section class="hero minimal">
-      <h1 class="hero-title accent">CERECER</h1>
-      <p class="hero-tag">Reparación, diagnóstico y precisión electrónica</p>
-      <button class="primary-btn">Ver servicios</button>
-    </section>
+  <!-- INTRO MINIMALISTA -->
+  <section class="intro">
+    <p class="intro-tag">Una reparación para todo, en un solo lugar</p>
+    <h1 class="hero-title accent">CERECER</h1>
+  </section>
 
-    <!-- Servicios estilo terminal -->
-    <section class="services terminal-grid">
-      <article class="card terminal-box">
-        <h3 class="card-title">Diagnóstico</h3>
-        <p class="card-desc">Detección rápida y precisa de fallas.</p>
-      </article>
-      <article class="card terminal-box">
-        <h3 class="card-title">Reparación</h3>
-        <p class="card-desc">Componentes industriales, soldadura fina.</p>
-      </article>
-      <article class="card terminal-box">
-        <h3 class="card-title">Optimización</h3>
-        <p class="card-desc">Mejor rendimiento, vida útil extendida.</p>
-      </article>
-    </section>
-  </main>
+  <!-- CUADROS CON GIF + TEXTO -->
+  <section class="services terminal-grid">
+    <article class="card terminal-box">
+      <img src="img/diagnostico.gif" alt="Diagnóstico GIF" class="card-gif">
+      <h3 class="card-title">Diagnóstico</h3>
+      <p class="card-desc">Detección rápida y precisa de fallas.</p>
+    </article>
+    <article class="card terminal-box">
+      <img src="img/reparacion.gif" alt="Reparación GIF" class="card-gif">
+      <h3 class="card-title">Reparación</h3>
+      <p class="card-desc">Componentes industriales, soldadura fina.</p>
+    </article>
+    <article class="card terminal-box">
+      <img src="img/optimizacion.gif" alt="Optimización GIF" class="card-gif">
+      <h3 class="card-title">Optimización</h3>
+      <p class="card-desc">Mejor rendimiento, vida útil extendida.</p>
+    </article>
+  </section>
+</main>
+
 
   <script src="script.js"></script>
   <script src="header.js"></script>
