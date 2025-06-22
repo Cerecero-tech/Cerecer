@@ -4,76 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terminal Cerecer</title>
-
-  <!-- Hoja de estilos -->
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Pantalla de terminal -->
+  <!-- Pantalla de carga estilo terminal -->
   <div id="loading-screen">
-  <pre id="terminal" class="terminal"></pre>
-</div>
-  <!-- Contenido real del sitio (oculto hasta que acabe la animación) -->
+    <pre id="terminal" class="terminal"></pre>
+  </div>
+
+  <!-- Contenido principal oculto al inicio -->
   <main id="main-ui" class="hidden">
-    <!-- Encabezado superior -->
-   <header class="top-bar">
-    <div class="brand">
-  <span class="prompt">&gt;&nbsp;</span><span class="brand-name">Cerecer</span>
-</div>
+    <header class="top-bar">
+      <div class="brand">
+        <span class="prompt">&gt;&nbsp;</span><span class="brand-name">Cerecer</span>
+      </div>
+      <div class="time-block">
+        <div id="clock">00:00 a.m.</div>
+        <div id="date">lunes, 00 de enero de 0000</div>
+      </div>
+    </header>
 
-     <div class="time-block">
-     <div id="clock">00:00 a.m.</div>
-     <div id="date">lunes, 00 de enero de 0000</div>
-     </div>
-   </header>
+    <hr class="divider top-divider">
+    <div class="status-bar">
+      <div id="service-status">Fuera de servicio.</div>
+    </div>
+    <hr class="divider bottom-divider">
 
-<hr class="divider top-divider">
+    <!-- GIF animado como arte personalizado -->
+    <section class="ascii-art">
+      <img src="img/logo-animado.gif" alt="Arte animado de Cerecer" class="ascii-gif">
+    </section>
 
-<!-- Barra de estado -->
-<div class="status-bar">
-  <div id="service-status">Fuera de servicio.</div>
-</div>
-<hr class="divider bottom-divider">
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <h1 class="hero-title accent">CERECER</h1>
-  <p class="hero-tag">Reparación, diagnóstico y precisión electrónica</p>
-  <button class="primary-btn">Ver servicios</button>
-</section>
+    <!-- HERO minimalista -->
+    <section class="hero minimal">
+      <h1 class="hero-title accent">CERECER</h1>
+      <p class="hero-tag">Reparación, diagnóstico y precisión electrónica</p>
+      <button class="primary-btn">Ver servicios</button>
+    </section>
 
-<!-- ===== SERVICES GRID ===== -->
-<section class="services">
-  <article class="card">
-    <span class="card-icon">🔌</span>
-    <h3 class="card-title">Diagnóstico</h3>
-    <p class="card-desc">Detección rápida y precisa de fallas.</p>
-  </article>
-  <article class="card">
-    <span class="card-icon">🛠️</span>
-    <h3 class="card-title">Reparación</h3>
-    <p class="card-desc">Componentes de grado industrial y soldadura fina.</p>
-  </article>
-  <article class="card">
-    <span class="card-icon">⚙️</span>
-    <h3 class="card-title">Optimización</h3>
-    <p class="card-desc">Mejor rendimiento y vida útil ampliada.</p>
-  </article>
-</section>
-
-<!-- ===== PROCESS TIMELINE ===== -->
-<section class="timeline">
-  <div class="step"><span class="dot"></span><p>Diagnóstico inicial</p></div>
-  <div class="step"><span class="dot"></span><p>Presupuesto claro</p></div>
-  <div class="step"><span class="dot"></span><p>Reparación certificada</p></div>
-  <div class="step"><span class="dot"></span><p>Pruebas y entrega</p></div>
-</section>
-
-
+    <!-- Servicios estilo terminal -->
+    <section class="services terminal-grid">
+      <article class="card terminal-box">
+        <h3 class="card-title">Diagnóstico</h3>
+        <p class="card-desc">Detección rápida y precisa de fallas.</p>
+      </article>
+      <article class="card terminal-box">
+        <h3 class="card-title">Reparación</h3>
+        <p class="card-desc">Componentes industriales, soldadura fina.</p>
+      </article>
+      <article class="card terminal-box">
+        <h3 class="card-title">Optimización</h3>
+        <p class="card-desc">Mejor rendimiento, vida útil extendida.</p>
+      </article>
+    </section>
   </main>
-  <!-- Lógica de la animación -->
+
   <script src="script.js"></script>
   <script src="header.js"></script>
-
 </body>
 </html>
