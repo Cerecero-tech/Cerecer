@@ -293,4 +293,19 @@ section{padding:4rem 1.2rem;}
   border-color: var(--accent);
 }
 
+.service-list {
+  list-style: none;
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text);
+  opacity: 0.85;
+  display: none;
+  transition: all 0.3s ease;
+  border-left: 1px solid var(--accent);
+}
+
+.card.expanded .service-list {
+  display: block;
+}
 

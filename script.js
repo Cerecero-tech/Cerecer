@@ -69,6 +69,18 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
       }
     }, PROGRESS_SPEED);
   }
+  function toggleList(clickedCard) {
+  const allCards = document.querySelectorAll(".card");
+
+  allCards.forEach(card => {
+    if (card !== clickedCard) {
+      card.classList.remove("expanded");
+    }
+  });
+
+  clickedCard.classList.toggle("expanded");
+}
+
 
   type();
 });
