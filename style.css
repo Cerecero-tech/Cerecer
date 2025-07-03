@@ -294,18 +294,18 @@ section{padding:4rem 1.2rem;}
 }
 
 .service-list {
-  list-style: none;
+  display: none;
+  margin-top: 1rem;
   padding-left: 1rem;
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
+  border-left: 2px solid var(--accent);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
   color: var(--text);
   opacity: 0.85;
-  display: none;
-  transition: all 0.3s ease;
-  border-left: 1px solid var(--accent);
+  list-style: none;
 }
 
-.card.expanded .service-list {
+.card.active .service-list {
   display: block;
 }
 
