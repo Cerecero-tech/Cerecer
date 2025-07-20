@@ -77,8 +77,73 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
 
   card.classList.toggle("active");
 }
+const serviceData = {
+  mantenimiento: [
+    "Instalación/Activación de Windows",
+    "Limpieza profunda",
+    "Cambio de pasta térmica"
+  ],
+  mejora: [
+    "Mejora de RAM",
+    "Mejora de Almacenamiento",
+    "Cambio de componentes"
+  ],
+  diagnostico: [
+    "Revisión de tu dispositivo"
+  ]
+};
 
+function toggleList(card) {
+  const allCards = document.querySelectorAll(".card");
+  const targetService = card.dataset.service;
+
+  // Cierra las demás
+  allCards.forEach(c => {
+    if (c !== card) {
+      c.classList.remove("active");
+      const container = c.querySelector(".service-list");
+      if (container) container.innerHTML = "";
+    }
+  });
+
+  const isActive = card.classList.toggle("active");
+  const container = card.querySelector(".service-list");
+
+  if (!isActive || !container) {
+    container.innerHTML = "";
+    return;
+  }
+
+  container.innerHTML = ""; // limpia anterior
+
+  const items = serviceData[targetService];
+  let i = 0;
+
+  function typeLine() {
+    if (i >= items.length) return;
+    const line = document.createElement("div");
+    container.appendChild(line);
+    let j = 0;
+    const text = `> ${items[i]}`;
+
+    function typeChar() {
+      if (j <= text.length) {
+        line.textContent = text.slice(0, j);
+        j++;
+        setTimeout(typeChar, 15); // velocidad por letra
+      } else {
+        i++;
+        setTimeout(typeLine, 100); // tiempo entre líneas
+      }
+    }
+
+    typeChar();
+  }
+
+  typeLine();
+}
 
 
   type();
 });
+

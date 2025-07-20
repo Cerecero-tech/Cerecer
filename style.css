@@ -195,12 +195,13 @@ section{padding:4rem 1.2rem;}
 /* HERO */
 .hero{display:flex;flex-direction:column;align-items:center;text-align:center;}
 .hero-title {
-  font-size: 2.2rem;
+  font-size: 1.6rem; /* antes era 2.2rem */
   margin: 0;
-  font-weight: 700;
+  font-weight: 600; /* un poco menos pesado */
   letter-spacing: -0.5px;
   font-family: 'IBM Plex Mono', monospace;
 }
+
 .hero-tag{font-size:1rem;opacity:.85;margin:0 0 2rem;max-width:32ch;}
 
 /* SERVICES GRID */
@@ -307,5 +308,15 @@ section{padding:4rem 1.2rem;}
 
 .card.active .service-list {
   display: block;
+}
+
+.service-list {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text);
+  opacity: 0.85;
 }
 
