@@ -144,6 +144,12 @@ function toggleList(card) {
 }
 
 
+
   type();
+    // Asignar clic a todas las tarjetas después de que cargue la página
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => toggleList(card));
+  });
+
 });
 
