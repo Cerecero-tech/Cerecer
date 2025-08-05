@@ -372,3 +372,39 @@ nav ul li a:hover {
 .hidden {
   display: none;
 }
+.contact-section {
+  margin: 4rem auto;
+  padding: 3rem 1.5rem;
+  max-width: 600px;
+  text-align: center;
+  background-color: #131313;
+  border: 1px solid #1d1d1d;
+  border-radius: var(--radius);
+  transition: border 0.3s ease;
+}
+
+.contact-section:hover {
+  border-color: var(--accent);
+}
+
+.contact-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.contact-text {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.contact-btn {
+  padding: 0.75rem 2rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
