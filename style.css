@@ -408,3 +408,70 @@ nav ul li a:hover {
   display: inline-block;
 }
 
+/* Banner principal */
+.banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  background-color: #0c0c0c;
+}
+
+.banner-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Sección de servicios estilo terminal */
+.terminal-services {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #0c0c0c;
+  color: #cacaca;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.terminal-card {
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-left: 4px solid #FFA500;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.terminal-card:hover {
+  transform: scale(1.01);
+}
+
+.terminal-line {
+  color: #FFA500;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.service-gif {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+.service-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.more-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #FFA500;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
