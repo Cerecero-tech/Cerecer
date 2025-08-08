@@ -457,7 +457,6 @@ nav ul li a:hover {
   width: 160px;
   max-width: 100%;
   height: auto;
-
   display: block;
   margin: 1rem;
 }
@@ -570,6 +569,7 @@ nav ul li a:hover {
   width: 40px;
   height: 40px;
   object-fit: contain;
+  height: auto;
 }
 
 .service-list {
