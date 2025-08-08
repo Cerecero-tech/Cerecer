@@ -321,11 +321,11 @@ section{padding:4rem 1.2rem;}
 }
 
 .terminal-header {
-  background-color: black;
-  color: #00ff00;
+  background-color: #0c0c0c;
+  color: #cacaca;
   font-family: 'Courier New', Courier, monospace;
   padding: 1rem;
-  border-bottom: 2px solid #00ff00;
+  border-bottom: 2px solid #cacaca;
 }
 
 .header-container {
@@ -360,7 +360,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #00ff00;
+  color: #cacaca;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
@@ -475,64 +475,3 @@ nav ul li a:hover {
   font-weight: bold;
 }
 
-.services {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  padding: 2rem;
-}
-
-.service-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid #CACACA;
-  border-radius: 15px;
-  padding: 1.5rem;
-  width: 280px;
-  text-align: center;
-  color: #CACACA;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(255, 165, 0, 0.3);
-}
-
-.service-gif {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
-.service-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-.service-card p {
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.more-services {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.more-services a {
-  display: inline-block;
-  background-color: #FFA500;
-  color: #1a1a1a;
-  padding: 0.8rem 1.5rem;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.more-services a:hover {
-  background-color: #ff8c00;
-}
