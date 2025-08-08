@@ -454,12 +454,12 @@ nav ul li a:hover {
 }
 
 .service-gif {
-  width: 100%;
-  max-width: 280px;
+  width: 160px;
+  max-width: 100%;
   height: auto;
+  image-rendering: pixelated; /* keeps ASCII sharp */
   display: block;
-  margin: 1rem 0;
-  border-radius: 4px;
+  margin: 1rem;
 }
 
 .service-description {
@@ -528,7 +528,7 @@ nav ul li a:hover {
 
 .section-title {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 1.1rem; /* más pequeño */
+  font-size: 0.95rem; /* más pequeño */
   color: var(--accent);
   margin-bottom: 1rem;
 }
@@ -562,14 +562,15 @@ nav ul li a:hover {
 }
 
 .card-heading {
-  font-size: 0.95rem; /* más pequeño */
+  font-size: 0.85rem; /* más pequeño */
   font-weight: bold;
 }
 
 .card-icon {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
+    image-rendering: pixelated; /* keeps ASCII sharp */
 }
 
 .service-list {
