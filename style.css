@@ -322,10 +322,10 @@ section{padding:4rem 1.2rem;}
 
 .terminal-header {
   background-color: black;
-  color: #00ff00;
+  color: #cacaca;
   font-family: 'Courier New', Courier, monospace;
   padding: 1rem;
-  border-bottom: 2px solid #00ff00;
+  border-bottom: 2px solid #cacaca;
 }
 
 .header-container {
@@ -366,7 +366,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #ffffff;
+  color: #cacaca;
 }
 
 .hidden {
@@ -426,11 +426,11 @@ nav ul li a:hover {
 /* Terminal section container */
 .terminal-section {
   background-color: #000;
-  color: #33ff33;
+  color: #cacaca;
   font-family: 'IBM Plex Mono', monospace;
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid #33ff33;
+  border: 1px solid #cacaca;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -453,7 +453,7 @@ nav ul li a:hover {
 .terminal-description img {
   width: 80px;
   height: auto;
-  border: 1px solid #33ff33;
+  border: 1px solid #cacaca;
   border-radius: 4px;
 }
 
@@ -465,7 +465,7 @@ nav ul li a:hover {
 
 /* Terminal-style links */
 .terminal-link {
-  color: #ff66ff;
+  color: #FFA500;
   text-decoration: none;
   margin-left: auto;
   font-size: 0.9em;
