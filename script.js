@@ -151,13 +151,6 @@ function toggleList(card) {
     card.addEventListener('click', () => toggleList(card));
   });
 
-});
-  document.getElementById('menu-toggle').addEventListener('click', () => {
-  const menu = document.getElementById('menu');
-  menu.classList.toggle('hidden');
-
-});
-
 document.querySelectorAll('[data-service]').forEach(card => {
   card.addEventListener('click', () => {
     const list = card.querySelector('.service-list');
@@ -168,4 +161,5 @@ document.querySelectorAll('[data-service]').forEach(card => {
     }
   });
 });
+
 
