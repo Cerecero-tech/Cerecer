@@ -322,10 +322,10 @@ section{padding:4rem 1.2rem;}
 
 .terminal-header {
   background-color: black;
-  color: #cacaca;
+  color: #00ff00;
   font-family: 'Courier New', Courier, monospace;
   padding: 1rem;
-  border-bottom: 2px solid #cacaca;
+  border-bottom: 2px solid #00ff00;
 }
 
 .header-container {
@@ -366,7 +366,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #cacaca;
+  color: #ffffff;
 }
 
 .hidden {
@@ -423,54 +423,116 @@ nav ul li a:hover {
   border-radius: 8px;
 }
 
-/* Terminal section container */
-.terminal-section {
-  background-color: #000;
+/* Sección de servicios estilo terminal */
+.terminal-services {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #0c0c0c;
   color: #cacaca;
   font-family: 'IBM Plex Mono', monospace;
-  padding: 20px;
+}
+
+.terminal-card {
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-left: 4px solid #FFA500;
   border-radius: 8px;
-  border: 1px solid #cacaca;
-  max-width: 800px;
-  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.1);
+  transition: transform 0.2s ease;
 }
 
-/* Each service line */
+.terminal-card:hover {
+  transform: scale(1.01);
+}
+
 .terminal-line {
-  font-weight: bold;
-  margin-top: 20px;
+  color: #FFA500;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
-/* Icon + description row */
-.terminal-description {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 5px 0;
-}
-
-/* Smaller GIFs */
-.terminal-description img {
-  width: 80px;
+.service-gif {
+  width: 100%;
+  max-width: 280px;
   height: auto;
-  border: 1px solid #cacaca;
+  display: block;
+  margin: 1rem 0;
   border-radius: 4px;
 }
 
-/* Text next to image */
-.terminal-description p {
-  flex: 1;
-  margin: 0;
+.service-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-/* Terminal-style links */
-.terminal-link {
+.more-link {
+  display: inline-block;
+  margin-top: 0.5rem;
   color: #FFA500;
-  text-decoration: none;
-  margin-left: auto;
-  font-size: 0.9em;
-}
-.terminal-link:hover {
   text-decoration: underline;
+  font-weight: bold;
 }
 
+.services {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #CACACA;
+  border-radius: 15px;
+  padding: 1.5rem;
+  width: 280px;
+  text-align: center;
+  color: #CACACA;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 165, 0, 0.3);
+}
+
+.service-gif {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.more-services {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.more-services a {
+  display: inline-block;
+  background-color: #FFA500;
+  color: #1a1a1a;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.more-services a:hover {
+  background-color: #ff8c00;
+}
