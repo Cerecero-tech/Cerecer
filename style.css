@@ -475,3 +475,53 @@ nav ul li a:hover {
   font-weight: bold;
 }
 
+/* Terminal section container */
+.terminal-section {
+  background-color: #0c0c0c;
+  color: #cacaca;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #cacaca;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Each service line */
+.terminal-line {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Icon + description row */
+.terminal-description {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 5px 0;
+}
+
+/* Smaller GIFs */
+.terminal-description img {
+  width: 80px;
+  height: auto;
+  border: 1px solid #cacaca;
+  border-radius: 4px;
+}
+
+/* Text next to image */
+.terminal-description p {
+  flex: 1;
+  margin: 0;
+}
+
+/* Terminal-style links */
+.terminal-link {
+  color: #FFA500;
+  text-decoration: none;
+  margin-left: auto;
+  font-size: 0.9em;
+}
+.terminal-link:hover {
+  text-decoration: underline;
+}
