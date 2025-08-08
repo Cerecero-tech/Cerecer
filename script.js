@@ -75,6 +75,17 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
     if (c !== card) c.classList.remove("active");
   });
 
+  document.querySelectorAll('[data-service]').forEach(card => {
+  card.addEventListener('click', () => {
+    const list = card.querySelector('.service-list');
+    const isOpen = list.style.display === 'block';
+    document.querySelectorAll('.service-list').forEach(el => el.style.display = 'none');
+    if (!isOpen) {
+      list.style.display = 'block';
+    }
+  });
+});
+
   card.classList.toggle("active");
 }
 const serviceData = {
@@ -151,15 +162,12 @@ function toggleList(card) {
     card.addEventListener('click', () => toggleList(card));
   });
 
-document.querySelectorAll('[data-service]').forEach(card => {
-  card.addEventListener('click', () => {
-    const list = card.querySelector('.service-list');
-    const isOpen = list.style.display === 'block';
-    document.querySelectorAll('.service-list').forEach(el => el.style.display = 'none');
-    if (!isOpen) {
-      list.style.display = 'block';
-    }
-  });
 });
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+  const menu = document.getElementById('menu');
+  menu.classList.toggle('hidden');
+
+});
+
 
 
