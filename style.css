@@ -528,7 +528,7 @@ nav ul li a:hover {
 
 .section-title {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 1.3rem;
+  font-size: 1.1rem; /* más pequeño */
   color: var(--accent);
   margin-bottom: 1rem;
 }
@@ -545,6 +545,7 @@ nav ul li a:hover {
   border-radius: 8px;
   padding: 1rem;
   transition: border-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -558,13 +559,16 @@ nav ul li a:hover {
   gap: 0.5rem;
   color: var(--accent);
   font-family: 'IBM Plex Mono', monospace;
+}
+
+.card-heading {
+  font-size: 0.95rem; /* más pequeño */
   font-weight: bold;
-  font-size: 1.05rem;
 }
 
 .card-icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
@@ -572,7 +576,8 @@ nav ul li a:hover {
   margin-top: 0.8rem;
   padding-left: 1rem;
   color: #cacaca;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  display: none; /* oculto por defecto */
 }
 
 .service-list li {
@@ -582,17 +587,18 @@ nav ul li a:hover {
 .contact-card {
   background-color: #0c0c0c;
   border: 1px solid var(--accent);
+  cursor: default;
 }
 
 .contact-desc {
   color: #cacaca;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   margin-bottom: 1rem;
 }
 
 .contact-info {
   color: #cacaca;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .contact-info a {
@@ -617,7 +623,7 @@ nav ul li a:hover {
 
 .more-services a {
   color: #cacaca;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-decoration: none;
   font-family: 'IBM Plex Mono', monospace;
 }

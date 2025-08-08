@@ -158,3 +158,14 @@ function toggleList(card) {
 
 });
 
+document.querySelectorAll('[data-service]').forEach(card => {
+  card.addEventListener('click', () => {
+    const list = card.querySelector('.service-list');
+    const isOpen = list.style.display === 'block';
+    document.querySelectorAll('.service-list').forEach(el => el.style.display = 'none');
+    if (!isOpen) {
+      list.style.display = 'block';
+    }
+  });
+});
+
