@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // -----------------------
-  // Terminal typing block (sin cambios funcionales)
-  // -----------------------
+  // Terminal typing (igual a tu implementación)
   const terminal = document.getElementById("terminal");
   const mainUI   = document.getElementById("main-ui");
   const loading  = document.getElementById("loading-screen");
@@ -44,7 +42,6 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
           displayHTML += char;
         }
       }
-
       if (terminal) terminal.innerHTML = displayHTML;
       if (terminal) terminal.appendChild(cursor);
       idx++;
@@ -75,9 +72,7 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
     }, PROGRESS_SPEED);
   }
 
-  // -----------------------
-  // Datos de servicios (edítalos según necesites)
-  // -----------------------
+  // Datos de servicios (manténlos sincronizados con data-service)
   const serviceData = {
     mantenimiento: [
       "Instalación/Activación de Windows",
@@ -96,15 +91,13 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
     ]
   };
 
-  // -----------------------
-  // Helpers para abrir/cerrar y escribir líneas con 'efecto terminal'
-  // -----------------------
+  // Helpers
   function createOrGetListContainer(card) {
     let container = card.querySelector('.service-list');
     if (!container) {
       container = document.createElement('div');
       container.className = 'service-list';
-      // si prefieres <ul> cambia aquí y adapta CSS
+      container.style.display = 'none';
       card.appendChild(container);
     }
     return container;
@@ -116,8 +109,8 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
         c.classList.remove('active');
         const cont = c.querySelector('.service-list');
         if (cont) {
-          cont.innerHTML = '';
-          cont.style.display = 'none';
+          cont.classList.remove('visible');
+          setTimeout(()=> { cont.style.display = 'none'; cont.innerHTML = ''; }, 220);
         }
       }
     });
@@ -149,21 +142,14 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
     typeLine();
   }
 
-  // -----------------------
-  // Attach listeners a tarjetas que tengan data-service="key"
-  // -----------------------
+  // Attach listeners a tarjetas
   document.querySelectorAll('[data-service]').forEach(card => {
-    // safety: skip if no dataset value or no matching data
     const key = (card.dataset.service || "").trim().toLowerCase();
-    if (!key || !serviceData[key]) {
-      // no hay datos, no asignamos comportamiento
-      return;
-    }
+    if (!key || !serviceData[key]) return; // si no hay key o datos, skip
 
     card.addEventListener('click', (ev) => {
-      // evita que clicks en links internos (p.ej WhatsApp) activen el toggle
-      const tag = ev.target.tagName.toLowerCase();
-      if (tag === 'a' || ev.target.closest && ev.target.closest('a')) return;
+      // no toggles si se hace click en un link
+      if (ev.target.tagName.toLowerCase() === 'a' || ev.target.closest('a')) return;
 
       closeAllExcept(card);
 
@@ -171,25 +157,26 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
       const isActive = card.classList.toggle('active');
 
       if (!isActive) {
-        container.innerHTML = '';
-        container.style.display = 'none';
+        // hiding
+        container.classList.remove('visible');
+        setTimeout(()=> { container.style.display = 'none'; container.innerHTML = ''; }, 220);
         return;
       }
 
+      // showing
       container.style.display = 'block';
-      // animación tipo terminal
+      // small timeout so transition (opacity) can animate
+      setTimeout(() => container.classList.add('visible'), 20);
+
+      // escribe las líneas con efecto terminal
       typeLinesInContainer(container, serviceData[key]);
     });
   });
 
-  // -----------------------
-  // start the terminal typing
-  // -----------------------
+  // start terminal animation
   type();
 
-  // -----------------------
-  // menu-toggle: solo si existe
-  // -----------------------
+  // optional menu toggle (si existe)
   const menuToggle = document.getElementById('menu-toggle');
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
@@ -197,4 +184,4 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
       if (menu) menu.classList.toggle('hidden');
     });
   }
-}); // DOMContentLoaded end
+});
