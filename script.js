@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // -----------------------
+  // Terminal typing block (sin cambios funcionales)
+  // -----------------------
   const terminal = document.getElementById("terminal");
   const mainUI   = document.getElementById("main-ui");
   const loading  = document.getElementById("loading-screen");
@@ -20,7 +23,7 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
   const cursor = document.createElement("span");
   cursor.className = "cursor";
   cursor.textContent = "█";
-  terminal.appendChild(cursor);
+  if (terminal) terminal.appendChild(cursor);
 
   setInterval(() => {
     cursor.style.visibility = cursor.style.visibility === "hidden" ? "visible" : "hidden";
@@ -42,8 +45,8 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
         }
       }
 
-      terminal.innerHTML = displayHTML;
-      terminal.appendChild(cursor);
+      if (terminal) terminal.innerHTML = displayHTML;
+      if (terminal) terminal.appendChild(cursor);
       idx++;
       setTimeout(type, TYPE_SPEED);
     } else {
@@ -56,118 +59,142 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
     const baseContent = displayHTML;
 
     const progressInterval = setInterval(() => {
-      terminal.innerHTML = `${baseContent}<br>cargando... ${percent}%`;
-      terminal.appendChild(cursor);
+      if (terminal) terminal.innerHTML = `${baseContent}<br>cargando... ${percent}%`;
+      if (terminal) terminal.appendChild(cursor);
       percent++;
 
       if (percent > 100) {
         clearInterval(progressInterval);
-        terminal.style.display = "none";
+        if (terminal) terminal.style.display = "none";
         if (loading) loading.style.display = "none";
-        mainUI.classList.remove("hidden");
-        requestAnimationFrame(() => mainUI.classList.add("visible"));
+        if (mainUI) {
+          mainUI.classList.remove("hidden");
+          requestAnimationFrame(() => mainUI.classList.add("visible"));
+        }
       }
     }, PROGRESS_SPEED);
   }
-  function toggleList(card) {
-  const allCards = document.querySelectorAll(".card");
-  allCards.forEach(c => {
-    if (c !== card) c.classList.remove("active");
-  });
 
-  document.querySelectorAll('[data-service]').forEach(card => {
-  card.addEventListener('click', () => {
-    const list = card.querySelector('.service-list');
-    const isOpen = list.style.display === 'block';
-    document.querySelectorAll('.service-list').forEach(el => el.style.display = 'none');
-    if (!isOpen) {
-      list.style.display = 'block';
+  // -----------------------
+  // Datos de servicios (edítalos según necesites)
+  // -----------------------
+  const serviceData = {
+    mantenimiento: [
+      "Instalación/Activación de Windows",
+      "Limpieza profunda",
+      "Cambio de pasta térmica"
+    ],
+    mejora: [
+      "Mejora de RAM",
+      "Mejora de Almacenamiento",
+      "Cambio de componentes"
+    ],
+    diagnostico: [
+      "Detección de fallos",
+      "Pruebas de hardware",
+      "Asesoría técnica"
+    ]
+  };
+
+  // -----------------------
+  // Helpers para abrir/cerrar y escribir líneas con 'efecto terminal'
+  // -----------------------
+  function createOrGetListContainer(card) {
+    let container = card.querySelector('.service-list');
+    if (!container) {
+      container = document.createElement('div');
+      container.className = 'service-list';
+      // si prefieres <ul> cambia aquí y adapta CSS
+      card.appendChild(container);
     }
-  });
-});
-
-  card.classList.toggle("active");
-}
-const serviceData = {
-  mantenimiento: [
-    "Instalación/Activación de Windows",
-    "Limpieza profunda",
-    "Cambio de pasta térmica"
-  ],
-  mejora: [
-    "Mejora de RAM",
-    "Mejora de Almacenamiento",
-    "Cambio de componentes"
-  ],
-  diagnostico: [
-    "Revisión de tu dispositivo"
-  ]
-};
-
-function toggleList(card) {
-  const allCards = document.querySelectorAll(".card");
-  const targetService = card.dataset.service;
-
-  // Cierra las demás
-  allCards.forEach(c => {
-    if (c !== card) {
-      c.classList.remove("active");
-      const container = c.querySelector(".service-list");
-      if (container) container.innerHTML = "";
-    }
-  });
-
-  const isActive = card.classList.toggle("active");
-  const container = card.querySelector(".service-list");
-
-  if (!isActive || !container) {
-    container.innerHTML = "";
-    return;
+    return container;
   }
 
-  container.innerHTML = ""; // limpia anterior
-
-  const items = serviceData[targetService];
-  let i = 0;
-
-  function typeLine() {
-    if (i >= items.length) return;
-    const line = document.createElement("div");
-    container.appendChild(line);
-    let j = 0;
-    const text = `> ${items[i]}`;
-
-    function typeChar() {
-      if (j <= text.length) {
-        line.textContent = text.slice(0, j);
-        j++;
-        setTimeout(typeChar, 15); // velocidad por letra
-      } else {
-        i++;
-        setTimeout(typeLine, 100); // tiempo entre líneas
+  function closeAllExcept(openCard) {
+    document.querySelectorAll('[data-service]').forEach(c => {
+      if (c !== openCard) {
+        c.classList.remove('active');
+        const cont = c.querySelector('.service-list');
+        if (cont) {
+          cont.innerHTML = '';
+          cont.style.display = 'none';
+        }
       }
-    }
-
-    typeChar();
+    });
   }
 
-  typeLine();
-}
+  function typeLinesInContainer(container, items) {
+    container.innerHTML = '';
+    let i = 0;
 
+    function typeLine() {
+      if (i >= items.length) return;
+      const line = document.createElement('div');
+      container.appendChild(line);
+      let j = 0;
+      const text = `> ${items[i]}`;
 
+      function typeChar() {
+        if (j <= text.length) {
+          line.textContent = text.slice(0, j);
+          j++;
+          setTimeout(typeChar, 15);
+        } else {
+          i++;
+          setTimeout(typeLine, 120);
+        }
+      }
+      typeChar();
+    }
+    typeLine();
+  }
 
-  type();
-    // Asignar clic a todas las tarjetas después de que cargue la página
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => toggleList(card));
+  // -----------------------
+  // Attach listeners a tarjetas que tengan data-service="key"
+  // -----------------------
+  document.querySelectorAll('[data-service]').forEach(card => {
+    // safety: skip if no dataset value or no matching data
+    const key = (card.dataset.service || "").trim().toLowerCase();
+    if (!key || !serviceData[key]) {
+      // no hay datos, no asignamos comportamiento
+      return;
+    }
+
+    card.addEventListener('click', (ev) => {
+      // evita que clicks en links internos (p.ej WhatsApp) activen el toggle
+      const tag = ev.target.tagName.toLowerCase();
+      if (tag === 'a' || ev.target.closest && ev.target.closest('a')) return;
+
+      closeAllExcept(card);
+
+      const container = createOrGetListContainer(card);
+      const isActive = card.classList.toggle('active');
+
+      if (!isActive) {
+        container.innerHTML = '';
+        container.style.display = 'none';
+        return;
+      }
+
+      container.style.display = 'block';
+      // animación tipo terminal
+      typeLinesInContainer(container, serviceData[key]);
+    });
   });
 
-});
-  document.getElementById('menu-toggle').addEventListener('click', () => {
-  const menu = document.getElementById('menu');
-  menu.classList.toggle('hidden');
+  // -----------------------
+  // start the terminal typing
+  // -----------------------
+  type();
 
-});
-
-
-
+  // -----------------------
+  // menu-toggle: solo si existe
+  // -----------------------
+  const menuToggle = document.getElementById('menu-toggle');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      const menu = document.getElementById('menu');
+      if (menu) menu.classList.toggle('hidden');
+    });
+  }
+}); // DOMContentLoaded end
