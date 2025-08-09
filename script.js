@@ -185,3 +185,16 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
     });
   }
 });
+
+// Animación de aparición para la sección
+document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("quienessomos");
+    section.style.opacity = 0;
+    section.style.transform = "translateY(10px)";
+    
+    setTimeout(() => {
+        section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        section.style.opacity = 1;
+        section.style.transform = "translateY(0)";
+    }, 300);
+});
