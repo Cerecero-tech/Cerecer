@@ -671,16 +671,7 @@ nav ul li a:hover {
 
 /* pequeña mejora: que el cursor muestre que la tarjeta es clickeable */
 .card { cursor: pointer; }
-/* = QUIENES SOMOS - terminal-style = */
-.qs-section {
-  margin: 2.2rem auto;
-  max-width: 960px;
-  background: transparent;
-  padding: 1rem;
-  font-family: 'IBM Plex Mono', monospace;
-  color: var(--text);
-  border-top: 1px solid #2a2a2a;
-}
+
 
 .qs-title {
   color: var(--accent);
@@ -698,47 +689,47 @@ nav ul li a:hover {
   opacity: 0.95;
 }
 
-/* gallery wrapper */
+
+/* Arreglo mínimo: evitar overflow en flex y forzar ancho centrado */
+.qs-section {
+  max-width: 900px;     /* igual que tu cards-container */
+  margin: 2rem auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
 .qs-gallery {
   display: flex;
   align-items: center;
-  gap: .6rem;
-  margin-bottom: 0.9rem;
-  position: relative;
+  gap: 0.6rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* buttons */
-.qs-btn {
-  background: #0c0c0c;
-  border: 1px solid #333;
-  color: var(--text);
-  padding: .6rem .8rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 700;
-  transition: transform .12s ease, border-color .12s ease;
-  user-select: none;
+/* Muy importante: permite que el carousel se encoja dentro del flex container */
+.qs-carousel {
+  flex: 1 1 auto;
+  min-width: 0;      /* << clave para evitar que el contenido empuje */
+  box-sizing: border-box;
 }
+
+/* Asegúrate que el track no cause ancho extra */
+.qs-track {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Evita que el botón añada ancho extra al flujo (si prefieres mantenerlos fuera del flujo) */
+.qs-btn {
+  flex: 0 0 auto;
+}
+
 .qs-btn:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
 .qs-btn:active { transform: translateY(0); }
 
-/* carousel viewport */
-.qs-carousel {
-  overflow: hidden;
-  flex: 1 1 auto;
-  border-radius: 8px;
-  border: 1px solid #1f1f1f;
-  background: #0b0b0b;
-  position: relative;
-}
 
-/* track & slides */
-.qs-track {
-  display: flex;
-  transition: transform 420ms cubic-bezier(.22,.9,.27,1);
-  will-change: transform;
-}
+
 .qs-slide {
   min-width: 100%;
   box-sizing: border-box;
