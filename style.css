@@ -672,6 +672,137 @@ nav ul li a:hover {
 /* pequeña mejora: que el cursor muestre que la tarjeta es clickeable */
 .card { cursor: pointer; }
 
+/* ---------- GALERÍA RESPONSIVE (compacta) ---------- */
+.qs-inner {
+  max-width: 900px; /* mismo ancho que las tarjetas */
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* wrapper general */
+.qs-gallery {
+  width: 100%;
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* carousel viewport que recorta (clave contra overflow) */
+.qs-viewport {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;        /* CLAVE: recorta el track */
+  border-radius: 6px;
+}
+
+/* track con transición */
+.qs-track {
+  display: flex;
+  transition: transform 360ms cubic-bezier(.2,.9,.2,1);
+  will-change: transform;
+  box-sizing: border-box;
+}
+
+/* slide: ocupa 100% del viewport visible */
+.qs-slide {
+  flex: 0 0 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  min-height: 140px; /* altura visual consistente */
+  color: var(--text);
+}
+
+/* imagen: compacta y responsiva */
+.qs-slide img {
+  width: 100%;
+  max-width: 320px;  /* tope en desktop */
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #222;
+  flex-shrink: 0;
+}
+
+/* caption al lado/derecha de la imagen (o debajo en móvil) */
+.qs-caption {
+  flex: 1;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* botones: fuera del flujo, no suman ancho */
+.qs-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  background: rgba(0,0,0,0.45);
+  border: 1px solid #222;
+  color: var(--text);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.qs-btn.qs-prev { left: calc(50% - 420px); }  /* para centrar con el inner en desktop */
+.qs-btn.qs-next { right: calc(50% - 420px); }
+
+/* en pantallas pequeñas, posicionar botones a los bordes del viewport */
+@media (max-width: 720px) {
+  .qs-btn.qs-prev { left: 8px; }
+  .qs-btn.qs-next { right: 8px; }
+}
+
+/* miniaturas centradas y wrap si no caben */
+.qs-thumbs {
+  display: flex;
+  gap: .5rem;
+  margin-top: .6rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.qs-thumb {
+  background: transparent;
+  border: 1px solid #222;
+  padding: .12rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.qs-thumb img {
+  display: block;
+  width: 56px;
+  height: 40px;
+  object-fit: cover;
+}
+
+/* social row */
+.qs-social {
+  display: flex;
+  gap: .75rem;
+  margin-top: .6rem;
+  justify-content: center;
+}
+.qs-social-link img { width: 34px; height: 34px; object-fit: contain; }
+
+/* evitar overflow general */
+.qs-section, .qs-inner, .qs-gallery, .qs-viewport, .qs-track, .qs-slide { box-sizing: border-box; }
+
+/* responsive: columna en móviles */
+@media (max-width: 720px) {
+  .qs-slide { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+  .qs-slide img { width: 100%; max-width: 100%; height: 160px; }
+  .qs-caption { margin-top: 0.3rem; }
+}
 
 .qs-title {
   color: var(--accent);

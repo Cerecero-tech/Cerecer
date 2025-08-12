@@ -70,72 +70,74 @@
   </div>
 </section> <!-- .services (CERRADA) -->
 
-<!-- SECCIÓN: QUIENES SOMOS (fuera del grid de servicios) -->
-<section id="quienessomos" class="qs-section">
-  <h2 class="qs-title">&gt;quienessomos</h2>
+<!-- ---------- QUIENES SOMOS + GALERÍA (reemplazar sección anterior) ---------- -->
+<section id="quienessomos" class="qs-section" aria-label="Quiénes somos">
+  <div class="qs-inner"> <!-- alineado con el ancho de las tarjetas -->
+    <h2 class="qs-title">&gt;quienessomos</h2>
 
-  <div class="qs-intro">
-    <p class="qs-desc">
-      Somos un equipo especialista en reparación, optimización y mantenimiento de equipos.
-      Diagnóstico preciso, soluciones rápidas y transparencia en cada servicio.  
-      Trabajamos con estándares profesionales para que tu equipo rinda mejor y dure más.
-    </p>
-  </div>
-
-  <!-- GALERÍA DINÁMICA -->
-  <div class="qs-gallery">
-    <button class="qs-btn qs-prev" aria-label="Anterior" type="button">&lt;</button>
-
-    <!-- Wrapper del carousel: overflow:hidden controlado desde CSS -->
-    <div class="qs-carousel" aria-live="polite" role="region" aria-label="Galería de trabajos">
-      <div class="qs-track">
-        <!-- COPIA/PEGA O CAMBIA CADA SLIDE CON TU IMAGEN Y TEXTO -->
-        <figure class="qs-slide">
-          <img src="img/trabajo1.jpg" alt="Proyecto 1">
-          <figcaption class="qs-caption">Reparación placa base — diagnóstico y sustitución de componentes.</figcaption>
-        </figure>
-
-        <figure class="qs-slide">
-          <img src="img/trabajo2.jpg" alt="Proyecto 2">
-          <figcaption class="qs-caption">Limpieza y reemplazo de pasta térmica — reducción de temperaturas.</figcaption>
-        </figure>
-
-        <figure class="qs-slide">
-          <img src="img/trabajo3.jpg" alt="Proyecto 3">
-          <figcaption class="qs-caption">Actualización de almacenamiento SSD — mejora de tiempos de carga.</figcaption>
-        </figure>
-        <!-- Añade más slides aquí siguiendo la misma estructura -->
-      </div>
+    <div class="qs-intro">
+      <p class="qs-desc">
+        Somos un equipo especialista en reparación, optimización y mantenimiento de equipos.
+        Diagnóstico preciso, soluciones rápidas y transparencia en cada servicio.
+        Trabajamos con estándares profesionales para que tu equipo rinda mejor y dure más.
+      </p>
     </div>
 
-    <button class="qs-btn qs-next" aria-label="Siguiente" type="button">&gt;</button>
-  </div>
+    <!-- GALERÍA COMPACTA (no rompe layout) -->
+    <div class="qs-gallery">
+      <div class="qs-carousel" aria-live="polite" role="region" aria-label="Galería de trabajos">
+        <button class="qs-btn qs-prev" aria-label="Anterior" type="button">&lt;</button>
 
-  <!-- THUMBNAILS (opcionales) -->
-  <div class="qs-thumbs" role="tablist" aria-label="Miniaturas de trabajos">
-    <button class="qs-thumb" data-index="0" aria-selected="true" type="button">
-      <img src="img/trabajo1.jpg" alt="Miniatura 1">
-    </button>
-    <button class="qs-thumb" data-index="1" type="button">
-      <img src="img/trabajo2.jpg" alt="Miniatura 2">
-    </button>
-    <button class="qs-thumb" data-index="2" type="button">
-      <img src="img/trabajo3.jpg" alt="Miniatura 3">
-    </button>
-  </div>
+        <div class="qs-viewport"> <!-- viewport que recorta el track -->
+          <div class="qs-track">
+            <!-- cada slide: imagen + caption -->
+            <figure class="qs-slide">
+              <img src="img/trabajo1.jpg" alt="Proyecto 1">
+              <figcaption class="qs-caption">Reparación placa base — diagnóstico y sustitución de componentes.</figcaption>
+            </figure>
 
-  <!-- social icons -->
-  <div class="qs-social">
-    <a class="qs-social-link" href="https://instagram.com/tucuenta" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <img src="icons/instagram.png" alt="Instagram (png)">
-    </a>
-    <a class="qs-social-link" href="https://youtube.com/tucuenta" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-      <img src="icons/youtube.png" alt="YouTube (png)">
-    </a>
-    <a class="qs-social-link" href="https://tiktok.com/@tucuenta" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-      <img src="icons/tiktok.png" alt="TikTok (png)">
-    </a>
-  </div>
+            <figure class="qs-slide">
+              <img src="img/trabajo2.jpg" alt="Proyecto 2">
+              <figcaption class="qs-caption">Limpieza y reemplazo de pasta térmica — reducción de temperaturas.</figcaption>
+            </figure>
+
+            <figure class="qs-slide">
+              <img src="img/trabajo3.jpg" alt="Proyecto 3">
+              <figcaption class="qs-caption">Actualización de almacenamiento SSD — mejora de tiempos de carga.</figcaption>
+            </figure>
+          </div> <!-- .qs-track -->
+        </div> <!-- .qs-viewport -->
+
+        <button class="qs-btn qs-next" aria-label="Siguiente" type="button">&gt;</button>
+      </div> <!-- .qs-carousel -->
+
+      <!-- miniaturas centradas -->
+      <div class="qs-thumbs" role="tablist" aria-label="Miniaturas de trabajos">
+        <button class="qs-thumb" data-index="0" aria-selected="true" type="button" aria-label="Ir al trabajo 1">
+          <img src="img/trabajo1.jpg" alt="Miniatura Proyecto 1">
+        </button>
+        <button class="qs-thumb" data-index="1" type="button" aria-label="Ir al trabajo 2">
+          <img src="img/trabajo2.jpg" alt="Miniatura Proyecto 2">
+        </button>
+        <button class="qs-thumb" data-index="2" type="button" aria-label="Ir al trabajo 3">
+          <img src="img/trabajo3.jpg" alt="Miniatura Proyecto 3">
+        </button>
+      </div>
+
+      <!-- social icons -->
+      <div class="qs-social">
+        <a class="qs-social-link" href="#" aria-label="Instagram">
+          <img src="icons/instagram.png" alt="Instagram">
+        </a>
+        <a class="qs-social-link" href="#" aria-label="YouTube">
+          <img src="icons/youtube.png" alt="YouTube">
+        </a>
+        <a class="qs-social-link" href="#" aria-label="TikTok">
+          <img src="icons/tiktok.png" alt="TikTok">
+        </a>
+      </div>
+    </div> <!-- .qs-gallery -->
+  </div> <!-- .qs-inner -->
 </section>
 
 <!-- SECCIÓN: CONTACTO (separada y centrada, usa tus clases existentes) -->
