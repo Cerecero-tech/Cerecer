@@ -186,55 +186,32 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+// ---------- GALERÍA COMPACTA: JS (simple y accesible) ----------
+(function initQsGallery() {
   const track = document.querySelector('.qs-track');
-  if (!track) return; // no hay galería -> salir
-
-  const slides = Array.from(track.querySelectorAll('.qs-slide'));
+  const slides = track ? Array.from(track.children) : [];
   const prevBtn = document.querySelector('.qs-prev');
   const nextBtn = document.querySelector('.qs-next');
   const thumbs = Array.from(document.querySelectorAll('.qs-thumb'));
+  if (!track || slides.length === 0) return;
+
   let idx = 0;
-
-  function goTo(index) {
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-    idx = index;
-    const offset = -idx * 100;
-    track.style.transform = `translateX(${offset}%)`;
-
-    slides.forEach((s, i) => {
-      s.classList.toggle('active', i === idx);
-    });
-
-    // actualizar thumbs aria-selected
-    thumbs.forEach(t => t.setAttribute('aria-selected', 'false'));
-    if (thumbs[idx]) thumbs[idx].setAttribute('aria-selected', 'true');
-
-    // animación tipo "tipeo" para caption (simulación simple)
-    const caption = slides[idx].querySelector('.qs-caption');
-    if (caption) {
-      const full = caption.textContent.trim();
-      caption.textContent = '';
-      caption.style.opacity = '0';
-      let j = 0;
-      const step = () => {
-        if (j <= full.length) {
-          caption.textContent = full.slice(0, j);
-          caption.style.opacity = '1';
-          j++;
-          setTimeout(step, 12);
-        }
-      };
-      setTimeout(step, 60);
-    }
+  function update() {
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+    thumbs.forEach((t, i) => t.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
   }
 
-  // Prev/Next handlers
+  function goTo(i) {
+    if (i < 0) i = slides.length - 1;
+    if (i >= slides.length) i = 0;
+    idx = i;
+    update();
+  }
+
   if (prevBtn) prevBtn.addEventListener('click', () => goTo(idx - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => goTo(idx + 1));
 
-  // thumbs click
   thumbs.forEach(t => {
     t.addEventListener('click', () => {
       const i = Number(t.dataset.index);
@@ -242,17 +219,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // keyboard support
+  // keyboard
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') goTo(idx - 1);
     if (e.key === 'ArrowRight') goTo(idx + 1);
   });
 
-  // init
-  goTo(0);
+  // recalcula en resize (evita que se desplace mal al cambiar ancho)
+  window.addEventListener('resize', () => update());
 
-  // optional: auto-play (comment out if you don't want)
-  // let autoplay = setInterval(() => goTo(idx + 1), 6000);
-  // track.addEventListener('mouseenter', () => clearInterval(autoplay));
-  // track.addEventListener('mouseleave', () => autoplay = setInterval(() => goTo(idx + 1), 6000));
-});
+  // init
+  update();
+})();
