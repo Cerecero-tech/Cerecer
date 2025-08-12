@@ -1041,3 +1041,46 @@ nav ul li a:hover {
   .qs-slide img { width: 100%; max-width: 100%; height: 160px; }
   .qs-caption { max-width: 100%; margin-top: .6rem; }
 }
+
+/* ---------- Galería: imágenes más pequeñas y proporcionadas ---------- */
+/* Imagen principal de cada slide (más compacta en desktop) */
+.qs-slide img {
+  width: 100%;
+  max-width: 220px;   /* tamaño máximo en desktop */
+  height: 140px;      /* altura fija razonable */
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #222;
+  flex-shrink: 0;     /* evita que la imagen se encoja demasiado */
+}
+
+/* Caption ocupa el resto del espacio junto a la imagen */
+.qs-caption {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-left: 0.6rem;
+}
+
+/* Miniaturas más pequeñas */
+.qs-thumb img {
+  width: 48px;
+  height: 36px;
+  object-fit: cover;
+}
+
+/* Ajustes para pantallas pequeñas: imagen más alta y 100% de ancho */
+@media (max-width: 720px) {
+  .qs-slide {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .qs-slide img {
+    width: 100%;
+    max-width: 100%;
+    height: 160px;   /* un poco más alta en móvil para visibilidad */
+  }
+  .qs-caption {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
