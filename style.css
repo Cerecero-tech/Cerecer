@@ -814,3 +814,99 @@ nav ul li a:hover {
   .qs-slide img { width: 100%; max-width: 100%; height: 160px; }
   .qs-caption { max-width: 100%; margin-top: .6rem; }
 }
+
+/* ---------- Fix galería: evitar overflow horizontal ---------- */
+
+/* Asegura que el wrapper no deje que el track empuje el layout */
+.qs-gallery {
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* CLAVE: recorta cualquier exceso horizontal del track */
+.qs-carousel {
+  flex: 1 1 auto;
+  min-width: 0;        /* sigue siendo importante */
+  box-sizing: border-box;
+  overflow: hidden;    /* <- evita que el track empuje la página */
+  position: relative;  /* para posicionar los botones con absoluta */
+}
+
+/* Track con transición suave al moverse */
+.qs-track {
+  display: flex;
+  box-sizing: border-box;
+  transition: transform 360ms cubic-bezier(.2,.9,.2,1);
+  will-change: transform;
+}
+
+/* Cada slide ocupa el 100% del ancho visible del carousel */
+.qs-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Las imágenes no pueden crecer más que su contenedor */
+.qs-slide img,
+.qs-thumb img,
+.qs-social-link img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Imagen principal: escala y tiene tope razonable */
+.qs-slide img {
+  width: 100%;
+  max-width: 320px;   /* tope para desktop, evita que fuerce ancho */
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Botones prev/next: fuera del flujo para que no sumen ancho */
+.qs-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: transparent;
+  border: 1px solid #222;
+  color: var(--text);
+  padding: 0.18rem 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+.qs-btn.qs-prev { left: 8px; }
+.qs-btn.qs-next { right: 8px; }
+
+/* Miniaturas: que no rompan el ancho y puedan bajar de línea */
+.qs-thumbs {
+  display: flex;
+  gap: .5rem;
+  margin-top: .8rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 900px;   /* coherente con el resto del layout */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Asegura que el caption no expanda la slide cuando está oculto */
+.qs-caption {
+  max-width: 60%;
+  word-wrap: break-word;
+}
+
+/* Responsive tweaks */
+@media (max-width: 820px) {
+  .qs-slide { flex-direction: column; }
+  .qs-slide img { width: 100%; max-width: 100%; height: 160px; }
+  .qs-caption { max-width: 100%; margin-top: .6rem; }
+}

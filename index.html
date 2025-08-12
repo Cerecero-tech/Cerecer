@@ -63,8 +63,14 @@
         <span class="card-heading">Diagnóstico</span>
       </div>
     </div>
+  </div> <!-- .cards-container (CERRADA) -->
 
-<!-- QUIENES SOMOS (Terminal style) -->
+  <div class="more-services">
+    <a href="#mas-servicios">> Más servicios</a>
+  </div>
+</section> <!-- .services (CERRADA) -->
+
+<!-- SECCIÓN: QUIENES SOMOS (fuera del grid de servicios) -->
 <section id="quienessomos" class="qs-section">
   <h2 class="qs-title">&gt;quienessomos</h2>
 
@@ -78,9 +84,10 @@
 
   <!-- GALERÍA DINÁMICA -->
   <div class="qs-gallery">
-    <button class="qs-btn qs-prev" aria-label="Anterior">&lt;</button>
+    <button class="qs-btn qs-prev" aria-label="Anterior" type="button">&lt;</button>
 
-    <div class="qs-carousel" aria-live="polite">
+    <!-- Wrapper del carousel: overflow:hidden controlado desde CSS -->
+    <div class="qs-carousel" aria-live="polite" role="region" aria-label="Galería de trabajos">
       <div class="qs-track">
         <!-- COPIA/PEGA O CAMBIA CADA SLIDE CON TU IMAGEN Y TEXTO -->
         <figure class="qs-slide">
@@ -97,27 +104,27 @@
           <img src="img/trabajo3.jpg" alt="Proyecto 3">
           <figcaption class="qs-caption">Actualización de almacenamiento SSD — mejora de tiempos de carga.</figcaption>
         </figure>
-        <!-- Añade más slides aquí -->
+        <!-- Añade más slides aquí siguiendo la misma estructura -->
       </div>
     </div>
 
-    <button class="qs-btn qs-next" aria-label="Siguiente">&gt;</button>
+    <button class="qs-btn qs-next" aria-label="Siguiente" type="button">&gt;</button>
   </div>
 
   <!-- THUMBNAILS (opcionales) -->
   <div class="qs-thumbs" role="tablist" aria-label="Miniaturas de trabajos">
-    <button class="qs-thumb" data-index="0" aria-selected="true">
+    <button class="qs-thumb" data-index="0" aria-selected="true" type="button">
       <img src="img/trabajo1.jpg" alt="Miniatura 1">
     </button>
-    <button class="qs-thumb" data-index="1">
+    <button class="qs-thumb" data-index="1" type="button">
       <img src="img/trabajo2.jpg" alt="Miniatura 2">
     </button>
-    <button class="qs-thumb" data-index="2">
+    <button class="qs-thumb" data-index="2" type="button">
       <img src="img/trabajo3.jpg" alt="Miniatura 3">
     </button>
   </div>
 
-  <!-- ICONOS DE REDES (TÚ PEGAS LOS PNGs dentro de los <img>) -->
+  <!-- social icons -->
   <div class="qs-social">
     <a class="qs-social-link" href="https://instagram.com/tucuenta" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
       <img src="icons/instagram.png" alt="Instagram (png)">
@@ -131,28 +138,28 @@
   </div>
 </section>
 
+<!-- SECCIÓN: CONTACTO (separada y centrada, usa tus clases existentes) -->
+<section id="contacto" class="contact-section contact-card" aria-labelledby="contacto-title">
+  <h3 id="contacto-title" class="contact-title">&gt; Contacto</h3>
 
+  <p class="contact-text">
+    Soporte Técnico Cerecer — Servicio especializado en mantenimiento, diagnóstico y optimización de sistemas. Atención confiable, rápida y segura.
+  </p>
 
-    <div class="card contact-card">
-      <div class="card-title">
-        <span class="card-heading">> Contacto</span>
-      </div>
-      <p class="contact-desc">
-        Soporte Técnico Cerecer — Servicio especializado en mantenimiento, diagnóstico y optimización de sistemas. Atención confiable, rápida y segura.
-      </p>
-      <div class="contact-info">
-        <div>> Email: <a href="mailto:tech.repair@cerecer.xyz">tech.repair@cerecer.xyz</a></div>
-        <div>> Tel: +52 (720) 666 7280</div>
-        <div>> WhatsApp:
-          <a
-            href="https://wa.me/7206667280?text=Hola%20me%20interesa%20un%20servicio%20de%20CERECER"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Enviar mensaje"
-          >Enviar mensaje</a>
-        </div>
-        <div class="location">Ubicación: Estado de México</div>
-      </div>
+  <div class="contact-info">
+    <div>> Email: <a href="mailto:tech.repair@cerecer.xyz">tech.repair@cerecer.xyz</a></div>
+    <div>> Tel: +52 (720) 666 7280</div>
+    <div>> WhatsApp:
+      <a
+        href="https://wa.me/7206667280?text=Hola%20me%20interesa%20un%20servicio%20de%20CERECER"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Enviar mensaje"
+      >Enviar mensaje</a>
+    </div>
+    <div class="location">Ubicación: Estado de México</div>
+  </div>
+</section>
     </div>
   </div>
 
