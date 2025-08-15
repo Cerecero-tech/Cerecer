@@ -226,67 +226,55 @@
     /* Accessibility: focus */
     a:focus, button:focus { outline: 2px dashed rgba(255,165,0,0.45); outline-offset:3px; }
 
-    /* FIX: asegurar layout correcto del header (marca izquierda + reloj derecha) */
-.top-bar {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 12px !important;
-  padding: 6px 12px !important;
-  box-sizing: border-box !important;
-  max-width: var(--max-width, 980px) !important;
-  margin: 12px auto 0 !important;
-  background: transparent !important;
+    .top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* ← cambia de "flex-end" a "flex-start" */
+  padding: 0.45rem 1rem 0.45rem 1rem; /* más espacio arriba */
+  background: #0c0c0c;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
-/* marca (flecha + texto) en una sola línea */
-.top-bar .brand {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  white-space: nowrap;
+.brand {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding-top: 0.35rem; /* ↓ baja CERECER un poco más */
+  display: flex;
+  align-items: center;;
 }
 
-/* prompt '>' y texto 'Cerecer' — ambos en blanco y tamaño del reloj */
-.top-bar .brand .prompt,
-.top-bar .brand .brand-name {
-  color: #ffffff !important;
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  line-height: 1 !important;
-  letter-spacing: 0.2px !important;
-  margin: 0 !important;
+.time-block {
+  text-align: right;
+  line-height: 1.1;
+  font-size: 0.7rem; /* un poco más pequeño */
+  padding-top: 0.1rem; /* ↑ sube ligeramente el reloj */
 }
 
-/* bloque de tiempo al lado derecho: reloj y fecha alineados a la derecha */
-.top-bar .time-block {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-end !important;
-  gap: 2px !important;
-  font-family: 'IBM Plex Mono', monospace !important;
+/* Línea divisora más gruesa */
+.divider {
+  border: 0;
+  border-top: 1px solid #cacaca;
+  margin: 0px 0;
 }
 
-/* tamaños exactos para reloj y fecha */
-.top-bar .time-block #clock {
-  font-size: 13px !important;
-  color: var(--muted, #cacaca) !important;
-}
-.top-bar .time-block #date {
-  font-size: 12px !important;
-  color: var(--muted-2, #888) !important;
+/* Barra de estado */
+.status-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.4rem 1rem;
+  background: #0c0c0c;
 }
 
-/* Evitar que el hr/full-rule empuje el header en móviles */
-.full-rule { margin: 8px 0 12px !important; }
+#service-status {
+  font-size: 0.6rem;
+}
 
-/* Responsivo: mantener en una línea en pantallas pequeñas si hay espacio */
-@media (max-width:420px){
-  .top-bar { padding: 6px 8px !important; gap:8px !important; }
-  .top-bar .brand .prompt,
-  .top-bar .brand .brand-name,
-  .top-bar .time-block #clock { font-size: 12px !important; }
-  .top-bar .time-block #date { font-size: 11px !important; }
+.prompt {
+  color: #cacaca;
+}
+
+.brand-name {
+  color: #cacaca;
 }
 
   </style>
