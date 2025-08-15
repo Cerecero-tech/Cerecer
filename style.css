@@ -1140,3 +1140,62 @@ nav ul li a:hover {
 #catalogo-cerecer .highlight {
   color: #FFA500;
 }
+
+/* ===== MANTENIMIENTO ===== */
+#mantenimiento {
+  background-color: #0c0c0c;
+  color: #cacaca;
+  font-family: 'IBM Plex Mono', monospace;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #333;
+  border-radius: 12px;
+}
+
+#mantenimiento h2 {
+  color: #FFA500;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+#mantenimiento .subtitulo {
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 1rem;
+}
+
+#mantenimiento .tabla-servicios {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+#mantenimiento .servicio {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  background: #111;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+#mantenimiento .servicio:hover {
+  background: #1a1a1a;
+}
+
+#mantenimiento .tiempo {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+#mantenimiento .promocion {
+  background: rgba(255, 165, 0, 0.1);
+  border-left: 3px solid #FFA500;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  color: #FFA500;
+}
