@@ -1130,3 +1130,79 @@ nav ul li a:hover {
   letter-spacing: 0.2px;
   opacity: 1 !important;
 }
+
+/* ===== Minimal "Nosotros" (terminal-inspired, pero minimal) ===== */
+.minimal-nosotros { max-width: 1100px; margin: 32px auto; padding: 0 18px; }
+
+.nosotros-wrap {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 18px;
+  align-items: center;
+}
+
+/* panel izquierdo — contenido */
+.nosotros-left { background: transparent; padding: 10px 0; }
+
+.qs-title { color: var(--accent); font-size: 13px; margin: 0 0 8px; }
+.nosotros-lead {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 12px;
+  line-height: 1.45;
+}
+
+/* puntos con estilo terminal */
+.nosotros-points { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 8px; }
+.nosotros-points li { color: #bfbfbf; font-size: 13px; display:flex; gap:8px; align-items:flex-start; }
+.nosotros-points .dot { color: var(--accent); min-width: 12px; display:inline-block; font-weight:700; }
+
+/* CTAs discretos */
+.nosotros-ctas { display:flex; gap:10px; margin-top:6px; }
+.btn-primary {
+  background: var(--accent);
+  color: #0c0c0c;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight:700;
+  font-size: 12px;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* panel derecho — icon + stats */
+.nosotros-right {
+  background: linear-gradient(180deg, rgba(255,165,0,0.02), rgba(255,165,0,0.00));
+  border-radius: 12px;
+  padding: 18px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  border: 1px solid rgba(255,165,0,0.04);
+}
+.icon-gear { color: rgba(255,165,0,0.9); opacity: 0.95; }
+
+.stats { width:100%; display:flex; justify-content:space-between; gap:8px; }
+.stat { text-align:center; }
+.stat-number { color: var(--accent); font-weight:700; font-size:16px; line-height:1; }
+.stat-label { color: var(--muted); font-size:12px; margin-top:6px; }
+
+/* responsive: convertir a columna en pantallas pequeñas */
+@media (max-width:900px) {
+  .nosotros-wrap { grid-template-columns: 1fr; }
+  .nosotros-right { order: -1; width: 100%; }
+  .stats { gap:12px; }
+  .stat-number { font-size:14px; }
+}
+
+/* pequeños ajustes de accesibilidad/contraste */
+.minimal-nosotros a:focus { outline: 2px dashed rgba(255,165,0,0.35); outline-offset: 3px; }
