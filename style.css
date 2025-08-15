@@ -1124,7 +1124,7 @@ nav ul li a:hover {
 .top-bar .brand .prompt,
 .top-bar .brand .brand-name {
   color: #ffffff !important;    /* blanco puro */
-  font-size: 13px !important;   /* igual que el reloj */
+  font-size: 12px !important;   /* igual que el reloj */
   font-weight: 400 !important;
   line-height: 1;
   letter-spacing: 0.2px;
