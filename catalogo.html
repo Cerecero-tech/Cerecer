@@ -3,15 +3,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Servicios</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-</head>
-<!DOCTYPE html>
-<html lang="es">
-<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Catálogo — Cerecer</title>
@@ -47,20 +38,6 @@
       font-size: var(--base-size);
       line-height:1.45;
     }
-
-    /* Top bar (keeps parity with site header) */
-    .top-bar {
-      max-width: var(--max-width);
-      margin: 20px auto 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 6px 12px;
-    }
-    .brand { display:flex; align-items:center; gap:8px; }
-    .prompt { color: var(--accent); font-weight:600; font-size: var(--header-size); }
-    .brand-name { font-size: var(--header-size); color: var(--muted); }
 
     /* Edge-to-edge separator (full width from one side to the other) */
     .full-rule {
@@ -251,19 +228,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Top bar (keeps consistent with the rest of the site) -->
-  <header class="top-bar" role="banner" aria-label="Cabecera">
-    <div class="brand">
-      <span class="prompt">&gt;</span>
-      <span class="brand-name">Cerecer</span>
-    </div>
-
-    <div class="time-block" aria-hidden="true">
-      <div id="clock" style="font-size:13px;color:var(--muted);">00:00 a.m.</div>
-      <div id="date" style="font-size:12px;color:var(--muted-2);">lunes, 00 de enero de 0000</div>
-    </div>
-  </header>
 
   <!-- decorative full-width line -->
   <hr class="full-rule" aria-hidden="true" />
@@ -463,35 +427,10 @@
     </div>
   </main>
 
-  <!-- Optional small script to update time/date similarly to header.js (keeps consistency) -->
-  <script>
-    (function updateHeader(){
-      const now = new Date();
-      const hour = now.getHours();
-      const minute = String(now.getMinutes()).padStart(2,'0');
-      const period = hour >= 12 ? 'p.m.' : 'a.m.';
-      const formattedHour = ((hour + 11) % 12 + 1);
-      const clock = document.getElementById('clock');
-      const dateEl = document.getElementById('date');
-      if(clock) clock.textContent = formattedHour + ':' + minute + ' ' + period;
 
-      const options = { weekday:'long', year:'numeric', month:'long', day:'2-digit', timeZone:'America/Mexico_City' };
-      if(dateEl) dateEl.textContent = now.toLocaleDateString('es-MX', options);
-    })();
-    setInterval(()=>{ /* refresh every 60s to be efficient */ 
-      (function(){ const now=new Date();
-        const hour = now.getHours();
-        const minute = String(now.getMinutes()).padStart(2,'0');
-        const period = hour >= 12 ? 'p.m.' : 'a.m.';
-        const formattedHour = ((hour + 11) % 12 + 1);
-        const clock = document.getElementById('clock');
-        const dateEl = document.getElementById('date');
-        if(clock) clock.textContent = formattedHour + ':' + minute + ' ' + period;
-        const options = { weekday:'long', year:'numeric', month:'long', day:'2-digit', timeZone:'America/Mexico_City' };
-        if(dateEl) dateEl.textContent = now.toLocaleDateString('es-MX', options);
-      })();
-    }, 60000);
-  </script>
+</body>
+</html>
+
 
 </body>
 </html>
