@@ -186,18 +186,36 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
   }
 });
 
-// ---------- GALERÍA COMPACTA: JS (simple y accesible) ----------
-(function initQsGallery() {
-  const track = document.querySelector('.qs-track');
-  const slides = track ? Array.from(track.children) : [];
-  const prevBtn = document.querySelector('.qs-prev');
-  const nextBtn = document.querySelector('.qs-next');
-  const thumbs = Array.from(document.querySelectorAll('.qs-thumb'));
-  if (!track || slides.length === 0) return;
+// ---------- GALERÍA: desplazamiento por píxeles, alineado en móvil ----------
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.querySelector('.qs-carousel');
+  if (!carousel) return;
+
+  const viewport = carousel.querySelector('.qs-viewport');
+  const track    = carousel.querySelector('.qs-track');
+  const slides   = Array.from(track.querySelectorAll('.qs-slide'));
+  const prevBtn  = carousel.querySelector('.qs-prev');
+  const nextBtn  = carousel.querySelector('.qs-next');
+  const thumbs   = Array.from(document.querySelectorAll('.qs-thumb'));
+
+  if (!viewport || !track || slides.length === 0) return;
 
   let idx = 0;
-  function update() {
-    track.style.transform = `translateX(-${idx * 100}%)`;
+  let slideW = 0;
+
+  function measure() {
+    // Ancho exacto visible del carrusel
+    slideW = viewport.getBoundingClientRect().width;
+  }
+
+  function update(animate = true) {
+    if (!animate) track.style.transition = 'none';
+    track.style.transform = `translateX(${-idx * slideW}px)`;
+    if (!animate) {
+      // re-enable transition sin parpadeo
+      void track.offsetHeight;
+      track.style.transition = '';
+    }
     slides.forEach((s, i) => s.classList.toggle('active', i === idx));
     thumbs.forEach((t, i) => t.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
   }
@@ -206,28 +224,29 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
     if (i < 0) i = slides.length - 1;
     if (i >= slides.length) i = 0;
     idx = i;
-    update();
+    update(true);
   }
 
-  if (prevBtn) prevBtn.addEventListener('click', () => goTo(idx - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => goTo(idx + 1));
+  // Controles
+  prevBtn?.addEventListener('click', () => goTo(idx - 1));
+  nextBtn?.addEventListener('click', () => goTo(idx + 1));
+  thumbs.forEach(t => t.addEventListener('click', () => {
+    const i = Number(t.dataset.index);
+    if (!isNaN(i)) goTo(i);
+  }));
 
-  thumbs.forEach(t => {
-    t.addEventListener('click', () => {
-      const i = Number(t.dataset.index);
-      if (!isNaN(i)) goTo(i);
-    });
-  });
-
-  // keyboard
+  // Teclado
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') goTo(idx - 1);
+    if (e.key === 'ArrowLeft')  goTo(idx - 1);
     if (e.key === 'ArrowRight') goTo(idx + 1);
   });
 
-  // recalcula en resize (evita que se desplace mal al cambiar ancho)
-  window.addEventListener('resize', () => update());
+  // Recalcular en resize/orientation change y corregir posición sin animación
+  const onResize = () => { measure(); update(false); };
+  window.addEventListener('resize', onResize);
+  window.addEventListener('orientationchange', onResize);
 
-  // init
-  update();
-})();
+  // Init
+  measure();
+  update(false);
+});

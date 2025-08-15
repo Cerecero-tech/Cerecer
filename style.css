@@ -1073,3 +1073,14 @@ nav ul li a:hover {
   .qs-caption { max-width: 100%; margin-top: .6rem; }
 }
 
+/* Carrusel: el contenedor de los botones debe ser relativo */
+.qs-carousel { position: relative; }
+
+/* Asegura que el track no tenga huecos entre slides */
+.qs-track { gap: 0; }
+
+/* Cada slide ocupa el ancho del viewport del carrusel */
+.qs-slide { flex: 0 0 100%; }
+
+/* (por si acaso) recorta cualquier desbordamiento horizontal */
+.qs-viewport { overflow: hidden; }
