@@ -1073,14 +1073,48 @@ nav ul li a:hover {
   .qs-caption { max-width: 100%; margin-top: .6rem; }
 }
 
-/* Carrusel: el contenedor de los botones debe ser relativo */
-.qs-carousel { position: relative; }
+/* ===== Instagram Link Style ===== */
+.qs-instagram-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  background-color: transparent;
+  color: #FFA500; /* Accent color */
+  border: 1px solid #FFA500;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: 'IBM Plex Mono', monospace;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
 
-/* Asegura que el track no tenga huecos entre slides */
-.qs-track { gap: 0; }
+.qs-instagram-link:hover {
+  background-color: #FFA500;
+  color: #0c0c0c; /* Background color for contrast */
+}
 
-/* Cada slide ocupa el ancho del viewport del carrusel */
-.qs-slide { flex: 0 0 100%; }
+.qs-text {
+  margin-top: 5px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #cacaca;
+  line-height: 1.5;
+}
 
-/* (por si acaso) recorta cualquier desbordamiento horizontal */
-.qs-viewport { overflow: hidden; }
+/* ===== Catalog Style ===== */
+.catalog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.catalog-item {
+  border: 1px solid #FFA500;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #0c0c0c;
+  transition: transform 0.2s ease;
+}
+
+.catalog-item:hover {
+  transform: translateY(-3px);
+}
