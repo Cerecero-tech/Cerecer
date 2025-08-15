@@ -6,7 +6,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Catálogo — Cerecer</title>
-    <link rel="stylesheet" href="style.css">
 
   <!-- Font (matching project) -->
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
@@ -226,6 +225,70 @@
 
     /* Accessibility: focus */
     a:focus, button:focus { outline: 2px dashed rgba(255,165,0,0.45); outline-offset:3px; }
+
+    /* FIX: asegurar layout correcto del header (marca izquierda + reloj derecha) */
+.top-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  padding: 6px 12px !important;
+  box-sizing: border-box !important;
+  max-width: var(--max-width, 980px) !important;
+  margin: 12px auto 0 !important;
+  background: transparent !important;
+}
+
+/* marca (flecha + texto) en una sola línea */
+.top-bar .brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  white-space: nowrap;
+}
+
+/* prompt '>' y texto 'Cerecer' — ambos en blanco y tamaño del reloj */
+.top-bar .brand .prompt,
+.top-bar .brand .brand-name {
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.2px !important;
+  margin: 0 !important;
+}
+
+/* bloque de tiempo al lado derecho: reloj y fecha alineados a la derecha */
+.top-bar .time-block {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 2px !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+/* tamaños exactos para reloj y fecha */
+.top-bar .time-block #clock {
+  font-size: 13px !important;
+  color: var(--muted, #cacaca) !important;
+}
+.top-bar .time-block #date {
+  font-size: 12px !important;
+  color: var(--muted-2, #888) !important;
+}
+
+/* Evitar que el hr/full-rule empuje el header en móviles */
+.full-rule { margin: 8px 0 12px !important; }
+
+/* Responsivo: mantener en una línea en pantallas pequeñas si hay espacio */
+@media (max-width:420px){
+  .top-bar { padding: 6px 8px !important; gap:8px !important; }
+  .top-bar .brand .prompt,
+  .top-bar .brand .brand-name,
+  .top-bar .time-block #clock { font-size: 12px !important; }
+  .top-bar .time-block #date { font-size: 11px !important; }
+}
+
   </style>
 </head>
 <body>
@@ -456,5 +519,6 @@
     <!-- Agrega más servicios aquí -->
   </main>
 
+  <script src="header.js"></script>
 </body>
 </html>
