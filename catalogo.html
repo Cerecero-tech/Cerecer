@@ -34,93 +34,231 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 </head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catálogo — Cerecer</title>
+
+  <!-- Font (matching project) -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+
+</head>
 <body>
-    <div class="catalogo-container">
-        <h1>&gt; CATÁLOGO DE SERVICIOS</h1>
-        <p class="intro">Soluciones rápidas, seguras y profesionales para tu equipo de cómputo.</p>
 
-        <pre>
-────────────────────────────────────────────
-MANTENIMIENTO
-────────────────────────────────────────────
-• Limpieza interna                   $350 MXN
-• Limpieza externa                   $150 MXN
-• Cambio de pasta térmica            $399 MXN
-  (Promoción: cambio de pasta incluye limpieza
-   profunda interna + externa sin costo extra)
-• Activación de Windows              $150 MXN
-
-Tiempos:
-- Limpieza interna o externa: 30–45 min
-- Cambio de pasta térmica: 1 hora
-- Activación de Windows: 15–30 min
-
-────────────────────────────────────────────
-MEJORA
-────────────────────────────────────────────
-• Aumento de memoria RAM             $250 MXN (instalación)
-• Cambio de HDD a SSD                 $450 MXN (sin SSD)
-• Instalación de SSD M.2 NVMe         $350 MXN (sin SSD)
-• Mejora/instalación de GPU o CPU     $500 MXN (base)
-
-Nota: precios de piezas no incluidos; ajustar según complejidad.
-
-────────────────────────────────────────────
-DIAGNÓSTICO
-────────────────────────────────────────────
-• Diagnóstico de hardware            $150 MXN
-• Diagnóstico de software            $150 MXN
-• Pruebas de rendimiento             $150 MXN
-• Revisión por daños físicos         $150 MXN
-
-Promoción:
-Si contratas la reparación después del diagnóstico,
-el costo del diagnóstico se descuenta del total.
-
-────────────────────────────────────────────
-PAQUETES ESPECIALES
-────────────────────────────────────────────
-• Mantenimiento + Mejora → 10% de descuento
-• Diagnóstico + Reparación → Diagnóstico gratis
-• Optimización completa (mantenimiento, mejora y pruebas)
-  → Precio especial (cotizar)
-
-────────────────────────────────────────────
-GARANTÍA Y POLÍTICAS
-────────────────────────────────────────────
-• Garantía de 30 días en mano de obra.
-• No cubre daños por mal uso posterior a la entrega.
-• Piezas y componentes con garantía del fabricante.
-
-────────────────────────────────────────────
-FAQ
-────────────────────────────────────────────
-P: ¿Cuánto tiempo tardan en devolver mi equipo?
-R: Generalmente el mismo día, dependiendo del servicio.
-
-P: ¿Puedo llevar mis propias piezas?
-R: Sí, pero no podemos garantizar su funcionamiento si no son nuevas.
-
-P: ¿Aceptan pagos con tarjeta?
-R: Sí, aceptamos efectivo, transferencia y tarjeta.
-
-────────────────────────────────────────────
-CONTACTO
-────────────────────────────────────────────
-contactar soporte
-WhatsApp: +52 55 XXX XXXX
-Email: contacto@cerecer.com
-
-────────────────────────────────────────────
-LEYENDAS IMPORTANTES
-────────────────────────────────────────────
-Cada precio está sujeto a cambio dependiendo de la complejidad del modelo
-(laptop, consola, PC, All-in-One, etc.).
-Recibe un descuento del 15% al permitir grabar en video tu reparación.
-        </pre>
-
-        <a href="index.html" class="btn-volver">&lt; Volver al inicio</a>
+  <!-- Top bar (keeps consistent with the rest of the site) -->
+  <header class="top-bar" role="banner" aria-label="Cabecera">
+    <div class="brand">
+      <span class="prompt">&gt;</span>
+      <span class="brand-name">Cerecer</span>
     </div>
+
+    <div class="time-block" aria-hidden="true">
+      <div id="clock" style="font-size:13px;color:var(--muted);">00:00 a.m.</div>
+      <div id="date" style="font-size:12px;color:var(--muted-2);">lunes, 00 de enero de 0000</div>
+    </div>
+  </header>
+
+  <!-- decorative full-width line -->
+  <hr class="full-rule" aria-hidden="true" />
+
+  <!-- Main content -->
+  <main class="catalog-wrap" role="main" aria-labelledby="catalog-title">
+    <div class="catalog-hero">
+      <div>
+        <h1 id="catalog-title">&gt; CATÁLOGO DE SERVICIOS</h1>
+        <p>Soluciones rápidas, seguras y profesionales para tu equipo de cómputo.</p>
+      </div>
+      <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+        <span class="badge" aria-hidden="true">Precios referenciales</span>
+      </div>
+    </div>
+
+    <!-- services grid -->
+    <section class="sections" aria-label="Servicios principales">
+
+      <!-- Mantenimiento -->
+      <article class="service-panel" aria-labelledby="mantenimiento-title">
+        <div class="service-head">
+          <div>
+            <h2 id="mantenimiento-title" class="service-title">MANTENIMIENTO</h2>
+            <div class="service-sub">Limpiezas, pasta térmica y activaciones</div>
+          </div>
+        </div>
+
+        <div class="service-list" role="list" aria-label="Lista de servicios de mantenimiento">
+          <div class="service-row" role="listitem">
+            <div class="service-name">Limpieza interna</div>
+            <div class="service-price">$350 MXN</div>
+          </div>
+
+          <div class="service-row" role="listitem">
+            <div class="service-name">Limpieza externa</div>
+            <div class="service-price">$150 MXN</div>
+          </div>
+
+          <div class="service-row" role="listitem">
+            <div class="service-name">Cambio de pasta térmica</div>
+            <div class="service-price">$399 MXN</div>
+          </div>
+
+          <div class="service-row" role="listitem">
+            <div class="service-name">Activación de Windows</div>
+            <div class="service-price">$150 MXN</div>
+          </div>
+        </div>
+
+        <div class="meta" aria-hidden="true">
+          <div>Tiempos: limpieza 30–45 min · pasta térmica ≈ 1 h · activación 15–30 min</div>
+        </div>
+
+        <div class="promo" role="note">
+          Promoción: cambio de pasta incluye limpieza profunda interna + externa sin costo extra.
+        </div>
+      </article>
+
+      <!-- Mejora -->
+      <article class="service-panel" aria-labelledby="mejora-title">
+        <div class="service-head">
+          <div>
+            <h2 id="mejora-title" class="service-title">MEJORA</h2>
+            <div class="service-sub">Instalaciones y upgrades</div>
+          </div>
+        </div>
+
+        <div class="service-list" role="list" aria-label="Lista de servicios de mejora">
+          <div class="service-row" role="listitem">
+            <div class="service-name">Aumento de memoria RAM (instalación)</div>
+            <div class="service-price">$250 MXN</div>
+          </div>
+
+          <div class="service-row" role="listitem">
+            <div class="service-name">Cambio de HDD → SSD (sin SSD)</div>
+            <div class="service-price">$450 MXN</div>
+          </div>
+
+          <div class="service-row" role="listitem">
+            <div class="service-name">Instalación SSD M.2 NVMe (sin SSD)</div>
+            <div class="service-price">$350 MXN</div>
+          </div>
+
+          <div class="service-row" role="listitem">
+            <div class="service-name">Mejora/instalación de GPU o CPU</div>
+            <div class="service-price">$500 MXN (base)</div>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div style="color:var(--muted-2)">Nota: precios de piezas no incluidos; ajustar según complejidad del modelo.</div>
+        </div>
+      </article>
+
+      <!-- Diagnóstico -->
+      <article class="service-panel" aria-labelledby="diagnostico-title">
+        <div class="service-head">
+          <div>
+            <h2 id="diagnostico-title" class="service-title">DIAGNÓSTICO</h2>
+            <div class="service-sub">Detección y pruebas</div>
+          </div>
+        </div>
+
+        <div class="service-list" role="list" aria-label="Lista de servicios de diagnóstico">
+          <div class="service-row" role="listitem">
+            <div class="service-name">Diagnóstico de hardware</div>
+            <div class="service-price">$150 MXN</div>
+          </div>
+
+          <div class="service-row" role="listitem">
+            <div class="service-name">Diagnóstico de software</div>
+            <div class="service-price">$150 MXN</div>
+          </div>
+
+          <div class="service-row" role="listitem">
+            <div class="service-name">Pruebas de rendimiento</div>
+            <div class="service-price">$150 MXN</div>
+          </div>
+
+          <div class="service-row" role="listitem">
+            <div class="service-name">Revisión por daños físicos</div>
+            <div class="service-price">$150 MXN</div>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div>Promoción: si contratas la reparación después del diagnóstico, el costo se descuenta del total.</div>
+        </div>
+      </article>
+
+      <!-- Wide content: paquetes, garantías, FAQ, contacto -->
+      <div class="wide">
+        <div class="service-panel" style="padding:12px;">
+          <h3 class="service-title" style="margin-bottom:8px;">PAQUETES ESPECIALES</h3>
+          <div class="pack-row" role="list">
+            <div class="badge">Mantenimiento + Mejora → 10% dto.</div>
+            <div class="badge">Diagnóstico + Reparación → Diagnóstico gratis</div>
+            <div class="badge">Optimización completa → Cotizar</div>
+          </div>
+        </div>
+
+        <div class="service-panel" style="padding:12px; display:flex; flex-direction:column; gap:8px;">
+          <h3 class="service-title" style="margin:0 0 6px 0;">GARANTÍA Y POLÍTICAS</h3>
+          <div class="meta" style="flex-direction:column; gap:6px;">
+            <div>• Garantía de 30 días en mano de obra.</div>
+            <div>• No cubre daños por mal uso posterior a la entrega.</div>
+            <div>• Piezas y componentes con garantía del fabricante.</div>
+          </div>
+        </div>
+
+        <div class="service-panel" style="padding:12px;">
+          <h3 class="service-title" style="margin-bottom:8px;">FAQ</h3>
+          <div style="display:flex; flex-direction:column; gap:6px; color:var(--muted); font-size:13px;">
+            <div><strong>P:</strong> ¿Cuánto tiempo tardan en devolver mi equipo?</div>
+            <div><strong>R:</strong> Generalmente el mismo día, dependiendo del servicio y de la complejidad.</div>
+
+            <div style="margin-top:6px;"><strong>P:</strong> ¿Puedo llevar mis propias piezas?</div>
+            <div><strong>R:</strong> Sí, pero no podemos garantizar su funcionamiento si no son nuevas.</div>
+
+            <div style="margin-top:6px;"><strong>P:</strong> ¿Aceptan pagos con tarjeta?</div>
+            <div><strong>R:</strong> Sí, aceptamos efectivo, transferencia y tarjeta.</div>
+          </div>
+        </div>
+
+        <div class="service-panel" style="padding:12px; display:flex; flex-direction:column; gap:8px;">
+          <h3 class="service-title" style="margin-bottom:6px;">CONTACTO</h3>
+          <div class="contact-block">
+            <div>WhatsApp:</div>
+            <a href="https://wa.me/525506667280?text=Hola%20me%20interesa%20un%20servicio%20de%20CERECER" target="_blank" rel="noopener">+52 55 0666 7280</a>
+          </div>
+          <div class="contact-block">
+            <div>Email:</div>
+            <a href="mailto:contacto@cerecer.com">contacto@cerecer.com</a>
+          </div>
+
+          <div style="font-size:12px;color:var(--muted-2); margin-top:6px;">
+            <em>Cada precio está sujeto a cambio según complejidad (laptop, consola, PC, All-in-One, etc.).</em>
+          </div>
+
+          <div class="promo" style="margin-top:8px;">
+            Recibe un 15% de descuento al permitir grabar en video tu reparación.
+          </div>
+        </div>
+
+      </div> <!-- .wide -->
+
+    </section> <!-- .sections -->
+
+    <!-- footer: back + small contact -->
+    <div class="catalog-footer">
+      <a href="index.html" class="back" aria-label="Volver al inicio">&lt; Volver al inicio</a>
+
+      <div style="margin-left:auto; color:var(--muted); font-size:13px;">
+        Última actualización: <strong style="color:var(--accent)">15 ago 2025</strong>
+      </div>
+    </div>
+  </main>
+
+
 </body>
 </html>
 
