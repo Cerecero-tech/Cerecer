@@ -1118,3 +1118,25 @@ nav ul li a:hover {
 .catalog-item:hover {
   transform: translateY(-3px);
 }
+
+
+#catalogo-cerecer {
+  background-color: #0c0c0c;
+  color: #cacaca;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 20px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+#catalogo-cerecer pre {
+  margin: 0;
+  overflow-x: auto;
+}
+
+#catalogo-cerecer strong,
+#catalogo-cerecer .highlight {
+  color: #FFA500;
+}
