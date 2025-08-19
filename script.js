@@ -186,3 +186,20 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
   }
 });
 
+function toggleBox(id) {
+      const boxes = document.querySelectorAll(".content-box");
+      boxes.forEach(box => {
+        if (box.id === id) {
+          // Reiniciar animación
+          box.style.display = box.style.display === "block" ? "none" : "block";
+          if (box.style.display === "block") {
+            const typingDiv = box.querySelector(".typing");
+            typingDiv.style.animation = "none";
+            void typingDiv.offsetWidth; // reflow
+            typingDiv.style.animation = null;
+          }
+        } else {
+          box.style.display = "none";
+        }
+      });
+    }

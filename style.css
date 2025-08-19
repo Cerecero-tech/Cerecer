@@ -1391,3 +1391,95 @@ nav ul li a:hover {
   .about-aside{ order: 2; }
   .about-col{ order: 1; }
 }
+
+    body {
+      background: #0c0c0c;
+      color: #fff;
+      font-family: "IBM Plex Mono", monospace;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* HEADER */
+    header {
+      padding: 1rem;
+      border-bottom: 1px solid #333;
+    }
+
+    /* BANNER */
+    .banner {
+      margin: 2rem auto;
+    }
+    .banner img {
+      max-width: 80%;
+      height: auto;
+    }
+
+    /* BOTONES */
+    .buttons-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .buttons-container::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: white;
+      z-index: 0;
+    }
+
+    .btn {
+      background: black;
+      border: 1px solid white;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 1;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #222;
+    }
+
+    /* CUADROS DESPLEGABLES */
+    .content-box {
+      display: none;
+      max-width: 500px;
+      margin: 1.5rem auto;
+      padding: 1rem;
+      border: 1px solid white;
+      background: black;
+      color: white;
+      text-align: left;
+      font-size: 0.95rem;
+      white-space: pre-line;
+    }
+
+    /* ANIMACIÓN TYPEWRITER */
+    .typing {
+      overflow: hidden;
+      border-right: 0.15em solid white;
+      white-space: nowrap;
+      animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: white; }
+    }
