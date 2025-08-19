@@ -38,15 +38,19 @@
   </header>
 
   <main>
-    <div class="line"></div>
-    <div class="buttons">
-      <button class="terminal-btn" data-target="mantenimiento">| Mantenimiento |</button>
-      <button class="terminal-btn" data-target="mejora">| Mejora |</button>
-      <button class="terminal-btn" data-target="reparacion">| Reparación |</button>
-    </div>
-    <div class="line"></div>
+  <!-- Línea antes de los botones -->
+    <div class="line short"></div>
 
-    <!-- Contenedores ocultos para cada botón -->
+    <div class="buttons">
+      <button class="terminal-btn" data-target="mantenimiento">Mantenimiento</button>
+      <button class="terminal-btn" data-target="mejora">Mejora</button>
+      <button class="terminal-btn" data-target="reparacion">Reparación</button>
+    </div>
+
+    <!-- Línea después de los botones -->
+    <div class="line short"></div>
+
+    <!-- Contenedores ocultos -->
     <div id="mantenimiento" class="terminal-box hidden"></div>
     <div id="mejora" class="terminal-box hidden"></div>
     <div id="reparacion" class="terminal-box hidden"></div>
