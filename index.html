@@ -31,41 +31,25 @@
   </div>
   <hr class="divider bottom-divider">
 
- <div class="banner">
-    <img src="banner.gif" alt="Banner">
-  </div>
-
-  <!-- BOTONES -->
-  <div class="buttons-container">
-    <button class="btn" onclick="toggleBox('mantenimiento')">Mantenimiento</button>
-    <button class="btn" onclick="toggleBox('mejora')">Mejora</button>
-    <button class="btn" onclick="toggleBox('reparacion')">Reparación</button>
-  </div>
-
-  <!-- CUADROS -->
-  <div id="mantenimiento" class="content-box">
-    <div class="typing">
-      - Limpieza física<br>
-      - Optimización OS<br>
-      - Revisión HW
+<header>
+    <div class="banner">
+      <img src="img/mi_banner.gif" alt="Banner">
     </div>
-  </div>
+  </header>
 
-  <div id="mejora" class="content-box">
-    <div class="typing">
-      - Upgrade RAM/SSD<br>
-      - Mejoras GPU<br>
-      - Optimización SW
+  <main>
+    <div class="line"></div>
+    <div class="buttons">
+      <button class="terminal-btn" data-target="mantenimiento">| Mantenimiento |</button>
+      <button class="terminal-btn" data-target="mejora">| Mejora |</button>
+      <button class="terminal-btn" data-target="reparacion">| Reparación |</button>
     </div>
-  </div>
+    <div class="line"></div>
 
-  <div id="reparacion" class="content-box">
-    <div class="typing">
-      - Diagnóstico de fallas<br>
-      - Pruebas de estrés<br>
-      - Reparación técnica
-    </div>
-  </div>
+    <!-- Contenedores ocultos para cada botón -->
+    <div id="mantenimiento" class="terminal-box hidden"></div>
+    <div id="mejora" class="terminal-box hidden"></div>
+    <div id="reparacion" class="terminal-box hidden"></div>
 
   <div class="more-services">
     <a href="catalogo.html" class="qs-instagram-link">Más servicios</a>

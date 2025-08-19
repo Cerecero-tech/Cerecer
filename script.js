@@ -186,20 +186,68 @@ PS D:\\Usuarios\\invitado> iniciarcerecer.ht`;
   }
 });
 
-function toggleBox(id) {
-      const boxes = document.querySelectorAll(".content-box");
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".terminal-btn");
+  const boxes = document.querySelectorAll(".terminal-box");
+
+  const texts = {
+    mantenimiento: [
+      "➤ Limpieza interna y externa.",
+      "➤ Cambio de pasta térmica.",
+      "➤ Optimización de rendimiento."
+    ],
+    mejora: [
+      "➤ Actualización de hardware.",
+      "➤ Instalación de SSD.",
+      "➤ Mejora de memoria RAM."
+    ],
+    reparacion: [
+      "➤ Diagnóstico de fallos.",
+      "➤ Reparación de componentes.",
+      "➤ Sustitución de piezas dañadas."
+    ]
+  };
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Resetear botones
+      buttons.forEach(b => b.classList.remove("active"));
+      button.classList.add("active");
+
+      // Ocultar cajas
       boxes.forEach(box => {
-        if (box.id === id) {
-          // Reiniciar animación
-          box.style.display = box.style.display === "block" ? "none" : "block";
-          if (box.style.display === "block") {
-            const typingDiv = box.querySelector(".typing");
-            typingDiv.style.animation = "none";
-            void typingDiv.offsetWidth; // reflow
-            typingDiv.style.animation = null;
-          }
-        } else {
-          box.style.display = "none";
-        }
+        box.classList.add("hidden");
+        box.innerHTML = "";
       });
-    }
+
+      // Mostrar caja seleccionada
+      const targetId = button.getAttribute("data-target");
+      const targetBox = document.getElementById(targetId);
+      targetBox.classList.remove("hidden");
+
+      // Animación de escritura (línea por línea)
+      let lines = texts[targetId];
+      let lineIndex = 0;
+
+      function typeLine() {
+        if (lineIndex < lines.length) {
+          let line = lines[lineIndex];
+          let i = 0;
+          let p = document.createElement("p");
+          targetBox.appendChild(p);
+
+          let interval = setInterval(() => {
+            p.textContent += line[i];
+            i++;
+            if (i === line.length) {
+              clearInterval(interval);
+              lineIndex++;
+              setTimeout(typeLine, 300); // pequeña pausa entre líneas
+            }
+          }, 40);
+        }
+      }
+      typeLine();
+    });
+  });
+});

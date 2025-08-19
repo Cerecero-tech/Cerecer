@@ -1483,3 +1483,69 @@ nav ul li a:hover {
       from, to { border-color: transparent }
       50% { border-color: white; }
     }
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+body {
+  background: #0c0c0c;
+  color: #cacaca;
+  font-family: 'IBM Plex Mono', monospace;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.banner img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 300px;
+}
+
+.line {
+  border-top: 1px solid #555;
+  margin: 1rem auto;
+  width: 90%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.terminal-btn {
+  background: #0c0c0c;
+  color: #cacaca;
+  border: 1px solid #cacaca;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.terminal-btn:hover {
+  background: #111;
+}
+
+.terminal-btn:active,
+.terminal-btn.active {
+  background: #cacaca;
+  color: #0c0c0c;
+}
+
+.terminal-box {
+  border: 1px solid #cacaca;
+  background: #0c0c0c;
+  color: #cacaca;
+  font-size: 0.8rem;
+  text-align: left;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  width: 80%;
+  max-width: 600px;
+  white-space: pre-line;
+}
+
+.hidden {
+  display: none;
+}
