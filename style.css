@@ -1660,3 +1660,27 @@ body {
   background-color: #e6e6e6;
 }
 
+/* ======= Responsive para "Nosotros" ======= */
+@media (max-width: 768px) {
+  /* Texto más pequeño en la terminal */
+  .about-terminal {
+    font-size: 0.8rem;
+    padding: 12px;
+  }
+
+  .about-terminal .line {
+    margin: 4px 0;
+  }
+
+  /* Espacio extra entre la terminal y los cuadros */
+  .about-content {
+    margin-top: 20px; /* antes estaba pegado, ahora respira */
+  }
+
+  /* Ajuste de cajas misión/visión en móviles */
+  .about-content .card {
+    font-size: 0.85rem;
+    padding: 12px;
+  }
+}
+
