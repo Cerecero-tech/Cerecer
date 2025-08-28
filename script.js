@@ -192,19 +192,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const texts = {
     mantenimiento: [
-      "➤ Limpieza interna y externa.",
-      "➤ Cambio de pasta térmica.",
-      "➤ Optimización de rendimiento."
+      "> Limpieza interna y externa.",
+      "> Cambio de pasta térmica.",
+      "> Optimización de rendimiento."
     ],
     mejora: [
-      "➤ Actualización de hardware.",
-      "➤ Instalación de SSD.",
-      "➤ Mejora de memoria RAM."
+      "> Actualización de hardware.",
+      "> Instalación de SSD.",
+      "> Mejora de memoria RAM."
     ],
     reparacion: [
-      "➤ Diagnóstico de fallos.",
-      "➤ Reparación de componentes.",
-      "➤ Sustitución de piezas dañadas."
+      "> Diagnóstico de fallos.",
+      "> Reparación de componentes.",
+      "> Sustitución de piezas dañadas."
     ]
   };
 
