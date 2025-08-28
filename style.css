@@ -1626,3 +1626,37 @@ body {
     align-items: center;
   }
 }
+/* ======= Servicios ======= */
+.services-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap; /* <-- siempre en fila */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.services-container .box {
+  flex: 1;
+  max-width: 32%;   /* <-- tres caben lado a lado */
+  min-width: 250px; /* <-- para no deformarse en pantallas muy chicas */
+}
+
+/* Botón "Más servicios" */
+#more-services {
+  display: block;
+  margin: 30px auto 0 auto; /* centrado */
+  padding: 8px 16px;        /* más pequeño */
+  font-size: 0.9rem;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#more-services:hover {
+  background-color: #e6e6e6;
+}
+
