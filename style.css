@@ -1842,3 +1842,20 @@ body {
 #about h2 {
   font-size: 1rem; /* el título más discreto */
 }
+#banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#banner img, 
+#banner pre {
+  max-width: 100%;
+  height: auto;   /* mantiene proporción */
+  object-fit: contain;
+}
+
+@media (max-width: 400px) {
+  .buttons { flex-direction: row !important; flex-wrap: wrap; gap: 0.6rem; }
+}
