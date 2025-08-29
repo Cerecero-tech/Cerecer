@@ -1744,3 +1744,64 @@ body {
   }
 }
 
+/* Banner responsivo más grande */
+.banner-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0; /* menos espacio arriba y abajo */
+}
+
+#banner {
+  max-width: 90%;   /* bastante más grande */
+  height: auto;
+}
+
+/* Cajitas de servicios */
+.services {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0; /* menos espacio para que no empuje */
+}
+
+/* Botón estilo terminal */
+.services-btn {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.btn-services {
+  display: inline-block;
+  background-color: #0c0c0c;  /* negro */
+  color: #ffffff;             /* texto blanco */
+  border: 2px solid #ffffff;  /* borde estilo terminal */
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-family: "IBM Plex Mono", monospace;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none; /* para que el <a> no tenga subrayado */
+  transition: all 0.3s ease;
+}
+
+.btn-services:hover {
+  background-color: #ffffff; /* fondo blanco */
+  color: #0c0c0c;            /* texto negro */
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  #banner {
+    max-width: 100%; /* ocupa más en celular */
+  }
+
+  .services {
+    gap: 1rem;
+  }
+
+  .btn-services {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
