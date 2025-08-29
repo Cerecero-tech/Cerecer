@@ -1684,3 +1684,63 @@ body {
   }
 }
 
+/* Banner responsivo */
+.banner-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+#banner {
+  max-width: 80%;   /* se ajusta al tamaño de la pantalla */
+  height: auto;
+}
+
+/* Botón "Más servicios" */
+.services-btn {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.btn-services {
+  background-color: #fff;
+  color: #0c0c0c;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+  font-family: "IBM Plex Mono", monospace;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-services:hover {
+  background-color: #f0f0f0;
+}
+
+/* Sección Nosotros (terminal adaptada) */
+.terminal .about-description {
+  margin-bottom: 1.5rem; /* espacio antes de misión/visión */
+}
+
+@media (max-width: 768px) {
+  /* Ajustes para móviles */
+  #banner {
+    max-width: 95%; /* que no se vea enano */
+  }
+
+  .btn-services {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .terminal h2 {
+    font-size: 1rem;
+  }
+
+  .terminal .about-description,
+  .terminal .about-boxes {
+    font-size: 0.85rem;
+  }
+}
+
