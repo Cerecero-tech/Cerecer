@@ -1805,3 +1805,40 @@ body {
   }
 }
 
+#banner {
+  height: 220px; /* ajusta según lo que quieras */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px; /* separa un poco del resto */
+}
+#banner img, #banner pre {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.service-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* espacio entre botones */
+  margin: 15px 0;
+}
+
+.service-buttons button {
+  flex: 1; /* para que todos tengan el mismo ancho */
+  max-width: 120px; /* no demasiado grandes */
+}
+
+#more-services {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  margin: 10px auto;
+  display: block;
+}
+#about {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+#about h2 {
+  font-size: 1rem; /* el título más discreto */
+}
