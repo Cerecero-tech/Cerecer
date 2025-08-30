@@ -1494,11 +1494,6 @@ body {
   max-width: 300px;
 }
 
-.line {
-  border-top: 1px solid #555;
-  margin: 1rem auto;
-  width: 90%;
-}
 
 .buttons {
   display: flex;
@@ -1559,12 +1554,6 @@ body {
   display: block;
   margin: 1rem auto;
   max-width: 200px;
-}
-
-.line {
-  border-top: 1px solid #555;
-  margin: 0.5rem auto;
-  width: 100%;
 }
 
 .line.short {
