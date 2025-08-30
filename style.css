@@ -1910,7 +1910,7 @@ img#banner {
   height: auto !important;
   display: block !important;
   object-fit: contain !important;
-  transform: scale(2.5) !important; /* fuerza aumento visual */
+  transform: scale(1.75) !important; /* fuerza aumento visual */
   transform-origin: top center !important; /* agranda hacia abajo */
   margin-top: 0 !important;
 }
