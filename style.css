@@ -1859,51 +1859,70 @@ body {
 @media (max-width: 400px) {
   .buttons { flex-direction: row !important; flex-wrap: wrap; gap: 0.6rem; }
 }
-/* ===== Fix: banner (override conflicting rules) ===== */
+
+/* ===== Ajustes rápidos: banner más grande, botones más arriba, "Más servicios" más pequeño ===== */
+
+/* Banner: más grande y mantiene ratio */
 .banner-container,
-.banner { display: flex; justify-content: center; align-items: center; }
+.banner { display:flex; justify-content:center; align-items:center; }
 
 .banner-container > img#banner,
 img#banner {
-  /* responsive width that keeps aspect ratio */
-  width: clamp(260px, 65vw, 780px) !important;
+  width: clamp(420px, 85vw, 1100px) !important; /* más presencia en pantallas grandes */
   max-width: 100% !important;
-  height: auto !important;       /* <-- prevents vertical stretching */
+  height: auto !important;       /* evita estirado vertical */
   display: block !important;
-  object-fit: contain;
+  object-fit: contain !important;
 }
 
-/* in case some rule set a fixed height on #banner */
-#banner {
-  height: auto !important;
-  min-height: 0 !important;
+/* En caso de que #banner venga como contenedor con altura fija */
+#banner { height: auto !important; min-height: 160px !important; }
+
+/* Subir los botones de servicio (Mantenimiento/Mejora/Reparación) */
+.buttons {
+  margin: 0.25rem 0 !important;
+  gap: 0.6rem !important;
+  /* mueve visualmente el bloque hacia arriba sin romper el flujo */
+  transform: translateY(-1.6rem) !important;
+  transition: transform .18s ease !important;
 }
 
-/* ===== Fix: "Más servicios" button (make it smaller & terminal-looking) ===== */
-.services-btn { margin: 1rem auto; text-align: center; }
+/* Ajustes finos de los botones terminal */
+.terminal-btn {
+  padding: 0.32rem 0.62rem !important;
+  font-size: 0.82rem !important;
+}
+
+/* "Más servicios" — mucho más pequeño y estilo terminal compacto */
+.services-btn { margin: 0.8rem auto !important; text-align: center !important; }
 
 .btn-services {
   display: inline-block !important;
-  padding: 0.35rem 0.9rem !important;
-  font-size: 0.85rem !important;
+  padding: 0.22rem 0.6rem !important;
+  font-size: 0.75rem !important;
+  min-width: 92px !important;
   border-radius: 6px !important;
-  border: 2px solid #cacaca !important;
+  border: 1px solid #cacaca !important;
   background: transparent !important;
   color: #cacaca !important;
-  min-width: 140px;
-  box-sizing: border-box;
-  text-decoration: none;
 }
 
-/* hover inverse like terminal */
+/* Hover invertido */
 .btn-services:hover {
   background: #cacaca !important;
   color: #0c0c0c !important;
 }
 
-/* small-screen tweaks */
-@media (max-width: 400px) {
+/* Responsive: reduzco la translate y tamaño del banner en móviles */
+@media (max-width: 480px) {
   .banner-container > img#banner,
-  img#banner { width: clamp(220px, 88vw, 600px) !important; }
-  .btn-services { font-size: 0.78rem !important; padding: 0.28rem 0.7rem !important; min-width: 120px; }
+  img#banner { width: clamp(300px, 92vw, 760px) !important; }
+  .buttons { transform: translateY(-0.6rem) !important; gap: 0.45rem !important; }
+  .terminal-btn { font-size: 0.72rem !important; padding: 0.22rem 0.44rem !important; }
+  .btn-services { font-size: 0.68rem !important; padding: 0.18rem 0.5rem !important; min-width: 78px !important; }
+}
+
+/* Si necesitas menos subida en pantallas muy grandes */
+@media (min-width: 1200px) {
+  .buttons { transform: translateY(-2.4rem) !important; }
 }
