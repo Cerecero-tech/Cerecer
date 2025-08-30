@@ -1196,13 +1196,7 @@ nav ul li a:hover {
 .stat-number { color: var(--accent); font-weight:700; font-size:16px; line-height:1; }
 .stat-label { color: var(--muted); font-size:12px; margin-top:6px; }
 
-/* responsive: convertir a columna en pantallas pequeñas */
-@media (max-width:900px) {
-  .nosotros-wrap { grid-template-columns: 1fr; }
-  .nosotros-right { order: -1; width: 100%; }
-  .stats { gap:12px; }
-  .stat-number { font-size:14px; }
-}
+
 
 
 /* ====== NOSOTROS — Terminal Minimal ====== */
@@ -1878,14 +1872,6 @@ img#banner {
 /* En caso de que #banner venga como contenedor con altura fija */
 #banner { height: auto !important; min-height: 160px !important; }
 
-/* Subir los botones de servicio (Mantenimiento/Mejora/Reparación) */
-.buttons {
-  margin: 0.25rem 0 !important;
-  gap: 0.6rem !important;
-  /* mueve visualmente el bloque hacia arriba sin romper el flujo */
-  transform: translateY(-1.6rem) !important;
-  transition: transform .18s ease !important;
-}
 
 /* Ajustes finos de los botones terminal */
 .terminal-btn {
@@ -1925,4 +1911,34 @@ img#banner {
 /* Si necesitas menos subida en pantallas muy grandes */
 @media (min-width: 1200px) {
   .buttons { transform: translateY(-2.4rem) !important; }
+}
+
+/* === Banner 2.5x más grande === */
+.banner-container > img#banner,
+img#banner {
+  width: clamp(600px, 250vw, 2000px) !important; /* 2.5x más grande */
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  transform: scale(2.5) !important; /* fuerza aumento visual */
+  transform-origin: top center !important; /* agranda hacia abajo */
+  margin-top: 0 !important;
+}
+
+/* === Subir todo el contenido de la página === */
+body {
+  margin-top: -120px !important;  /* ajusta este valor según cuánto quieras subir */
+}
+
+main, section, .buttons, .services-btn, .terminal-window {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* === Ajustar botón "Más servicios" aún más compacto === */
+.btn-services {
+  font-size: 0.5rem !important;
+  padding: 0.14rem 0.3rem !important;
+  min-width: 80px !important;
 }
