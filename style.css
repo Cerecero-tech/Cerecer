@@ -1859,3 +1859,118 @@ body {
 @media (max-width: 400px) {
   .buttons { flex-direction: row !important; flex-wrap: wrap; gap: 0.6rem; }
 }
+
+/* =======================
+   BANNER — móvil primero
+   ======================= */
+
+/* Contenedor del banner con menos aire para que no empuje los botones */
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto 6px; /* menos margen inferior */
+  min-height: 28vh;      /* da presencia en móvil */
+}
+
+/* Asegura que la imagen se vea GRANDE en móvil */
+.banner img {
+  width: clamp(320px, 85vw, 780px); /* grande en cel, limita a 780px */
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* En pantallas medianas/grandes lo dejamos aún más cómodo */
+@media (min-width: 768px) {
+  .banner {
+    margin: 16px auto 10px;
+    min-height: 32vh;
+  }
+  .banner img {
+    width: clamp(420px, 70vw, 900px);
+  }
+}
+
+/* =======================
+   BOTONES DE SERVICIO
+   ======================= */
+
+/* Fuerza fila horizontal incluso en pantallas muy estrechas */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;              /* espacio entre botones */
+  flex-wrap: nowrap;      /* no apilar */
+  margin: 8px 0 10px;     /* sube el bloque de botones */
+}
+
+/* Si tu CSS anterior tenía @media (max-width: 400px) { .buttons { flex-direction: column; } }
+   esto lo neutraliza con mayor especificidad */
+body .buttons { flex-direction: row !important; }
+
+/* Botones compactos en móvil */
+.terminal-btn {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  line-height: 1;
+}
+
+/* =======================
+   "Más servicios" — estilo terminal pequeño
+   ======================= */
+
+.more-services {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 18px;
+}
+
+/* Override del estilo previo naranja */
+.more-services .qs-instagram-link {
+  display: inline-block;
+  background: #0c0c0c;     /* relleno negro */
+  color: #ffffff;          /* texto blanco */
+  border: 1px solid #ffffff;/* borde blanco estilo terminal */
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 0.8rem;        /* MÁS PEQUEÑO */
+  padding: 0.28rem 0.7rem;  /* compacto */
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+
+/* Invertido en hover y en active (click) */
+.more-services .qs-instagram-link:hover,
+.more-services .qs-instagram-link:active {
+  background: #ffffff;  /* blanco */
+  color: #0c0c0c;       /* negro */
+  border-color: #ffffff;
+}
+
+/* Opcional: aún más pequeño en pantallas ultra-estrechas */
+@media (max-width: 360px) {
+  .more-services .qs-instagram-link {
+    font-size: 0.75rem;
+    padding: 0.24rem 0.6rem;
+  }
+}
+
+/* =======================
+   PEQUEÑOS AJUSTES DE ESPACIADO
+   ======================= */
+
+/* Reduce el espacio de las líneas para que todo suba un poco en móvil */
+.line { margin: 8px auto; }
+.line.short { width: 90%; }
+
+/* _______________________
+   NOTA IMPORTANTE:
+   Tu CSS tenía varias definiciones repetidas de `.banner img`
+   con `max-width: 200px;` y `max-width: 300px;`.
+   Este bloque al final del archivo gana por cascada.
+   Si ves que el banner sigue chico, elimina o comenta esas
+   reglas anteriores para evitar conflicto.
+*/
