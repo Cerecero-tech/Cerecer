@@ -1932,12 +1932,6 @@ main, section, .buttons, .services-btn, .terminal-window {
   min-width: 80px !important;
 }
 
-/* Header siempre adelante */
-header {
-    position: relative;
-    z-index: 1000;
-}
-
 /* Banner detrás de todo */
 #banner {
     display: block;
