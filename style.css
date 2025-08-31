@@ -1910,6 +1910,7 @@ img#banner {
   height: auto !important;
   display: block !important;
   object-fit: contain !important;
+  transform: scale(1.75) !important; /* fuerza aumento visual */
   transform-origin: top center !important; /* agranda hacia abajo */
   margin-top: 0 !important;
 }
@@ -1929,18 +1930,4 @@ main, section, .buttons, .services-btn, .terminal-window {
   font-size: 0.5rem !important;
   padding: 0.14rem 0.3rem !important;
   min-width: 80px !important;
-}
-
-.services {
-    margin-top: 40px; /* Ajusta este valor a tu gusto */
-}
-
-header {
-    position: relative;
-    z-index: 1000;
-}
-
-.banner {
-    position: relative;
-    z-index: 1;
 }
