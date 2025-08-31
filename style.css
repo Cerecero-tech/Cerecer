@@ -1943,3 +1943,35 @@ main, section, .buttons, .services-btn, .terminal-window {
     margin: 0;     /* Elimina márgenes */
     padding: 0;    /* Elimina relleno */
 }
+
+/* Header: fijo arriba y encima de todo */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;       /* siempre sobre el banner */
+  background: #0c0c0c; /* ponle fondo para que no sea invisible */
+  padding: 0.5rem 1rem;
+}
+
+/* El contenido debe bajar un poco para no quedar debajo del header */
+.main-ui {
+  padding-top: 70px; /* ajusta según la altura real del header */
+}
+
+/* Banner: visible y centrado */
+.banner-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+#banner {
+  display: block;
+  width: clamp(400px, 90%, 1200px); /* tamaño responsivo grande */
+  height: auto;
+  z-index: 1; /* queda debajo del header pero encima del fondo */
+  position: relative;
+}
+
