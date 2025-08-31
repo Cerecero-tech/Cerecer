@@ -1931,3 +1931,21 @@ main, section, .buttons, .services-btn, .terminal-window {
   padding: 0.14rem 0.3rem !important;
   min-width: 80px !important;
 }
+
+/* Header siempre adelante */
+header {
+    position: relative;
+    z-index: 1000;
+}
+
+/* Banner detrás de todo */
+#banner {
+    display: block;
+    width: 100%;
+    height: auto;  /* Ajusta tamaño automático */
+    position: relative;
+    z-index: -1;   /* Lo manda atrás */
+    border: none;  /* Por si la "línea" era borde */
+    margin: 0;     /* Elimina márgenes */
+    padding: 0;    /* Elimina relleno */
+}
