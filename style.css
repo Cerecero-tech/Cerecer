@@ -1992,10 +1992,45 @@ main, section, .buttons, .services-btn, .terminal-window {
   max-width: 100%;
   height: auto;
   object-fit: contain;
-  image-rendering: pixelated; /* mantiene el "look" ASCII nítido si el GIF es pixel-art */
+ 
   z-index: 201;
   position: relative;
 }
 
 /* Si el loading-overlay está arriba con z-index alto, asegúrate que desaparece al finalizar la animación */
 #loading-screen { z-index: 9999; } /* ok durante carga; se oculta al terminar */
+
+/* === Hacer el banner más grande en móviles SIN empujar el layout === */
+@media (max-width: 600px) {
+  /* contenedor debe permitir overflow visible para que la imagen ampliada no corte */
+  .banner-container {
+    position: relative;
+    overflow: visible;    /* permite que la imagen ampliada sobresalga sin empujar contenido */
+    pointer-events: none;  /* evita clicks accidentales sobre el GIF si solo es decorativo */
+    z-index: 50;           /* por debajo del overlay de carga, encima del fondo */
+  }
+
+  /* escala visual (no afecta flow). Ajusta el 1.15 a 1.30 según lo que quieras */
+  #banner-img {
+    display: block;
+    width: min(92vw, 1200px);    /* mantiene proporción y no excede ancho de pantalla */
+    max-width: none;
+    height: auto;
+    transform-origin: center top; /* escala desde la parte superior centrada */
+    transform: scale(1.18);       /* <- Aumenta 18% visual en móviles; cambia este valor */
+    will-change: transform;
+    image-rendering: pixelated;   /* conserva nitidez ASCII */
+    z-index: 51;
+    pointer-events: none;
+  }
+
+  /* evita scroll horizontal si la ampliación sobresale un poco */
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+/* Variante para pantallas muy pequeñas (si quieres más agresivo) */
+@media (max-width: 380px) {
+  #banner-img { transform: scale(1.25); } /* un poco más grande en pantallas muy chicas */
+}
