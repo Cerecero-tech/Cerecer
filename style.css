@@ -1964,7 +1964,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 #date  { font-size: 10px; color: #cacaca }
 
 /* barra de estado de servicio */
-.status-bar { text-align: center; padding: 6px 12px; font-size: 12px; color: var(--muted, #a5a5a5); }
+.status-bar { text-align: center; padding: 6px 12px; font-size: 12px; color: var(--muted, #cacaca); }
 #service-status { color: var(#cacaca); }
 
 /* Elimina o comenta estas reglas problemáticas si existen en tu CSS:
