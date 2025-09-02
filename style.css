@@ -1915,10 +1915,6 @@ img#banner {
   margin-top: 0 !important;
 }
 
-/* === Subir todo el contenido de la página === */
-body {
-  margin-top: -120px !important;  /* ajusta este valor según cuánto quieras subir */
-}
 
 main, section, .buttons, .services-btn, .terminal-window {
   margin-top: 0 !important;
