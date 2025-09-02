@@ -1973,20 +1973,20 @@ main, section, .buttons, .services-btn, .terminal-window {
   justify-content: space-between;
   gap: 12px;
   padding: 0.5rem 0.9rem;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 0.7px solid rgba(255,255,255,0.04);
   background: transparent;
   position: relative;
   z-index: 5000; /* por si acaso */
 }
 
 .top-bar .brand { display:flex; align-items:center; gap:6px; }
-.time-block { text-align: right; font-size: 12px; line-height: 1; color: #cacaca; }
-#clock { font-weight: 700; font-size: 12px; }
-#date  { font-size: 11px; color: rgba(202,202,202,0.8); }
+.time-block { text-align: right; font-size: 10px; line-height: 1; color: #cacaca; }
+#clock { font-size: 10px; }
+#date  { font-size: 10px; color: #cacaca }
 
 /* barra de estado de servicio */
 .status-bar { text-align: center; padding: 6px 12px; font-size: 12px; color: var(--muted, #a5a5a5); }
-#service-status { color: var(--accent, #FFA500); font-weight: 600; }
+#service-status { color: var(#cacaca); }
 
 /* Elimina o comenta estas reglas problemáticas si existen en tu CSS:
    - body { margin-top: -120px !important; }
