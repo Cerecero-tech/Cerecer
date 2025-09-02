@@ -1999,3 +1999,55 @@ main, section, .buttons, .services-btn, .terminal-window {
 
 /* Si el loading-overlay está arriba con z-index alto, asegúrate que desaparece al finalizar la animación */
 #loading-screen { z-index: 9999; } /* ok durante carga; se oculta al terminar */
+
+/* ===== Ajustes: bajar "Nosotros" y reducir texto de Nosotros/Contacto ===== */
+
+/* Empuja la sección Nosotros hacia abajo sin tocar otros bloques */
+#nosotros.about-terminal {
+  margin-top: 48px; /* aumenta el espaciado superior — ajusta en px si quieres más/menos */
+}
+
+/* Reducir tipografía (moderado, legible) para nosotros y contacto */
+.about-terminal,
+#contacto.contact-section,
+#contacto .contact-text,
+#contacto .contact-info,
+.about-terminal .about-lead,
+.about-terminal .terminal-list,
+.about-terminal .kv,
+.about-terminal .badge,
+.about-terminal .about-tag,
+.about-terminal .about-title {
+  font-size: 0.90rem; /* 90% del tamaño base */
+  line-height: 1.35;  /* mantener buena legibilidad */
+}
+
+/* Titulos ligeramente más pequeños pero con peso */
+.about-terminal .about-title,
+#contacto .contact-title {
+  font-size: 1.05rem;
+}
+
+/* Ajustes específicos para textos de ficha (kv) y listas terminales */
+.about-terminal .kv dt,
+.about-terminal .kv dd,
+.about-terminal .terminal-list li {
+  font-size: 0.88rem;
+}
+
+/* Mantener accesibilidad en móviles: no dejarlo demasiado pequeño */
+@media (max-width: 480px) {
+  .about-terminal,
+  #contacto.contact-section,
+  #contacto .contact-text,
+  .about-terminal .about-lead,
+  .about-terminal .terminal-list,
+  .about-terminal .kv {
+    font-size: 0.95rem; /* un poco más grande en móviles */
+    line-height: 1.4;
+  }
+
+  #nosotros.about-terminal {
+    margin-top: 36px; /* algo menos en pantallas muy pequeñas */
+  }
+}
