@@ -1902,18 +1902,7 @@ img#banner {
   .buttons { transform: translateY(-2.4rem) !important; }
 }
 
-/* === Banner 2.5x más grande === */
-.banner-container > img#banner,
-img#banner {
-  width: clamp(600px, 250vw, 2000px) !important; /* 2.5x más grande */
-  max-width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  object-fit: contain !important;
-  transform: scale(1.75) !important; /* fuerza aumento visual */
-  transform-origin: top center !important; /* agranda hacia abajo */
-  margin-top: 0 !important;
-}
+
 
 
 main, section, .buttons, .services-btn, .terminal-window {
@@ -1928,17 +1917,7 @@ main, section, .buttons, .services-btn, .terminal-window {
   min-width: 80px !important;
 }
 
-/* Banner detrás de todo */
-#banner {
-    display: block;
-    width: 100%;
-    height: auto;  /* Ajusta tamaño automático */
-    position: relative;
-    z-index: -1;   /* Lo manda atrás */
-    border: none;  /* Por si la "línea" era borde */
-    margin: 0;     /* Elimina márgenes */
-    padding: 0;    /* Elimina relleno */
-}
+
 
 /* ============ Loading overlay ============ */
 #loading-screen{
@@ -1993,3 +1972,30 @@ main, section, .buttons, .services-btn, .terminal-window {
    - reglas que amplíen el banner con transform: scale(1.75)
    - duplicados extremos de #banner con tamaños desproporcionados
 */
+
+/* Banner: regla limpia y sin conflictos */
+.banner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  position: relative;
+  z-index: 200; /* por encima del contenido normal, pero debajo del overlay de carga si existe */
+  pointer-events: none; /* evita clicks accidentales si quieres que sea solo visual */
+  background: transparent;
+}
+
+#banner-img {
+  display: block;
+  width: clamp(420px, 75vw, 1200px); /* grande en pantallas grandes, contenido en móviles */
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated; /* mantiene el "look" ASCII nítido si el GIF es pixel-art */
+  z-index: 201;
+  position: relative;
+}
+
+/* Si el loading-overlay está arriba con z-index alto, asegúrate que desaparece al finalizar la animación */
+#loading-screen { z-index: 9999; } /* ok durante carga; se oculta al terminar */
