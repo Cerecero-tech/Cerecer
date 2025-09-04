@@ -2165,7 +2165,7 @@ main, section, .buttons, .services-btn, .terminal-window {
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  border-radius: 0; /* 🔥 Esto elimina el redondeado */
+  border-radius: 0; 
 }
 
 .btn-more:hover {
@@ -2213,8 +2213,7 @@ main, section, .buttons, .services-btn, .terminal-window {
   padding: 10px 0 18px;
 }
 
-.cerecer-footer .footer-inner {
-  max-width: 980px;      /* igual que tu sección Nosotros */
+.cerecer-footer .footer-inner {     
   margin: 0 auto;
   padding: 0 12px;
 }
@@ -2249,6 +2248,9 @@ main, section, .buttons, .services-btn, .terminal-window {
   text-align: center;
   font-size: 8px;       /* pequeño como pediste */
   color: var(--muted, #a5a5a5);
-  letter-spacing: 0.2px;
 }
 
+.services-btn {
+  text-align: center;
+  margin-bottom: 40px; /* <-- espacio entre botón y sección Nosotros */
+}
