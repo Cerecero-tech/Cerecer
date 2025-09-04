@@ -2441,3 +2441,15 @@ main, section, .buttons, .services-btn, .terminal-window {
   text-align: left;
   line-height: 1.4;
 }
+
+/* Ajustes para las tarjetas de Nosotros, Contacto y Horarios */
+.terminal-card {
+  min-width: 280px;   /* ancho mínimo */
+  max-width: 350px;   /* ancho máximo uniforme */
+  min-height: 320px;  /* alto mínimo para mantener proporción */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* reparte el contenido */
+  padding: 15px;
+  box-sizing: border-box;
+}
