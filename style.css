@@ -2446,11 +2446,10 @@ main, section, .buttons, .services-btn, .terminal-window {
 .terminal-card {
   width: 100%;
   max-width: 480px;    /* mismo ancho entre todas */
-  height: 220px;       /* ajusta esta altura según lo que quieras */
-  overflow: hidden;    /* evita que el contenido se desborde */
+  height: 180px;       /* ajusta esta altura según lo que quieras */
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid #888;
+  border: 1px solid #ffffff;
   box-sizing: border-box;
 }
 
