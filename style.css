@@ -2318,7 +2318,7 @@ main, section, .buttons, .services-btn, .terminal-window {
   font-family: "IBM Plex Mono", monospace;
   border: 1.5px solid var(--muted); /* borde sutil blanco/gris */
   border-radius: 0;               /* SIN redondeo */
-  padding: 12px 14px 44px 14px;   /* espacio inferior extra para el gif */
+  padding: 12px 14px 40px 14px;   /* espacio inferior extra para el gif */
   max-width: 92%;
   box-sizing: border-box;
   word-break: break-word;
@@ -2338,7 +2338,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 .card-sub {
   margin: 0 0 8px 0;
   font-size: 0.84rem;
-  color: #666;
+  color: #a5a5a5;
   text-align: left;
 }
 
