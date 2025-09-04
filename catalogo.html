@@ -299,6 +299,50 @@
 
 .back { font-size: 12px !important; padding: 7px 10px !important; }
 
+.cerecer-footer {
+  background: #0c0c0c;
+  color: #ffffff;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 10px 0 18px;
+}
+
+.cerecer-footer .footer-inner {     
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.cerecer-footer .footer-divider {
+  border: 0;
+  border-top: 1px solid #ffffff; /* línea fina tipo header */
+  margin: 0 0 12px 0;
+  width: 100%;
+}
+
+.cerecer-footer .footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 22px;             /* separación como en la captura */
+  margin: 6px 0 8px;
+}
+
+.cerecer-footer .footer-icons a {
+  color: #e6e6e6;        /* blanco/gris suave como el resto de la UI */
+  text-decoration: none;
+  font-size: 15px;       /* tamaño de los íconos */
+  line-height: 1;
+}
+
+.cerecer-footer .footer-icons a:hover {
+  color: var(--accent, #FFA500); /* hover sutil acorde a tu acento */
+}
+
+.cerecer-footer .footer-copy {
+  display: block;
+  text-align: center;
+  font-size: 8px;       /* pequeño como pediste */
+  color: var(--muted, #a5a5a5);
+}
+
   </style>
 </head>
 <body>
@@ -514,6 +558,29 @@
       </div>
     </div>
   </main>
+
+  <footer class="cerecer-footer" role="contentinfo" aria-label="Pie de página">
+  <div class="footer-inner">
+    <hr class="footer-divider">
+
+    <nav class="footer-icons" aria-label="Redes sociales">
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+      <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+      <a href="https://discord.com" target="_blank" rel="noopener" aria-label="Discord">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+    </nav>
+
+    <small class="footer-copy">Cerecer | Todos los derechos reservados</small>
+  </div>
+</footer>
 
 
 </body>
