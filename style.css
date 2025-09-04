@@ -2193,7 +2193,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 }
 
 .contact-card {
-  border: 1px solid #ffffff; /* borde blanco fino */
+  border: 0.75px solid #ffffff; /* borde blanco fino */
   border-radius: 0;          /* esquinas rectas */
   max-width: 380px;          /* caja más angosta */
   margin: 30px auto;         /* centrada y con espacio arriba/abajo */
