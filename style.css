@@ -2443,14 +2443,4 @@ main, section, .buttons, .services-btn, .terminal-window {
   line-height: 1.4;
 }
 
-.terminal-cards {
-  display: flex;
-  flex-wrap: wrap;     /* para que se acomoden en móviles */
-  justify-content: center;
-  gap: 20px;
-}
 
-.terminal-card {
-  flex: 1 1 350px;     /* todas tendrán mismo ancho base */
-  max-width: 350px;    /* igualas el ancho a "Nosotros" */
-}
