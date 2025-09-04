@@ -2254,3 +2254,21 @@ main, section, .buttons, .services-btn, .terminal-window {
   text-align: center;
   margin-bottom: 100px; /* <-- espacio entre botón y sección Nosotros */
 }
+
+/* Texto del terminal más pequeño */
+#terminal {
+  font-size: 0.85rem; /* antes seguro estaba en 1rem */
+  line-height: 1.3;
+}
+
+/* Caja de contacto */
+.contact-box {
+  max-width: 280px;   /* más pequeña */
+  padding: 1rem;
+  border: 2px solid #fff; /* borde blanco */
+  border-radius: 8px; /* opcional, puedes dejarlo cuadrado */
+  background-color: rgba(12, 12, 12, 0.9); /* mantiene estética oscura */
+  color: #cacaca;     /* coherente con tu paleta */
+  text-align: center;
+  margin: 1rem auto;
+}
