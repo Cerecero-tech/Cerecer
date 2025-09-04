@@ -2223,6 +2223,7 @@ main, section, .buttons, .services-btn, .terminal-window {
   border: 0;
   border-top: 1px solid #ffffff; /* línea fina tipo header */
   margin: 0 0 12px 0;
+  width: 100%;
 }
 
 .cerecer-footer .footer-icons {
@@ -2235,7 +2236,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 .cerecer-footer .footer-icons a {
   color: #e6e6e6;        /* blanco/gris suave como el resto de la UI */
   text-decoration: none;
-  font-size: 22px;       /* tamaño de los íconos */
+  font-size: 15px;       /* tamaño de los íconos */
   line-height: 1;
 }
 
