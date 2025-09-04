@@ -2442,14 +2442,14 @@ main, section, .buttons, .services-btn, .terminal-window {
   line-height: 1.4;
 }
 
-/* Ajustes para las tarjetas de Nosotros, Contacto y Horarios */
-.terminal-card {
-  min-width: 280px;   /* ancho mínimo */
-  max-width: 350px;   /* ancho máximo uniforme */
-  min-height: 320px;  /* alto mínimo para mantener proporción */
+.terminal-cards {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* reparte el contenido */
-  padding: 15px;
-  box-sizing: border-box;
+  flex-wrap: wrap;     /* para que se acomoden en móviles */
+  justify-content: center;
+  gap: 20px;
+}
+
+.terminal-card {
+  flex: 1 1 350px;     /* todas tendrán mismo ancho base */
+  max-width: 350px;    /* igualas el ancho a "Nosotros" */
 }
