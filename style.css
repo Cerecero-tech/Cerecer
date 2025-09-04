@@ -2444,18 +2444,16 @@ main, section, .buttons, .services-btn, .terminal-window {
 }
 /* Aplica a todas las tarjetas */
 .terminal-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* texto arriba, gif abajo */
   width: 100%;
-  max-width: 480px; /* iguala ancho */
-  min-height: 280px; /* controla altura mínima */
-  height: 280px;     /* fuerza que todas midan lo mismo */
-  padding: 1rem;
-  border: 1.5px solid #ffffff;
+  max-width: 480px;    /* mismo ancho entre todas */
+  height: 220px;       /* ajusta esta altura según lo que quieras */
+  overflow: hidden;    /* evita que el contenido se desborde */
   margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #888;
   box-sizing: border-box;
 }
+
 
 /* Imagen/gif dentro de las tarjetas */
 .terminal-card .card-gif {
