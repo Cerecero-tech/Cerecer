@@ -2133,7 +2133,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 }
 
 .btn-mas-servicios {
-  margin-bottom: 30px; /* dale más espacio */
+  margin-bottom: 10px; /* dale más espacio */
 }
 
 .buttons {
