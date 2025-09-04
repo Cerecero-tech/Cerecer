@@ -2051,3 +2051,33 @@ main, section, .buttons, .services-btn, .terminal-window {
     margin-top: 36px; /* algo menos en pantallas muy pequeñas */
   }
 }
+
+/* =======================
+   ESPACIO EXTRA DESPUÉS DE "Más servicios"
+   ======================= */
+.more-services {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 30px; /* antes era 18px → ahora más espacio abajo */
+}
+
+/* =======================
+   TIPOGRAFÍA REDUCIDA (Nosotros + Contacto)
+   ======================= */
+
+/* Nosotros (la terminal-box de about.sh) */
+#nosotros,
+#nosotros * {
+  font-size: 10px !important;
+  line-height: 1.4;
+}
+
+/* Contacto (ajusta según el ID/clase que tengas, pongo ejemplos comunes) */
+#contacto,
+#contacto * {
+  font-size: 10px !important;
+  line-height: 1.4;
+}
+
+/* Si tu sección de contacto usa otra clase o ID (ej. .contact-section, .terminal-box-contact),
+   cambia los selectores de arriba para apuntar correctamente. */
