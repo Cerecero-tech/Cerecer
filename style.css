@@ -2252,5 +2252,5 @@ main, section, .buttons, .services-btn, .terminal-window {
 
 .services-btn {
   text-align: center;
-  margin-bottom: 40px; /* <-- espacio entre botón y sección Nosotros */
+  margin-bottom: 100px; /* <-- espacio entre botón y sección Nosotros */
 }
