@@ -2428,7 +2428,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 /* Ajuste para el terminal en la pantalla de carga */
 #loading-screen {
   display: flex;
-  margin-top: 25px;  /* separa del top-bar */
+  margin-top: 40px;  /* separa del top-bar */
   align-items: flex-start;   /* pega hacia arriba */
   justify-content: flex-start; /* pega hacia la izquierda */
   padding: 5px; /* margen mínimo opcional */
