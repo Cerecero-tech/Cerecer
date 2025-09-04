@@ -2446,7 +2446,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 .terminal-card {
   width: 100%;
   max-width: 480px;    /* mismo ancho entre todas */
-  height: 180px;       /* ajusta esta altura según lo que quieras */
+  height: 120px;       /* ajusta esta altura según lo que quieras */
   margin: 1rem;
   padding: 1rem;
   border: 1px solid #ffffff;
