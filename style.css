@@ -2081,3 +2081,53 @@ main, section, .buttons, .services-btn, .terminal-window {
 
 /* Si tu sección de contacto usa otra clase o ID (ej. .contact-section, .terminal-box-contact),
    cambia los selectores de arriba para apuntar correctamente. */
+
+   /* =======================
+   TIPOGRAFÍA — Nosotros & Contacto
+   ======================= */
+
+/* Texto general reducido a 10px */
+#nosotros .about-tag,
+#nosotros .about-lead,
+#nosotros .terminal-list,
+#nosotros .about-aside,
+#nosotros .about-aside .kv,
+#nosotros .about-aside .badge,
+#nosotros .about-foot,
+#contacto .contact-text,
+#contacto .contact-info {
+  font-size: 10px !important;
+  line-height: 1.4;
+}
+
+/* Títulos más grandes: 11px */
+#nosotros .about-title,
+#contacto .contact-title {
+  font-size: 11px !important;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+/* =======================
+   ESPACIO EXTRA DESPUÉS DE "Más servicios"
+   ======================= */
+.more-services {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 30px; /* espacio mayor debajo del botón */
+}
+
+/* Botón "Más servicios" estilo terminal recto */
+.more-services .qs-instagram-link {
+  display: inline-block;
+  background: #0c0c0c;      /* fondo negro */
+  color: #ffffff;           /* texto blanco */
+  border: 1px solid #ffffff;/* borde blanco */
+  border-radius: 0;         /* esquinas cuadradas */
+  text-decoration: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 0.8rem;
+  padding: 0.28rem 0.7rem;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
