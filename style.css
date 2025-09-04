@@ -2318,7 +2318,7 @@ main, section, .buttons, .services-btn, .terminal-window {
   font-family: "IBM Plex Mono", monospace;
   border: 1.5px solid var(--muted); /* borde sutil blanco/gris */
   border-radius: 0;               /* SIN redondeo */
-  padding: 12px 14px 40px 14px;   /* espacio inferior extra para el gif */
+  padding: 12px 14px 44px 14px;   /* espacio inferior extra para el gif */
   max-width: 92%;
   box-sizing: border-box;
   word-break: break-word;
@@ -2423,4 +2423,21 @@ main, section, .buttons, .services-btn, .terminal-window {
   .card-sub { font-size: 0.82rem; }
   .card-body { font-size: 0.9rem; }
   .card-gif { width: 40px; height: 40px; }
+}
+
+/* Ajuste para el terminal en la pantalla de carga */
+#loading-screen {
+  display: flex;
+  align-items: flex-start;   /* pega hacia arriba */
+  justify-content: flex-start; /* pega hacia la izquierda */
+  padding: 10px; /* margen mínimo opcional */
+  height: 100vh;
+  width: 100vw;
+}
+
+#terminal {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  line-height: 1.4;
 }
