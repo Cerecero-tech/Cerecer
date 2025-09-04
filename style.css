@@ -2297,7 +2297,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 :root {
   --bg: #0c0c0c;
   --fg: #cacaca;
-  --muted: rgba(255,255,255,0.14);
+  --muted: #e6e6e6e6;
   --accent: #FFA500;
   --separator: rgba(255,255,255,0.06);
 }
@@ -2316,7 +2316,7 @@ main, section, .buttons, .services-btn, .terminal-window {
   background: var(--bg);
   color: var(--fg);
   font-family: "IBM Plex Mono", monospace;
-  border: 1px solid var(--muted); /* borde sutil blanco/gris */
+  border: 1.5px solid var(--muted); /* borde sutil blanco/gris */
   border-radius: 0;               /* SIN redondeo */
   padding: 12px 14px 44px 14px;   /* espacio inferior extra para el gif */
   max-width: 92%;
@@ -2329,7 +2329,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 .card-title {
   margin: 0 0 6px 0;
   font-size: 1rem;
-  color: var(--accent);
+  color: #ffffffff;
   font-weight: 600;
   letter-spacing: 0.6px;
 }
@@ -2338,7 +2338,8 @@ main, section, .buttons, .services-btn, .terminal-window {
 .card-sub {
   margin: 0 0 8px 0;
   font-size: 0.84rem;
-  color: rgba(202,202,202,0.86);
+  color: #666;
+  text-align: left;
 }
 
 /* Separador tenue */
@@ -2352,7 +2353,8 @@ main, section, .buttons, .services-btn, .terminal-window {
 .card-body {
   font-size: 0.9rem;
   line-height: 1.45;
-  color: var(--fg);
+  color: #ffffff;
+  text-align: left;
 }
 
 /* Links estilo terminal */
