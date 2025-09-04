@@ -2180,3 +2180,14 @@ main, section, .buttons, .services-btn, .terminal-window {
 .terminal-box {
   border-radius: 0 !important;
 }
+
+.contact-card {
+  max-width: 450px;   /* controla el ancho */
+  margin: 40px auto;  /* centra horizontalmente y agrega espacio arriba/abajo */
+  padding: 20px;      /* ajusta el espacio interno */
+  text-align: left;   /* mantiene el texto alineado a la izquierda */
+}
+
+.contact-card .contact-info div {
+  margin-bottom: 8px; /* espacio entre líneas para que no se amontone */
+}
