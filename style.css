@@ -2205,39 +2205,49 @@ main, section, .buttons, .services-btn, .terminal-window {
   margin-bottom: 6px;        /* espacio entre líneas */
 }
 
-.site-footer {
+/* ===== Footer estilo header ===== */
+.cerecer-footer {
   background: #0c0c0c;
-  text-align: center;
-  padding: 20px 10px;
+  color: #ffffff;
   font-family: 'IBM Plex Mono', monospace;
-  color: #fff;
+  padding: 10px 0 18px;
 }
 
-.footer-line {
-  border-top: 1px solid #fff;
-  margin: 10px auto;
-  width: 80%;
+.cerecer-footer .footer-inner {
+  max-width: 980px;      /* igual que tu sección Nosotros */
+  margin: 0 auto;
+  padding: 0 12px;
 }
 
-.footer-icons {
+.cerecer-footer .footer-divider {
+  border: 0;
+  border-top: 1px solid #ffffff; /* línea fina tipo header */
+  margin: 0 0 12px 0;
+}
+
+.cerecer-footer .footer-icons {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin: 15px 0;
+  gap: 22px;             /* separación como en la captura */
+  margin: 6px 0 8px;
 }
 
-.footer-icons a {
-  color: #fff;
-  font-size: 28px;
-  transition: color 0.3s;
+.cerecer-footer .footer-icons a {
+  color: #e6e6e6;        /* blanco/gris suave como el resto de la UI */
+  text-decoration: none;
+  font-size: 22px;       /* tamaño de los íconos */
+  line-height: 1;
 }
 
-.footer-icons a:hover {
-  color: #00ffff; /* efecto hover estilo terminal */
+.cerecer-footer .footer-icons a:hover {
+  color: var(--accent, #FFA500); /* hover sutil acorde a tu acento */
 }
 
-.footer-text {
-  font-size: 12px;
-  margin-top: 10px;
-  color: #fff;
+.cerecer-footer .footer-copy {
+  display: block;
+  text-align: center;
+  font-size: 8px;       /* pequeño como pediste */
+  color: var(--muted, #a5a5a5);
+  letter-spacing: 0.2px;
 }
+
