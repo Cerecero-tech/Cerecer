@@ -60,45 +60,53 @@
   <a href="catalogo.html" class="btn-services">Más servicios</a>
 </div>
 
-<section id="nosotros" class="terminal-section">
-  <!-- Caja 1: Nosotros -->
-  <div class="terminal-box left">
-    <h2>> Nosotros</h2>
-    <p>
-      Somos Corporación Cerecer, dedicados a brindar soluciones de mantenimiento, 
-      mejoras y soporte técnico con la calidad de un verdadero servicio especializado.
-    </p>
-    <img src="nosotros.gif" alt="Gif de nosotros" class="terminal-gif">
-  </div>
+<section id="nosotros" class="terminal-cards" aria-label="Nosotros: contacto y horarios">
+  <!-- Caja 1: Nosotros (izquierda) -->
+  <article class="terminal-card left" role="article" aria-labelledby="t-nosotros">
+    <h3 id="t-nosotros" class="card-title"><span class="prompt">&gt;&nbsp;</span>Nosotros</h3>
+    <p class="card-sub">Mantenimiento, diagnóstico y upgrades con transparencia y resultados.</p>
 
-  <!-- Caja 2: Contacto -->
-  <div class="terminal-box right">
-    <h2>> Contacto</h2>
-    <p>
-      > Tel: 
-      <a href="https://wa.me/527206667280?text=Hola%20me%20interesa%20un%20servicio%20de%20CERECER" 
-         target="_blank" rel="noopener">
-         +52 720 666 7280
-      </a>
-      <br>
-      > Email: 
-      <a href="mailto:tech.repair@cerecer.xyz">
-        tech.repair@cerecer.xyz
-      </a>
-    </p>
-    <img src="contacto.gif" alt="Gif contacto" class="terminal-gif">
-  </div>
+    <hr class="separator">
 
-  <!-- Caja 3: Horarios -->
-  <div class="terminal-box left">
-    <h2>> Horarios</h2>
-    <p>
-      Lunes a Viernes: 09:00 – 20:00  
-      Sábado: 10:00 – 14:00  
-      Domingo: Cerrado
-    </p>
-    <img src="horarios.gif" alt="Gif horarios" class="terminal-gif">
-  </div>
+    <div class="card-body">
+      <p>Somos <strong>Cerecer</strong>. Ofrecemos mantenimiento y mejoras con enfoque en calidad, tiempos reales y cotizaciones claras antes de intervenir tu equipo.</p>
+    </div>
+
+    <img class="card-gif" src="nosotros.gif" alt="GIF nosotros">
+  </article>
+
+  <!-- Caja 2: Contacto (derecha) -->
+  <article class="terminal-card right" role="article" aria-labelledby="t-contacto">
+    <h3 id="t-contacto" class="card-title"><span class="prompt">&gt;&nbsp;</span>Contacto</h3>
+    <p class="card-sub">Escríbenos para cotizar o reportar un error — respuesta rápida.</p>
+
+    <hr class="separator">
+
+    <div class="card-body">
+      <p>&gt; Tel:<br>
+        <a href="https://wa.me/527206667280?text=Hola%20me%20interesa%20un%20servicio%20de%20CERECER" target="_blank" rel="noopener">+52 720 666 7280</a>
+      </p>
+      <p>&gt; Email:<br>
+        <a href="mailto:tech.repair@cerecer.xyz">tech.repair@cerecer.xyz</a>
+      </p>
+    </div>
+
+    <img class="card-gif" src="contacto.gif" alt="GIF contacto">
+  </article>
+
+  <!-- Caja 3: Horarios (izquierda) -->
+  <article class="terminal-card left" role="article" aria-labelledby="t-horarios">
+    <h3 id="t-horarios" class="card-title"><span class="prompt">&gt;&nbsp;</span>Horarios</h3>
+    <p class="card-sub">Ven cuando te convenga — siempre con cita o previa confirmación.</p>
+
+    <hr class="separator">
+
+    <div class="card-body">
+      <p>Lun–Vie: 09:00 – 20:00<br>Sáb: 10:00 – 14:00<br>Dom: Cerrado</p>
+    </div>
+
+    <img class="card-gif" src="horarios.gif" alt="GIF horarios">
+  </article>
 </section>
 
 

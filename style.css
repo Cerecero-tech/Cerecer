@@ -2293,11 +2293,132 @@ main, section, .buttons, .services-btn, .terminal-window {
   text-align: left;
 }
 
-.terminal-box a {
-  color: #FFA500;          /* naranja terminal */
-  text-decoration: none;   /* sin subrayado */
+/* ===== Terminal cards (mobile-first) ===== */
+:root {
+  --bg: #0c0c0c;
+  --fg: #cacaca;
+  --muted: rgba(255,255,255,0.14);
+  --accent: #FFA500;
+  --separator: rgba(255,255,255,0.06);
 }
 
-.terminal-box a:hover {
-  text-decoration: underline; /* efecto hover */
+.terminal-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1rem;         /* margen exterior global */
+  box-sizing: border-box;
+}
+
+/* Caja individual */
+.terminal-card {
+  position: relative;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "IBM Plex Mono", monospace;
+  border: 1px solid var(--muted); /* borde sutil blanco/gris */
+  border-radius: 0;               /* SIN redondeo */
+  padding: 12px 14px 44px 14px;   /* espacio inferior extra para el gif */
+  max-width: 92%;
+  box-sizing: border-box;
+  word-break: break-word;
+  box-shadow: none;               /* sin sombra si quieres look plano */
+}
+
+/* Título con prompt */
+.card-title {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+/* Subtítulo / frase pequeña */
+.card-sub {
+  margin: 0 0 8px 0;
+  font-size: 0.84rem;
+  color: rgba(202,202,202,0.86);
+}
+
+/* Separador tenue */
+.separator {
+  border: 0;
+  border-top: 1px solid var(--separator);
+  margin: 8px 0 12px 0;
+}
+
+/* Contenido principal */
+.card-body {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--fg);
+}
+
+/* Links estilo terminal */
+.terminal-card a {
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+}
+.terminal-card a:hover { text-decoration: underline; }
+
+/* GIF en esquina inferior derecha de la caja */
+.card-gif {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  pointer-events: none; /* evita que el gif interfiera con clicks en links */
+  border: 1px solid rgba(255,255,255,0.04);
+  background: transparent;
+}
+
+/* Alternancia izquierda / derecha */
+/* izquierda: pegada al inicio (flex-start) */
+.terminal-card.left {
+  align-self: flex-start;
+  transform: translateX(0); /* opcional: pequeñas variaciones */
+}
+
+/* derecha: se apila a la derecha con margen */
+.terminal-card.right {
+  align-self: flex-end;
+  transform: translateX(0);
+}
+
+/* Opcional: ligero desplazamiento para que se note la alternancia */
+@media (min-width: 360px) {
+  .terminal-card.left { max-width: 88%; transform: translateX(-2%); }
+  .terminal-card.right { max-width: 88%; transform: translateX(2%); }
+}
+
+/* Ajustes en pantallas más anchas */
+@media (min-width: 820px) {
+  .terminal-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .terminal-card {
+    width: 32%;
+    max-width: 32%;
+    padding-bottom: 56px;
+  }
+  .terminal-card.left { align-self: flex-start; transform: none; }
+  .terminal-card.right { align-self: flex-start; transform: none; }
+  .card-gif { right: 8px; bottom: 8px; width: 56px; height: 56px; }
+}
+
+/* Evitar conflictos con reglas anteriores que oculten bordes o añadan radius */
+.terminal-card { border-radius: 0 !important; }
+
+/* Accesibilidad: mejor contraste en móvil pequeño */
+@media (max-width: 360px) {
+  .card-title { font-size: 0.96rem; }
+  .card-sub { font-size: 0.82rem; }
+  .card-body { font-size: 0.9rem; }
+  .card-gif { width: 40px; height: 40px; }
 }
