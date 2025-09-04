@@ -2257,7 +2257,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 
 /* Texto del terminal más pequeño */
 #terminal {
-  font-size: 0.85rem; /* antes seguro estaba en 1rem */
+  font-size: 0.80rem; /* antes seguro estaba en 1rem */
   line-height: 1.3;
 }
 
