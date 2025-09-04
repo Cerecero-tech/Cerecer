@@ -2200,3 +2200,16 @@ main, section, .buttons, .services-btn, .terminal-window {
   padding: 20px;
   text-align: left;
 }
+
+.contact-card {
+  border: 1px solid #ffffff; /* borde blanco fino */
+  border-radius: 0;          /* esquinas rectas */
+  max-width: 380px;          /* caja más angosta */
+  margin: 30px auto;         /* centrada y con espacio arriba/abajo */
+  padding: 15px;             /* menos relleno interno */
+  text-align: center;        /* centra el texto */
+}
+
+.contact-card .contact-info div {
+  margin-bottom: 6px;        /* espacio entre líneas */
+}
