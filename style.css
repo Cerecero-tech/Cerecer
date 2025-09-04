@@ -2292,3 +2292,12 @@ main, section, .buttons, .services-btn, .terminal-window {
   white-space: pre-wrap;
   text-align: left;
 }
+
+.terminal-box a {
+  color: #FFA500;          /* naranja terminal */
+  text-decoration: none;   /* sin subrayado */
+}
+
+.terminal-box a:hover {
+  text-decoration: underline; /* efecto hover */
+}
