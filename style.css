@@ -2442,5 +2442,28 @@ main, section, .buttons, .services-btn, .terminal-window {
   text-align: left;
   line-height: 1.4;
 }
+/* Aplica a todas las tarjetas */
+.terminal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* texto arriba, gif abajo */
+  width: 100%;
+  max-width: 480px; /* iguala ancho */
+  min-height: 280px; /* controla altura mínima */
+  height: 280px;     /* fuerza que todas midan lo mismo */
+  padding: 1rem;
+  border: 1.5px solid #ffffff;
+  margin: 1rem;
+  box-sizing: border-box;
+}
+
+/* Imagen/gif dentro de las tarjetas */
+.terminal-card .card-gif {
+  max-height: 60px;  /* limita altura del gif */
+  width: auto;
+  align-self: flex-end; /* que quede en la esquina */
+  object-fit: contain; /* evita deformaciones */
+}
+
 
 
