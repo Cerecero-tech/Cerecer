@@ -2172,3 +2172,11 @@ main, section, .buttons, .services-btn, .terminal-window {
   background-color: #fff;
   color: #000;
 }
+
+/* Forzar esquinas cuadradas en botones */
+.btn-services,
+.terminal-btn,
+.btn-ghost,
+.terminal-box {
+  border-radius: 0 !important;
+}
