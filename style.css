@@ -2272,3 +2272,23 @@ main, section, .buttons, .services-btn, .terminal-window {
   text-align: center;
   margin: 1rem auto;
 }
+
+/* Pantalla de carga tipo terminal */
+#loading-screen {
+  display: flex;
+  justify-content: flex-start; /* contenido a la izquierda */
+  align-items: flex-start;     /* contenido arriba */
+  padding: 8px 12px;           /* pequeño margen interior */
+  height: 100vh;               /* ocupa toda la altura */
+  box-sizing: border-box;
+}
+
+/* Texto del terminal */
+#terminal {
+  font-family: "IBM Plex Mono", monospace; /* igual que el resto */
+  font-size: 0.8rem;     /* más pequeño */
+  line-height: 1.2;
+  color: #cacaca;
+  white-space: pre-wrap;
+  text-align: left;
+}
