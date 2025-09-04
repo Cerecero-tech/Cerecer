@@ -2131,3 +2131,44 @@ main, section, .buttons, .services-btn, .terminal-window {
   padding: 0.28rem 0.7rem;
   transition: background-color .15s ease, color .15s ease, border-color .15s ease;
 }
+
+.btn-mas-servicios {
+  margin-bottom: 30px; /* dale más espacio */
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  margin: 20px 0;
+}
+
+.buttons::before,
+.buttons::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #666; /* gris como en tu ejemplo */
+  margin: 0 10px; /* espacio entre la línea y el primer/último botón */
+}
+
+.btn-more {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-family: "IBM Plex Mono", monospace;
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 0; /* 🔥 Esto elimina el redondeado */
+}
+
+.btn-more:hover {
+  background-color: #fff;
+  color: #000;
+}
