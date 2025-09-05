@@ -2459,7 +2459,7 @@ main, section, .buttons, .services-btn, .terminal-window {
   max-height: 60px;  /* limita altura del gif */
   align-self: flex-end; /* que quede en la esquina */
   object-fit: contain; /* evita deformaciones */
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 
