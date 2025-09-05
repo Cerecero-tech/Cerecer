@@ -2446,7 +2446,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 .terminal-card {
   width: 100%;
   max-width: 480px;    /* mismo ancho entre todas */
-  height: 135px;       /* ajusta esta altura según lo que quieras */
+  height: 145px;       /* ajusta esta altura según lo que quieras */
   margin: 1rem;
   padding: 1rem;
   border: 1px solid #ffffff;
@@ -2457,7 +2457,6 @@ main, section, .buttons, .services-btn, .terminal-window {
 /* Imagen/gif dentro de las tarjetas */
 .terminal-card .card-gif {
   max-height: 60px;  /* limita altura del gif */
-  width: auto;
   align-self: flex-end; /* que quede en la esquina */
   object-fit: contain; /* evita deformaciones */
 }
