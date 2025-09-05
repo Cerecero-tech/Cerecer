@@ -2456,9 +2456,10 @@ main, section, .buttons, .services-btn, .terminal-window {
 
 /* Imagen/gif dentro de las tarjetas */
 .terminal-card .card-gif {
-  max-height: 30px;  /* limita altura del gif */
+  max-height: 60px;  /* limita altura del gif */
   align-self: flex-end; /* que quede en la esquina */
   object-fit: contain; /* evita deformaciones */
+  margin-top: 1rem;
 }
 
 
