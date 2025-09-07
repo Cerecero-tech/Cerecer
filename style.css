@@ -2479,7 +2479,7 @@ main, section, .buttons, .services-btn, .terminal-window {
 
 /* Espaciado del cuerpo de texto */
 .terminal-card .card-body {
-  margin-bottom: 0.5rem; /* menos espacio antes del gif */
+  margin-bottom: 0.2rem; /* menos espacio antes del gif */
 }
 
 /* GIF abajo, casi pegado al borde */
