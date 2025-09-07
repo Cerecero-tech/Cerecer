@@ -2464,3 +2464,30 @@ main, section, .buttons, .services-btn, .terminal-window {
 
 
 
+/* Cajas principales */
+.terminal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* empuja contenido arriba y gif abajo */
+  align-items: flex-start;
+  background: #0c0c0c;
+  border: 1px solid #cacaca;
+  padding: 1rem;
+  margin: 0.5rem; /* menos separación entre cajas */
+  max-width: 320px; /* ajusta según tu diseño */
+  height: auto; /* altura automática */
+}
+
+/* Espaciado del cuerpo de texto */
+.terminal-card .card-body {
+  margin-bottom: 0.5rem; /* menos espacio antes del gif */
+}
+
+/* GIF abajo, casi pegado al borde */
+.terminal-card .card-gif {
+  align-self: center;
+  margin-top: auto; 
+  margin-bottom: 2px; /* casi pegado al borde inferior */
+  max-height: 100px; /* ajusta tamaño si lo ves muy grande */
+  object-fit: contain;
+}
