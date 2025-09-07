@@ -2475,7 +2475,6 @@ main, section, .buttons, .services-btn, .terminal-window {
   padding: 1rem;
   margin: 0.5rem; /* menos separación entre cajas */
   max-width: 320px; /* ajusta según tu diseño */
-  height: auto; /* altura automática */
 }
 
 /* Espaciado del cuerpo de texto */
