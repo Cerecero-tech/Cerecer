@@ -2370,8 +2370,8 @@ main, section, .buttons, .services-btn, .terminal-window {
   position: absolute;
   right: 10px;
   bottom: 10px;
-  width: 44px;
-  height: 44px;
+  width: 55px;
+  height: 55px;
   object-fit: cover;
   pointer-events: none; /* evita que el gif interfiera con clicks en links */
   border: 1px solid rgba(255,255,255,0.04);
