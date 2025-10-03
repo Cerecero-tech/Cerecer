@@ -2533,3 +2533,45 @@ main, section, .buttons, .services-btn, .terminal-window {
   margin-left: 15px;
   align-self: center;
 }
+
+/* Recuadros generales */
+.about-terminal,
+.contact-terminal,
+.schedule-terminal {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;  /* contenido pegado arriba */
+  padding: 10px 15px;       /* menos espacio arriba */
+  margin: 20px auto;
+  border: 1px solid #fff;
+  background: #0c0c0c;
+  min-height: 140px;        /* altura mínima */
+  box-sizing: border-box;
+}
+
+/* Títulos */
+.about-terminal h3,
+.contact-terminal h3,
+.schedule-terminal h3 {
+  margin: 0;           /* sin espacio arriba ni abajo */
+  padding: 0;
+  font-weight: bold;
+}
+
+/* Descripciones */
+.about-terminal p,
+.contact-terminal p,
+.schedule-terminal p {
+  margin: 2px 0;       /* casi pegado al título */
+  line-height: 1.4;
+}
+
+/* Imagen/GIF a la derecha */
+.about-terminal img,
+.contact-terminal img,
+.schedule-terminal img {
+  max-width: 55px;
+  height: auto;
+  margin-left: 15px;
+  align-self: flex-start;  /* alineado arriba también */
+}
