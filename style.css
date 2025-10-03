@@ -2490,3 +2490,46 @@ main, section, .buttons, .services-btn, .terminal-window {
   max-height: 100px; /* ajusta tamaño si lo ves muy grande */
   object-fit: contain;
 }
+
+/* Estilos generales para los recuadros */
+.about-terminal,
+.contact-terminal,
+.schedule-terminal {
+  display: flex;
+  align-items: flex-start; /* Sube el contenido hacia arriba */
+  justify-content: space-between;
+  padding: 15px;
+  margin: 20px auto;
+  border: 1px solid #fff;
+  background: #0c0c0c;
+  min-height: 150px; /* Cada recuadro tendrá su altura mínima */
+  box-sizing: border-box;
+}
+
+/* Ajuste del título dentro del recuadro */
+.about-terminal h3,
+.contact-terminal h3,
+.schedule-terminal h3 {
+  margin-top: 0; /* Elimina espacio arriba */
+  margin-bottom: 5px; /* Casi nada de espacio abajo */
+  font-weight: bold;
+}
+
+/* Ajustar párrafos (descripción más pegada al título) */
+.about-terminal p,
+.contact-terminal p,
+.schedule-terminal p {
+  margin-top: 0; 
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* Que el GIF quede alineado correctamente */
+.about-terminal img,
+.contact-terminal img,
+.schedule-terminal img {
+  max-width: 60px;
+  height: auto;
+  margin-left: 15px;
+  align-self: center;
+}
